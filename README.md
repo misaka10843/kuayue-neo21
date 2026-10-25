@@ -14,6 +14,10 @@
 - Create 6.0.10 及其匹配依赖。
 - 可选安装机械动力：电力学（Create: Electro-Energetics）。当前兼容检查使用 1.1.4，不装它也可以使用车辆、轨道和建筑方块。
 
+电力学的受电弓+接触网支架兼容
+<img width="1319" height="803" alt="image" src="https://github.com/user-attachments/assets/9776cb84-17a3-44cc-aef0-8a9b55ed2e3e" />
+
+
 ## 移植了什么
 
 当前有 **大部分车辆和装饰方块**，其中包含 **转向架(但是可能要加个ui，因为转向架有点多不好用扳手进行切换)**；具体 ID 见[方块清单](docs/legacy-blocks.json)和[转向架清单](docs/legacy-bogeys.json)。
