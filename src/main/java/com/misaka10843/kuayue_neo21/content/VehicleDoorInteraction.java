@@ -1,6 +1,8 @@
 package com.misaka10843.kuayue_neo21.content;
 
 import com.misaka10843.kuayue_neo21.legacy.block.panels.base.CompanyTrainPanel;
+import com.misaka10843.kuayue_neo21.legacy.block.panels.base.TrainPanelProperties;
+import com.misaka10843.kuayue_neo21.legacy.block.panels.end_face.TrainEndfaceBlock;
 import com.simibubi.create.content.contraptions.AbstractContraptionEntity;
 import com.simibubi.create.content.contraptions.Contraption;
 import com.simibubi.create.content.contraptions.behaviour.SimpleBlockMovingInteraction;
@@ -14,8 +16,15 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate.StructureBlockInfo;
 
 public final class VehicleDoorInteraction extends SimpleBlockMovingInteraction {
+    public static boolean canInteract(BlockState state) {
+        return state.hasProperty(BlockStateProperties.OPEN)
+                && (!(state.getBlock() instanceof TrainEndfaceBlock end) || end.DOOR_TYPE != TrainPanelProperties.DoorType.NO_DOOR);
+    }
+
     @Override
     public boolean handlePlayerInteraction(Player player, InteractionHand hand, BlockPos root, AbstractContraptionEntity entity) {
+        var infoAtRoot = entity.getContraption().getBlocks().get(root);
+        if (infoAtRoot == null || !canInteract(infoAtRoot.state())) return false;
         if (player.level().isClientSide) return true;
         if (!super.handlePlayerInteraction(player, hand, root, entity)) return false;
         var contraption = entity.getContraption();

@@ -1,6 +1,7 @@
 package com.misaka10843.kuayue_neo21.legacy.block.panels.end_face;
 
 import com.misaka10843.kuayue_neo21.content.VehicleBlockItem;
+import com.misaka10843.kuayue_neo21.content.VehiclePartGeometry;
 
 import com.misaka10843.kuayue_neo21.legacy.block.panels.TrainPanelBlock;
 import com.misaka10843.kuayue_neo21.legacy.block.panels.base.EndFaceShapes;
@@ -75,7 +76,7 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
                 state.getValue(BlockStateProperties.OPEN) : false;
         boolean leftHinge = !state.hasProperty(BlockStateProperties.DOOR_HINGE) || state.getValue(BlockStateProperties.DOOR_HINGE) == DoorHingeSide.LEFT;
         BlockUseFunction function = (l, p, parentState, myPos, myState, player, hand, hit) -> {
-            if (myPos.equals(p) || myPos.equals(p.above())) return InteractionResult.SUCCESS;
+            if (myPos.equals(p)) return InteractionResult.SUCCESS;
             BlockState state1 = generateCompanyState(direction, leftHinge ? DoorHingeSide.LEFT : DoorHingeSide.RIGHT, open);
             level.setBlock(myPos, state1, 10);
             CompanyTrainPanel.setParentBlock(myPos, level, state1, pos);
@@ -87,12 +88,21 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
     public BlockState generateCompanyState(Direction direction, DoorHingeSide hingeSide, boolean open) {
         return AllBlocks.COMPANY_TRAIN_PANEL.instance().defaultBlockState()
                 .setValue(CompanyTrainPanel.FACING, direction.getOpposite())
-                .setValue(BlockStateProperties.DOOR_HINGE, hingeSide);
+                .setValue(BlockStateProperties.DOOR_HINGE, hingeSide)
+                .setValue(OPEN, open);
+    }
+
+    @Override
+    public void walkAllValidPos(Level level, BlockPos root, BlockState state, Player player, InteractionHand hand, BlockHitResult hit, BlockUseFunction function) {
+        VoxelShape closed = getShape(state.setValue(OPEN, false), level, root, CollisionContext.empty());
+        for (BlockPos part : VehiclePartGeometry.footprint(root, state.getValue(FACING), closed)) {
+            function.apply(level, root, state, part, level.getBlockState(part), player, hand, hit);
+        }
     }
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof VehicleBlockItem) {
+        if (DOOR_TYPE == TrainPanelProperties.DoorType.NO_DOOR || player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof net.minecraft.world.item.BlockItem) {
             return InteractionResult.PASS;
         }
         return TrainSmallWindowBlock.windowUse(state, level, pos, player, InteractionHand.MAIN_HAND, hitResult);
@@ -100,7 +110,7 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (stack.getItem() instanceof VehicleBlockItem) {
+        if (DOOR_TYPE == TrainPanelProperties.DoorType.NO_DOOR || stack.getItem() instanceof net.minecraft.world.item.BlockItem) {
             return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
         TrainSmallWindowBlock.windowUse(state, level, pos, player, hand, hitResult);

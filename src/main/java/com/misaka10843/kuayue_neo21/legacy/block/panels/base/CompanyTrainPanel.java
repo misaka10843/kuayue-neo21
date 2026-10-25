@@ -1,6 +1,8 @@
 package com.misaka10843.kuayue_neo21.legacy.block.panels.base;
 
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
+import com.misaka10843.kuayue_neo21.content.VehiclePartGeometry;
+import com.misaka10843.kuayue_neo21.legacy.block.panels.end_face.TrainEndfaceBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -50,6 +52,10 @@ public class CompanyTrainPanel extends Block implements EntityBlock, IWrenchable
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        BlockPos root = getParentPos(pLevel, pPos);
+        if (root != null && pLevel.getBlockState(root).getBlock() instanceof TrainEndfaceBlock end) {
+            return VehiclePartGeometry.localShape(end.getShape(pLevel.getBlockState(root), pLevel, root, pContext), root, pPos);
+        }
         TrainPanelProperties.ShapeType shapeType = pState.getValue(SHAPE_TYPE);
         switch (shapeType) {
             case BIG_TRUSS:
@@ -65,6 +71,10 @@ public class CompanyTrainPanel extends Block implements EntityBlock, IWrenchable
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        BlockPos root = getParentPos(pLevel, pPos);
+        if (root != null && pLevel.getBlockState(root).getBlock() instanceof TrainEndfaceBlock end) {
+            return VehiclePartGeometry.localShape(end.getCollisionShape(pLevel.getBlockState(root), pLevel, root, pContext), root, pPos);
+        }
         return getShape(pState, pLevel, pPos, pContext);
     }
 

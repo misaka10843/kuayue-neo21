@@ -23,7 +23,7 @@ public final class VehicleBehaviours {
             var block = entry.get();
             if (block instanceof CompanyTrainPanel) MovingInteractionBehaviour.REGISTRY.register(block, new ExtensionInteraction());
             else if (block instanceof YZSeatBlock) MovingInteractionBehaviour.REGISTRY.register(block, new SeatInteraction());
-            else if (block.defaultBlockState().hasProperty(BlockStateProperties.OPEN)) MovingInteractionBehaviour.REGISTRY.register(block, new VehicleDoorInteraction());
+            else if (VehicleDoorInteraction.canInteract(block.defaultBlockState())) MovingInteractionBehaviour.REGISTRY.register(block, new VehicleDoorInteraction());
             if (block instanceof DF11GChimneyBlock) MovementBehaviour.REGISTRY.register(block, new ChimneyMovement());
             else if (block instanceof IBE<?>) MovementBehaviour.REGISTRY.register(block, new MovementBehaviour() {
                 @Override public boolean mustTickWhileDisabled() { return true; }
