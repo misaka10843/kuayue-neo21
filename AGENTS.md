@@ -6,7 +6,7 @@ Prefer FastCtx inspect_local_file, grep and glob for local reads and searches. P
 
 ## Porting scope
 
-Implement docs/porting-plan.md. The KuaYue sibling directory is the primary read-only 1.21.1 source reference; NeoKuayue supplements functionality absent from that checkout. Preserve upstream licenses and record source mappings. Exclude overhead lines, ground facilities, tracks, pantographs, driving devices, editable signs, company customization, blueprints and technology gates. Every obtainable ported block needs a reachable survival production path.
+Implement docs/porting-plan.md. The KuaYue sibling directory is the primary read-only 1.21.1 source reference; NeoKuayue supplements functionality absent from that checkout. Preserve upstream licenses and record source mappings. Include all ordinary blocks, tracks, station/ground facilities, decoration and material blocks, plus catenary pillars and structural supports compatible with Create: Electro-Energetics brackets. Include coupling and uncoupling behavior. Do not implement Kuayue's own overhead electrical/wire system or pantographs; driving devices, editable signs, company customization, blueprint workbench and technology gates remain excluded or deferred. Every obtainable ported block needs a reachable survival production path.
 
 Do not depend on, shade, relocate or imitate the KasugaLib framework, its injection library, Micronaut or its Gradle registration/resource plugins. Use NeoForge deferred registers, explicit initialization and the supported Create APIs. Necessary Create dependencies remain allowed. Check resolved dependencies and final class files for forbidden library references; this does not prove compatibility with every other mod.
 
