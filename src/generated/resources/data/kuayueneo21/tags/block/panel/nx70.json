@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "kuayueneo21:freight_nx70_end_face",
+    "kuayueneo21:freight_nx70_floor_center",
+    "kuayueneo21:freight_nx70_floor_connection",
+    "kuayueneo21:freight_nx70_floor_cover_plate",
+    "kuayueneo21:freight_nx70_floor_high",
+    "kuayueneo21:freight_nx70_floor_low",
+    "kuayueneo21:freight_nx70_floor_low_ladder"
+  ]
+}

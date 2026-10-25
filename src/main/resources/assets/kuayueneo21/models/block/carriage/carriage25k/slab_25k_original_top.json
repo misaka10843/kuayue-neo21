@@ -1,0 +1,7 @@
+{
+  "parent": "kuayueneo21:block/panel_slab",
+  "textures": {
+    "1": "kuayueneo21:block/panel_slab_25k",
+    "particle": "kuayueneo21:block/panel_slab_25k"
+  }
+}

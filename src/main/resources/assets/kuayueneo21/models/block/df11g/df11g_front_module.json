@@ -1,0 +1,9 @@
+{
+  "parent": "create:block/block",
+  "loader": "neoforge:obj",
+  "flip_v": true,
+  "model": "kuayueneo21:models/block/df11g/df11g_front.obj",
+  "textures": {
+    "0": "kuayueneo21:block/df11g/df11g_front"
+  }
+}

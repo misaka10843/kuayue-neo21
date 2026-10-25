@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "create:framed_glass"
+    },
+    {
+      "item": "kuayueneo21:general_bottom_slab_df21"
+    },
+    {
+      "item": "kuayueneo21:general_bottom_slab_df21"
+    }
+  ],
+  "result": {
+    "id": "kuayueneo21:window_equip_df21"
+  }
+}

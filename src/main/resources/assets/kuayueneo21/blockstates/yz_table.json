@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "kuayueneo21:block/carriage/facilities/yz_table",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "kuayueneo21:block/carriage/facilities/yz_table",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "kuayueneo21:block/carriage/facilities/yz_table",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayueneo21:block/carriage/facilities/yz_table",
+      "y": 90
+    }
+  }
+}

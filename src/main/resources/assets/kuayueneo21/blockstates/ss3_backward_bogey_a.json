@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "axis=z,waterlogged=false": {
+      "model": "kuayueneo21:block/bogey/ss3/ss3_top_a",
+      "y": 270
+    },
+    "axis=x,waterlogged=false": {
+      "model": "kuayueneo21:block/bogey/ss3/ss3_top_a",
+      "y": 180
+    },
+    "axis=z,waterlogged=true": {
+      "model": "kuayueneo21:block/bogey/ss3/ss3_top_a",
+      "y": 270
+    },
+    "axis=x,waterlogged=true": {
+      "model": "kuayueneo21:block/bogey/ss3/ss3_top_a",
+      "y": 180
+    }
+  }
+}

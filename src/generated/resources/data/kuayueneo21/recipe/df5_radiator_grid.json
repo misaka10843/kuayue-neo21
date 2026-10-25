@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayueneo21:df5_air_intake"
+  },
+  "result": {
+    "id": "kuayueneo21:df5_radiator_grid",
+    "count": 1
+  }
+}

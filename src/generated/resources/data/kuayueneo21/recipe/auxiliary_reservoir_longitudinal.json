@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "kuayueneo21:auxiliary_reservoir"
+    }
+  ],
+  "result": {
+    "id": "kuayueneo21:auxiliary_reservoir_longitudinal"
+  }
+}

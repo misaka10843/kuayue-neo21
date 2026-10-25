@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayueneo21:floor_25t"
+    },
+    {
+      "item": "create:brass_ladder"
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayueneo21:ladder_sliding_25t"
+    }
+  ],
+  "keep_held_item": false
+}

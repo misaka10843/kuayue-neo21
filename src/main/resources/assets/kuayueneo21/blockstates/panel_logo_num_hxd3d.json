@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayueneo21:block/hxd3d/panel_logo_num_hxd3d",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "kuayueneo21:block/hxd3d/panel_logo_num_hxd3d",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "kuayueneo21:block/hxd3d/panel_logo_num_hxd3d",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "kuayueneo21:block/hxd3d/panel_logo_num_hxd3d",
+      "y": 270
+    }
+  }
+}

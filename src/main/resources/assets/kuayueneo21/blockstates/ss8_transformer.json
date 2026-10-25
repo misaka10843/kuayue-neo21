@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayueneo21:block/ss8/ss8_transformer",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayueneo21:block/ss8/ss8_transformer",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayueneo21:block/ss8/ss8_transformer",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayueneo21:block/ss8/ss8_transformer",
+      "y": 90
+    }
+  }
+}

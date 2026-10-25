@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "kuayueneo21:carport_25z",
+    "kuayueneo21:carport_ac_25z",
+    "kuayueneo21:carport_center_25z",
+    "kuayueneo21:carport_side_ac_25z",
+    "kuayueneo21:door_25z",
+    "kuayueneo21:end_face_25z_1",
+    "kuayueneo21:end_face_25z_2",
+    "kuayueneo21:end_face_25z_3",
+    "kuayueneo21:floor_25z",
+    "kuayueneo21:ladder_25z",
+    "kuayueneo21:panel_bottom_line_25z",
+    "kuayueneo21:panel_bottom_side_25z",
+    "kuayueneo21:panel_bottom_symbol_25z",
+    "kuayueneo21:panel_middle_25z",
+    "kuayueneo21:panel_middle_side_25z",
+    "kuayueneo21:panel_top_25z",
+    "kuayueneo21:toilet_dd_25z",
+    "kuayueneo21:window_oc_25z",
+    "kuayueneo21:window_oc_level_25z",
+    "kuayueneo21:window_oc_small_25z_2",
+    "kuayueneo21:window_oc_toilet_25z",
+    "kuayueneo21:window_oc_wide_25z"
+  ]
+}

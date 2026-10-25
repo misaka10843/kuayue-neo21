@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayueneo21:carport_25bgzk"
+    },
+    {
+      "item": "create:precision_mechanism"
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayueneo21:carport_air_condition_25bgzk"
+    }
+  ],
+  "keep_held_item": false
+}

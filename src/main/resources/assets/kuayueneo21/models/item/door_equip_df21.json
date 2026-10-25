@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "kuayueneo21:block/df21/door/df21_equip_door_item"
+  }
+}

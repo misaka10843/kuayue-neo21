@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "kuayueneo21:weathering_resistant_steel_board"
+    },
+    "A": {
+      "item": "kuayueneo21:weathering_resistant_steel_pole"
+    },
+    "B": {
+      "item": "create:propeller"
+    },
+    "C": {
+      "item": "kuayueneo21:circuit_board"
+    }
+  },
+  "pattern": [
+    "###",
+    "ABA",
+    "#C#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "kuayueneo21:ac_outdoor_unit"
+  },
+  "show_notification": true
+}

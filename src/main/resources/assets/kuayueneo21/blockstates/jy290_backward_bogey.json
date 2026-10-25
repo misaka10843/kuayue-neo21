@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "axis=z,waterlogged=false": {
+      "model": "kuayueneo21:block/bogey/jy290/jy290_top",
+      "y": 0
+    },
+    "axis=x,waterlogged=false": {
+      "model": "kuayueneo21:block/bogey/jy290/jy290_top",
+      "y": 270
+    },
+    "axis=z,waterlogged=true": {
+      "model": "kuayueneo21:block/bogey/jy290/jy290_top",
+      "y": 0
+    },
+    "axis=x,waterlogged=true": {
+      "model": "kuayueneo21:block/bogey/jy290/jy290_top",
+      "y": 270
+    }
+  }
+}

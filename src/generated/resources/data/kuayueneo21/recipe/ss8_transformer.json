@@ -1,0 +1,27 @@
+{
+  "type": "create:mechanical_crafting",
+  "key": {
+    "B": {
+      "item": "kuayueneo21:ss8_floor"
+    },
+    "E": {
+      "item": "kuayueneo21:weathering_resistant_steel_board"
+    },
+    "F": {
+      "item": "kuayueneo21:weathering_resistant_steel_pole"
+    },
+    "G": {
+      "item": "kuayueneo21:circuit_board"
+    }
+  },
+  "pattern": [
+    "EBE",
+    "GFG",
+    "EFE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "kuayueneo21:ss8_transformer"
+  },
+  "accept_mirrored": false
+}

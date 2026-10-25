@@ -1,0 +1,23 @@
+{
+  "type": "create:mechanical_crafting",
+  "key": {
+    "A": {
+      "item": "kuayueneo21:weathering_resistant_steel_pole"
+    },
+    "B": {
+      "item": "kuayueneo21:weathering_resistant_steel_ingot"
+    },
+    "D": {
+      "item": "kuayueneo21:22_floor_center"
+    }
+  },
+  "pattern": [
+    " A ",
+    "BDB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "kuayueneo21:22_coupler"
+  },
+  "accept_mirrored": false
+}

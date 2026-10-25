@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayueneo21:block/carport_25bgzkt_water_tank",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayueneo21:block/carport_25bgzkt_water_tank",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayueneo21:block/carport_25bgzkt_water_tank",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayueneo21:block/carport_25bgzkt_water_tank",
+      "y": 90
+    }
+  }
+}

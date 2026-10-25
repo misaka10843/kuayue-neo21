@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayueneo21:window_pr_df11g"
+  },
+  "result": {
+    "id": "kuayueneo21:window_equip_room_df11g_1",
+    "count": 1
+  }
+}

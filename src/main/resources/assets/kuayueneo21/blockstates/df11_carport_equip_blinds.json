@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayueneo21:block/df11/carport/df11_carport_equip_blinds",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayueneo21:block/df11/carport/df11_carport_equip_blinds",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayueneo21:block/df11/carport/df11_carport_equip_blinds",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayueneo21:block/df11/carport/df11_carport_equip_blinds",
+      "y": 90
+    }
+  }
+}

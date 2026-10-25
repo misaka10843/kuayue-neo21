@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "kuayueneo21:item/ss3/ss3_transformer"
+  }
+}

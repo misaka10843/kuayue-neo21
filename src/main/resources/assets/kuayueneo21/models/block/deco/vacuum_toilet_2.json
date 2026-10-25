@@ -1,0 +1,9 @@
+{
+  "loader": "neoforge:obj",
+  "flip_v": true,
+  "render_type": "translucent",
+  "model": "kuayueneo21:models/block/deco/vacuum_toilet_2.obj",
+  "textures": {
+    "particle": "kuayueneo21:block/vacuum_toilet_2"
+  }
+}

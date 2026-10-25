@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "create:framed_glass"
+    },
+    {
+      "item": "kuayueneo21:ss3_panel_bottom"
+    }
+  ],
+  "result": {
+    "id": "kuayueneo21:ss3_panel_upper_windows"
+  }
+}

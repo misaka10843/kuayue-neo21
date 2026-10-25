@@ -1,0 +1,6 @@
+{
+  "parent": "kuayueneo21:block/door/door_top",
+  "textures": {
+    "1": "kuayueneo21:block/original_25b_door_top"
+  }
+}

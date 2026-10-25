@@ -1,0 +1,426 @@
+[
+  {
+    "id": "pk209p_bogey",
+    "group": "carriage",
+    "size": "pk209p",
+    "renderer": "PK209PRenderer",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "pk209p_no_motor_bogey",
+    "group": "carriage",
+    "size": "pk209p_no_motor",
+    "renderer": "PK209PRenderer.NoMotor",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "pk209p_backward_bogey",
+    "group": "carriage",
+    "size": "pk209p_backward",
+    "renderer": "PK209PRenderer.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "cw2_bogey",
+    "group": "carriage",
+    "size": "cw2",
+    "renderer": "CW2BogeyRenderer",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "sw220k_bogey",
+    "group": "carriage",
+    "size": "sw220k",
+    "renderer": "SW220KRenderer",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "sw220k_backward_bogey",
+    "group": "carriage",
+    "size": "sw220k_backward",
+    "renderer": "SW220KRenderer.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "sw160_bogey",
+    "group": "carriage",
+    "size": "sw160",
+    "renderer": "SW160Renderer",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "zk6_bogey",
+    "group": "freight_carriage",
+    "size": "zk6",
+    "renderer": "ZK6Renderer",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "mkz_bogey",
+    "group": "meter_carriage",
+    "size": "mkz",
+    "renderer": "MKZRenderer",
+    "meter": true,
+    "asymmetry": false
+  },
+  {
+    "id": "tkz2_bogey",
+    "group": "meter_carriage",
+    "size": "tkz2",
+    "renderer": "TKZ2Renderer",
+    "meter": true,
+    "asymmetry": false
+  },
+  {
+    "id": "tkz1_bogey",
+    "group": "meter_carriage",
+    "size": "tkz1",
+    "renderer": "TKZ1Renderer",
+    "meter": true,
+    "asymmetry": false
+  },
+  {
+    "id": "tkz2_motor_bogey",
+    "group": "meter_carriage",
+    "size": "tkz2_motor",
+    "renderer": "TKZ2Renderer.Motor",
+    "meter": true,
+    "asymmetry": false
+  },
+  {
+    "id": "tkz2_motor_backward_bogey",
+    "group": "meter_carriage",
+    "size": "tkz2_motor_backward",
+    "renderer": "TKZ2Renderer.MotorBackward",
+    "meter": true,
+    "asymmetry": false
+  },
+  {
+    "id": "pk209p_bogey_a",
+    "group": "andesite_carriage",
+    "size": "pk209p_a",
+    "renderer": "PK209PRenderer.Andesite",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "pk209p_no_motor_bogey_a",
+    "group": "andesite_carriage",
+    "size": "pk209p_no_motor_a",
+    "renderer": "PK209PRenderer.Andesite.NoMotor",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "pk209p_backward_bogey_a",
+    "group": "andesite_carriage",
+    "size": "pk209p_backward_a",
+    "renderer": "PK209PRenderer.Andesite.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "cw2_bogey_a",
+    "group": "andesite_carriage",
+    "size": "cw2_a",
+    "renderer": "CW2BogeyRenderer.Andesite",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "sw220k_bogey_a",
+    "group": "andesite_carriage",
+    "size": "sw220k_a",
+    "renderer": "SW220KRenderer.Andesite",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "sw220k_backward_bogey_a",
+    "group": "andesite_carriage",
+    "size": "sw220k_backward_a",
+    "renderer": "SW220KRenderer.Andesite.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "sw160_bogey_a",
+    "group": "andesite_carriage",
+    "size": "sw160_a",
+    "renderer": "SW160Renderer.Andesite",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "zk6_bogey_a",
+    "group": "andesite_carriage",
+    "size": "zk6_a",
+    "renderer": "ZK6Renderer.Andesite",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "df11g_bogey",
+    "group": "loco",
+    "size": "df11g",
+    "renderer": "DF11GRenderer",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "df11g_backward_bogey",
+    "group": "loco",
+    "size": "df11g_backward",
+    "renderer": "DF11GRenderer.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "qj_bogey",
+    "group": "loco",
+    "size": "qj_main",
+    "renderer": "QJMainRenderer",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "ss3_bogey",
+    "group": "loco",
+    "size": "ss3",
+    "renderer": "SS3Renderer",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "ss3_backward_bogey",
+    "group": "loco",
+    "size": "ss3_backward",
+    "renderer": "SS3Renderer.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "hxd3d_bogey",
+    "group": "loco",
+    "size": "hxd3d",
+    "renderer": "HXD3DRenderer",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "hxd3d_backward_bogey",
+    "group": "loco",
+    "size": "hxd3d_backward",
+    "renderer": "HXD3DRenderer.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "ss8_bogey",
+    "group": "loco",
+    "size": "ss8",
+    "renderer": "SS8Renderer",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "ss8_backward_bogey",
+    "group": "loco",
+    "size": "ss8_backward",
+    "renderer": "SS8Renderer.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "dfh21_bogey_s",
+    "group": "loco",
+    "size": "dfh21_s",
+    "renderer": "DFH21Renderer.Standard",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "dfh21_backward_bogey_s",
+    "group": "loco",
+    "size": "dfh21_backward_s",
+    "renderer": "DFH21Renderer.Standard.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "jy290_bogey",
+    "group": "loco",
+    "size": "jy290",
+    "renderer": "JY290Renderer",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "jy290_backward_bogey",
+    "group": "loco",
+    "size": "jy290_backward",
+    "renderer": "JY290Renderer.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "df5_bogey",
+    "group": "loco",
+    "size": "df5",
+    "renderer": "DF5Renderer",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "df5_backward_bogey",
+    "group": "loco",
+    "size": "df5_backward",
+    "renderer": "DF5Renderer.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "df21_bogey",
+    "group": "meter_loco",
+    "size": "df21",
+    "renderer": "DF21Renderer",
+    "meter": true,
+    "asymmetry": false
+  },
+  {
+    "id": "df21_backward_bogey",
+    "group": "meter_loco",
+    "size": "df21_backward",
+    "renderer": "DF21Renderer.Backward",
+    "meter": true,
+    "asymmetry": false
+  },
+  {
+    "id": "dfh21_bogey",
+    "group": "meter_loco",
+    "size": "dfh21",
+    "renderer": "DFH21Renderer",
+    "meter": true,
+    "asymmetry": false
+  },
+  {
+    "id": "dfh21_backward_bogey",
+    "group": "meter_loco",
+    "size": "dfh21_backward",
+    "renderer": "DFH21Renderer.Backward",
+    "meter": true,
+    "asymmetry": false
+  },
+  {
+    "id": "qj_guide_bogey",
+    "group": "asymmetry_loco",
+    "size": "qj_guide",
+    "renderer": "QJGuideRenderer",
+    "meter": false,
+    "asymmetry": true
+  },
+  {
+    "id": "ss8_bogey_a",
+    "group": "andesite_loco",
+    "size": "ss8_a",
+    "renderer": "SS8Renderer.Andesite",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "ss8_backward_bogey_a",
+    "group": "andesite_loco",
+    "size": "ss8_backward_a",
+    "renderer": "SS8Renderer.Andesite.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "ss3_bogey_a",
+    "group": "andesite_loco",
+    "size": "ss3_a",
+    "renderer": "SS3Renderer.Andesite",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "ss3_backward_bogey_a",
+    "group": "andesite_loco",
+    "size": "ss3_backward_a",
+    "renderer": "SS3Renderer.Andesite.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "df11g_bogey_a",
+    "group": "andesite_loco",
+    "size": "df11g_a",
+    "renderer": "DF11GRenderer.Andesite",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "df11g_backward_bogey_a",
+    "group": "andesite_loco",
+    "size": "df11g_backward_a",
+    "renderer": "DF11GRenderer.Andesite.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "qj_bogey_a",
+    "group": "andesite_loco",
+    "size": "qj_main_a",
+    "renderer": "QJMainRenderer.Andesite",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "qj_guide_bogey_a",
+    "group": "andesite_loco",
+    "size": "qj_guide_bogey_a",
+    "renderer": "QJGuideRenderer.Andesite",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "hxd3d_bogey_a",
+    "group": "andesite_loco",
+    "size": "hxd3d_a",
+    "renderer": "HXD3DRenderer.Andesite",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "hxd3d_backward_bogey_a",
+    "group": "andesite_loco",
+    "size": "hxd3d_backward_a",
+    "renderer": "HXD3DRenderer.Andesite.Backward",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "dfh21_bogey_a",
+    "group": "andesite_loco",
+    "size": "dfh21_a",
+    "renderer": "DFH21Renderer.Andesite",
+    "meter": false,
+    "asymmetry": false
+  },
+  {
+    "id": "dfh21_backward_bogey_a",
+    "group": "andesite_loco",
+    "size": "dfh21_backward_a",
+    "renderer": "DFH21Renderer.Andesite.Backward",
+    "meter": false,
+    "asymmetry": false
+  }
+]

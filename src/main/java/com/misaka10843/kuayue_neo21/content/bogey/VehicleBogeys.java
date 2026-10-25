@@ -1,0 +1,82 @@
+package com.misaka10843.kuayue_neo21.content.bogey;
+
+import com.misaka10843.kuayue_neo21.content.PortEntityType;
+import com.misaka10843.kuayue_neo21.legacy.block.bogey.carriage.renderer.*;
+import com.misaka10843.kuayue_neo21.legacy.block.bogey.loco.renderer.*;
+
+public final class VehicleBogeys {
+    public static final PortEntityType<VehicleBogeyEntity> ENTITY = new PortEntityType<>("bogey", VehicleBogeyEntity::new, VehicleBogeyBlock.class::isInstance);
+
+    public static void initialize() {
+        BogeyGroup group;
+        group = new BogeyGroup("carriage", false, false);
+        group.add("pk209p_bogey", "pk209p", () -> () -> new PK209PRenderer().sizeRenderer());
+        group.add("pk209p_no_motor_bogey", "pk209p_no_motor", () -> () -> new PK209PRenderer.NoMotor().sizeRenderer());
+        group.add("pk209p_backward_bogey", "pk209p_backward", () -> () -> new PK209PRenderer.Backward().sizeRenderer());
+        group.add("cw2_bogey", "cw2", () -> () -> new CW2BogeyRenderer().sizeRenderer());
+        group.add("sw220k_bogey", "sw220k", () -> () -> new SW220KRenderer().sizeRenderer());
+        group.add("sw220k_backward_bogey", "sw220k_backward", () -> () -> new SW220KRenderer.Backward().sizeRenderer());
+        group.add("sw160_bogey", "sw160", () -> () -> new SW160Renderer().sizeRenderer());
+        group.register();
+        group = new BogeyGroup("freight_carriage", false, false);
+        group.add("zk6_bogey", "zk6", () -> () -> new ZK6Renderer().sizeRenderer());
+        group.register();
+        group = new BogeyGroup("meter_carriage", true, false);
+        group.add("mkz_bogey", "mkz", () -> () -> new MKZRenderer().sizeRenderer());
+        group.add("tkz2_bogey", "tkz2", () -> () -> new TKZ2Renderer().sizeRenderer());
+        group.add("tkz1_bogey", "tkz1", () -> () -> new TKZ1Renderer().sizeRenderer());
+        group.add("tkz2_motor_bogey", "tkz2_motor", () -> () -> new TKZ2Renderer.Motor().sizeRenderer());
+        group.add("tkz2_motor_backward_bogey", "tkz2_motor_backward", () -> () -> new TKZ2Renderer.MotorBackward().sizeRenderer());
+        group.register();
+        group = new BogeyGroup("andesite_carriage", false, false);
+        group.add("pk209p_bogey_a", "pk209p_a", () -> () -> new PK209PRenderer.Andesite().sizeRenderer());
+        group.add("pk209p_no_motor_bogey_a", "pk209p_no_motor_a", () -> () -> new PK209PRenderer.Andesite.NoMotor().sizeRenderer());
+        group.add("pk209p_backward_bogey_a", "pk209p_backward_a", () -> () -> new PK209PRenderer.Andesite.Backward().sizeRenderer());
+        group.add("cw2_bogey_a", "cw2_a", () -> () -> new CW2BogeyRenderer.Andesite().sizeRenderer());
+        group.add("sw220k_bogey_a", "sw220k_a", () -> () -> new SW220KRenderer.Andesite().sizeRenderer());
+        group.add("sw220k_backward_bogey_a", "sw220k_backward_a", () -> () -> new SW220KRenderer.Andesite.Backward().sizeRenderer());
+        group.add("sw160_bogey_a", "sw160_a", () -> () -> new SW160Renderer.Andesite().sizeRenderer());
+        group.add("zk6_bogey_a", "zk6_a", () -> () -> new ZK6Renderer.Andesite().sizeRenderer());
+        group.register();
+        group = new BogeyGroup("loco", false, false);
+        group.add("df11g_bogey", "df11g", () -> () -> new DF11GRenderer().sizeRenderer());
+        group.add("df11g_backward_bogey", "df11g_backward", () -> () -> new DF11GRenderer.Backward().sizeRenderer());
+        group.add("qj_bogey", "qj_main", () -> () -> new QJMainRenderer().sizeRenderer());
+        group.add("ss3_bogey", "ss3", () -> () -> new SS3Renderer().sizeRenderer());
+        group.add("ss3_backward_bogey", "ss3_backward", () -> () -> new SS3Renderer.Backward().sizeRenderer());
+        group.add("hxd3d_bogey", "hxd3d", () -> () -> new HXD3DRenderer().sizeRenderer());
+        group.add("hxd3d_backward_bogey", "hxd3d_backward", () -> () -> new HXD3DRenderer.Backward().sizeRenderer());
+        group.add("ss8_bogey", "ss8", () -> () -> new SS8Renderer().sizeRenderer());
+        group.add("ss8_backward_bogey", "ss8_backward", () -> () -> new SS8Renderer.Backward().sizeRenderer());
+        group.add("dfh21_bogey_s", "dfh21_s", () -> () -> new DFH21Renderer.Standard().sizeRenderer());
+        group.add("dfh21_backward_bogey_s", "dfh21_backward_s", () -> () -> new DFH21Renderer.Standard.Backward().sizeRenderer());
+        group.add("jy290_bogey", "jy290", () -> () -> new JY290Renderer().sizeRenderer());
+        group.add("jy290_backward_bogey", "jy290_backward", () -> () -> new JY290Renderer.Backward().sizeRenderer());
+        group.add("df5_bogey", "df5", () -> () -> new DF5Renderer().sizeRenderer());
+        group.add("df5_backward_bogey", "df5_backward", () -> () -> new DF5Renderer.Backward().sizeRenderer());
+        group.register();
+        group = new BogeyGroup("meter_loco", true, false);
+        group.add("df21_bogey", "df21", () -> () -> new DF21Renderer().sizeRenderer());
+        group.add("df21_backward_bogey", "df21_backward", () -> () -> new DF21Renderer.Backward().sizeRenderer());
+        group.add("dfh21_bogey", "dfh21", () -> () -> new DFH21Renderer().sizeRenderer());
+        group.add("dfh21_backward_bogey", "dfh21_backward", () -> () -> new DFH21Renderer.Backward().sizeRenderer());
+        group.register();
+        group = new BogeyGroup("asymmetry_loco", false, true);
+        group.add("qj_guide_bogey", "qj_guide", () -> () -> new QJGuideRenderer().sizeRenderer());
+        group.register();
+        group = new BogeyGroup("andesite_loco", false, false);
+        group.add("ss8_bogey_a", "ss8_a", () -> () -> new SS8Renderer.Andesite().sizeRenderer());
+        group.add("ss8_backward_bogey_a", "ss8_backward_a", () -> () -> new SS8Renderer.Andesite.Backward().sizeRenderer());
+        group.add("ss3_bogey_a", "ss3_a", () -> () -> new SS3Renderer.Andesite().sizeRenderer());
+        group.add("ss3_backward_bogey_a", "ss3_backward_a", () -> () -> new SS3Renderer.Andesite.Backward().sizeRenderer());
+        group.add("df11g_bogey_a", "df11g_a", () -> () -> new DF11GRenderer.Andesite().sizeRenderer());
+        group.add("df11g_backward_bogey_a", "df11g_backward_a", () -> () -> new DF11GRenderer.Andesite.Backward().sizeRenderer());
+        group.add("qj_bogey_a", "qj_main_a", () -> () -> new QJMainRenderer.Andesite().sizeRenderer());
+        group.add("qj_guide_bogey_a", "qj_guide_bogey_a", () -> () -> new QJGuideRenderer.Andesite().sizeRenderer());
+        group.add("hxd3d_bogey_a", "hxd3d_a", () -> () -> new HXD3DRenderer.Andesite().sizeRenderer());
+        group.add("hxd3d_backward_bogey_a", "hxd3d_backward_a", () -> () -> new HXD3DRenderer.Andesite.Backward().sizeRenderer());
+        group.add("dfh21_bogey_a", "dfh21_a", () -> () -> new DFH21Renderer.Andesite().sizeRenderer());
+        group.add("dfh21_backward_bogey_a", "dfh21_backward_a", () -> () -> new DFH21Renderer.Andesite.Backward().sizeRenderer());
+        group.register();
+    }
+}

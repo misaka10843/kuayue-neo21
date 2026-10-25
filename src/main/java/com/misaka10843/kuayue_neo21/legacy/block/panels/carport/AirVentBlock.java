@@ -1,0 +1,26 @@
+package com.misaka10843.kuayue_neo21.legacy.block.panels.carport;
+
+import com.misaka10843.kuayue_neo21.legacy.block.panels.slab.TrainSlabBlock;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+
+public class AirVentBlock extends TrainSlabBlock {
+
+    public AirVentBlock(Properties pProperties) {
+        super(pProperties, false);
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return box(5, 0, 5, 12, 4, 12);
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return getShape(pState, pLevel, pPos, pContext);
+    }
+}

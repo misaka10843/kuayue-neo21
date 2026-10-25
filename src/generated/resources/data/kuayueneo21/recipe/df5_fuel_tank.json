@@ -1,0 +1,20 @@
+{
+  "type": "create:mechanical_crafting",
+  "key": {
+    "X": {
+      "item": "kuayueneo21:df5_center_floor"
+    },
+    "Y": {
+      "item": "kuayueneo21:weathering_resistant_steel_board"
+    }
+  },
+  "pattern": [
+    "YXY",
+    "Y Y",
+    "YYY"
+  ],
+  "result": {
+    "id": "kuayueneo21:df5_fuel_tank"
+  },
+  "accept_mirrored": false
+}

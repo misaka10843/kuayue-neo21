@@ -1,0 +1,47 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kuayueneo21:weathering_resistant_steel_board"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "count": 1,
+      "id": "kuayueneo21:train_moulds"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayueneo21:train_moulds"
+        },
+        {
+          "item": "kuayueneo21:plastic_board"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayueneo21:train_moulds"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "kuayueneo21:train_moulds"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayueneo21:train_moulds"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "kuayueneo21:train_moulds"
+  }
+}

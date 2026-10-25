@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayueneo21:block/carriage/windows/original_color_window_25_sealed",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayueneo21:block/carriage/windows/original_color_window_25_sealed",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayueneo21:block/carriage/windows/original_color_window_25_sealed",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayueneo21:block/carriage/windows/original_color_window_25_sealed",
+      "y": 90
+    }
+  }
+}

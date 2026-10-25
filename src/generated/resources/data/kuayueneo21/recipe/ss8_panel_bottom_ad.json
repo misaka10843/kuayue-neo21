@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayueneo21:ss8_panel_bottom"
+  },
+  "result": {
+    "id": "kuayueneo21:ss8_panel_bottom_ad",
+    "count": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayueneo21:block/carriage/freight/nx70/freight_nx70_floor_cover_plate",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayueneo21:block/carriage/freight/nx70/freight_nx70_floor_cover_plate",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayueneo21:block/carriage/freight/nx70/freight_nx70_floor_cover_plate",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayueneo21:block/carriage/freight/nx70/freight_nx70_floor_cover_plate",
+      "y": 90
+    }
+  }
+}

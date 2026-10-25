@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayueneo21:block/carriage/carriage_marshalled_cr200j/carport_side",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayueneo21:block/carriage/carriage_marshalled_cr200j/carport_side",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayueneo21:block/carriage/carriage_marshalled_cr200j/carport_side",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayueneo21:block/carriage/carriage_marshalled_cr200j/carport_side",
+      "y": 90
+    }
+  }
+}

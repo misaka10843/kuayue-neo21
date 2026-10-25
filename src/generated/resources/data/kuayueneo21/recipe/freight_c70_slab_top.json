@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayueneo21:freight_c70_slab_bottom"
+  },
+  "result": {
+    "id": "kuayueneo21:freight_c70_slab_top",
+    "count": 1
+  }
+}

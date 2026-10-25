@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayueneo21:panel_bottom_25t"
+  },
+  "result": {
+    "id": "kuayueneo21:skirt_marshalled_25t",
+    "count": 4
+  }
+}

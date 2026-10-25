@@ -1,0 +1,79 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:brass_sheet"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "count": 1,
+      "id": "kuayueneo21:circuit_board"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayueneo21:circuit_board_constructing"
+        },
+        {
+          "item": "kuayueneo21:plastic_board"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayueneo21:circuit_board_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "kuayueneo21:circuit_board_constructing"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayueneo21:circuit_board_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayueneo21:circuit_board_constructing"
+        },
+        {
+          "item": "create:electron_tube"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayueneo21:circuit_board_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayueneo21:circuit_board_constructing"
+        },
+        {
+          "item": "create:electron_tube"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayueneo21:circuit_board_constructing"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "kuayueneo21:circuit_board_constructing"
+  }
+}

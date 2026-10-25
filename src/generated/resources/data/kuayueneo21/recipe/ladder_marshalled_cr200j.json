@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayueneo21:floor_marshalled_cr200j"
+    },
+    {
+      "item": "create:brass_ladder"
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayueneo21:ladder_marshalled_cr200j"
+    }
+  ],
+  "keep_held_item": false
+}

@@ -1,0 +1,37 @@
+{
+  "type": "create:mechanical_crafting",
+  "key": {
+    "A": {
+      "item": "kuayueneo21:general_bottom_slab_df21"
+    },
+    "B": {
+      "item": "kuayueneo21:general_slab_df21"
+    },
+    "C": {
+      "item": "kuayueneo21:weathering_resistant_steel_board"
+    },
+    "D": {
+      "item": "kuayueneo21:weathering_resistant_steel_pole"
+    },
+    "E": {
+      "item": "kuayueneo21:weathering_resistant_steel_ingot"
+    },
+    "F": {
+      "item": "create:framed_glass"
+    },
+    "I": {
+      "item": "kuayueneo21:circuit_board"
+    }
+  },
+  "pattern": [
+    "AEAEA",
+    "AFAFA",
+    "CIDIC",
+    "BEBEB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "kuayueneo21:head_df21"
+  },
+  "accept_mirrored": false
+}

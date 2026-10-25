@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayueneo21:block/deco/carriage_brake_cylinder",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayueneo21:block/deco/carriage_brake_cylinder",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayueneo21:block/deco/carriage_brake_cylinder",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayueneo21:block/deco/carriage_brake_cylinder",
+      "y": 90
+    }
+  }
+}

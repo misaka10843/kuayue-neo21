@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,open=false": {
+      "model": "kuayueneo21:block/door/door_bottom"
+    },
+    "facing=east,open=true": {
+      "model": "kuayueneo21:block/door/door_bottom"
+    },
+    "facing=north,open=false": {
+      "model": "kuayueneo21:block/door/door_bottom"
+    },
+    "facing=north,open=true": {
+      "model": "kuayueneo21:block/door/door_bottom"
+    },
+    "facing=south,open=false": {
+      "model": "kuayueneo21:block/door/door_bottom"
+    },
+    "facing=south,open=true": {
+      "model": "kuayueneo21:block/door/door_bottom"
+    },
+    "facing=west,open=false": {
+      "model": "kuayueneo21:block/door/door_bottom"
+    },
+    "facing=west,open=true": {
+      "model": "kuayueneo21:block/door/door_bottom"
+    }
+  }
+}

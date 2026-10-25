@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayueneo21:carport_center_bsp25t"
+    },
+    {
+      "item": "kuayueneo21:circuit_board"
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayueneo21:air_condition_bsp25t"
+    }
+  ],
+  "keep_held_item": false
+}

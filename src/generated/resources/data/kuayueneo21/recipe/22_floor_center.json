@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayueneo21:22_floor"
+  },
+  "result": {
+    "id": "kuayueneo21:22_floor_center",
+    "count": 1
+  }
+}

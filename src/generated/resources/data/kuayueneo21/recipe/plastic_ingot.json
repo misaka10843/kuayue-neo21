@@ -1,0 +1,23 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "kuayueneo21:plastic_nugget"
+    },
+    {
+      "item": "kuayueneo21:plastic_nugget"
+    },
+    {
+      "item": "kuayueneo21:plastic_nugget"
+    },
+    {
+      "item": "kuayueneo21:plastic_nugget"
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayueneo21:plastic_ingot"
+    }
+  ],
+  "heat_requirement": "heated"
+}

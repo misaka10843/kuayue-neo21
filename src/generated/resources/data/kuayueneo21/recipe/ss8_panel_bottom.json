@@ -1,0 +1,33 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kuayueneo21:train_moulds"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "id": "kuayueneo21:ss8_panel_bottom"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayueneo21:train_moulds"
+        },
+        {
+          "item": "kuayueneo21:color_masterbatch"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayueneo21:train_moulds"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "kuayueneo21:train_moulds"
+  }
+}

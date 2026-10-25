@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayueneo21:22_carport_panel_top"
+  },
+  "result": {
+    "id": "kuayueneo21:22_carport_panel_top_lamp",
+    "count": 1
+  }
+}

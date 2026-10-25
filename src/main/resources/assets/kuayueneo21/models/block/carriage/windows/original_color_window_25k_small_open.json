@@ -1,0 +1,9 @@
+{
+  "parent": "kuayueneo21:block/carriage/windows/original_color_window_25g_small_open",
+  "render_type": "translucent",
+  "textures": {
+    "0": "kuayueneo21:block/windows/original_color_window_25b",
+    "1": "kuayueneo21:block/panel_25k_original_mid",
+    "particle": "kuayueneo21:block/panel_25k_original_mid"
+  }
+}

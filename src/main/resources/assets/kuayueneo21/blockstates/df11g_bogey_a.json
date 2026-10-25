@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "axis=z,waterlogged=false": {
+      "model": "kuayueneo21:block/bogey/df11g/df11g_top_a",
+      "y": 90
+    },
+    "axis=x,waterlogged=false": {
+      "model": "kuayueneo21:block/bogey/df11g/df11g_top_a"
+    },
+    "axis=z,waterlogged=true": {
+      "model": "kuayueneo21:block/bogey/df11g/df11g_top_a",
+      "y": 90
+    },
+    "axis=x,waterlogged=true": {
+      "model": "kuayueneo21:block/bogey/df11g/df11g_top_a"
+    }
+  }
+}

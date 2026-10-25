@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "kuayueneo21:ss3_carport",
+    "kuayueneo21:ss3_carport_ad",
+    "kuayueneo21:ss3_carport_center",
+    "kuayueneo21:ss3_carport_skylight",
+    "kuayueneo21:ss3_cowcatcher",
+    "kuayueneo21:ss3_door",
+    "kuayueneo21:ss3_floor",
+    "kuayueneo21:ss3_floor_center",
+    "kuayueneo21:ss3_head",
+    "kuayueneo21:ss3_panel_bottom",
+    "kuayueneo21:ss3_panel_bottom_ad",
+    "kuayueneo21:ss3_panel_upper",
+    "kuayueneo21:ss3_panel_upper_ad",
+    "kuayueneo21:ss3_panel_upper_windows",
+    "kuayueneo21:ss3_roof",
+    "kuayueneo21:ss3_roof_vent",
+    "kuayueneo21:ss3_transformer"
+  ]
+}

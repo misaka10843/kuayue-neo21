@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "Z  ",
+    "ZXX",
+    "ZXY"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:stick"
+    },
+    "Y": {
+      "item": "kuayueneo21:weathering_resistant_steel_pole"
+    },
+    "Z": {
+      "item": "kuayueneo21:weathering_resistant_steel_board"
+    }
+  },
+  "result": {
+    "id": "kuayueneo21:luggage_rack_m1"
+  }
+}

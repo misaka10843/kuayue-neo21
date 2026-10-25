@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayueneo21:block/ss3/ss3_floor",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayueneo21:block/ss3/ss3_floor",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayueneo21:block/ss3/ss3_floor",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayueneo21:block/ss3/ss3_floor",
+      "y": 90
+    }
+  }
+}

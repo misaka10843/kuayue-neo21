@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayueneo21:freight_nx70_floor_center"
+  },
+  "result": {
+    "id": "kuayueneo21:freight_nx70_floor_low_ladder",
+    "count": 1
+  }
+}

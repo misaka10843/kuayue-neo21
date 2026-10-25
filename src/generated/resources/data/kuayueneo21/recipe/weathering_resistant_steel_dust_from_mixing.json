@@ -1,0 +1,42 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "kuayueneo21:copper_dust"
+    },
+    {
+      "item": "kuayueneo21:copper_dust"
+    },
+    {
+      "item": "kuayueneo21:zinc_dust"
+    },
+    {
+      "item": "kuayueneo21:iron_dust"
+    },
+    {
+      "item": "kuayueneo21:iron_dust"
+    },
+    {
+      "item": "kuayueneo21:iron_dust"
+    },
+    {
+      "item": "kuayueneo21:iron_dust"
+    },
+    {
+      "item": "kuayueneo21:iron_dust"
+    },
+    {
+      "item": "kuayueneo21:iron_dust"
+    },
+    {
+      "item": "kuayueneo21:carbon_dust"
+    }
+  ],
+  "results": [
+    {
+      "count": 8,
+      "id": "kuayueneo21:weathering_resistant_steel_dust"
+    }
+  ],
+  "heat_requirement": "heated"
+}

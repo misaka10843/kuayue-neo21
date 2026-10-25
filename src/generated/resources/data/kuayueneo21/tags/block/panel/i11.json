@@ -1,0 +1,28 @@
+{
+  "replace": false,
+  "values": [
+    "kuayueneo21:df11_carport_center_cooling_fan",
+    "kuayueneo21:df11_carport_equip_a",
+    "kuayueneo21:df11_carport_equip_b",
+    "kuayueneo21:df11_carport_equip_blinds",
+    "kuayueneo21:df11_carport_general",
+    "kuayueneo21:df11_carport_louver_fan",
+    "kuayueneo21:df11_chimney",
+    "kuayueneo21:df11_cowcatcher",
+    "kuayueneo21:df11_door",
+    "kuayueneo21:df11_equip_room_window_1",
+    "kuayueneo21:df11_equip_room_window_2",
+    "kuayueneo21:df11_floor",
+    "kuayueneo21:df11_head",
+    "kuayueneo21:df11_panel_air_intake",
+    "kuayueneo21:df11_panel_blind_bottom",
+    "kuayueneo21:df11_panel_blind_top",
+    "kuayueneo21:df11_panel_equip_bottom",
+    "kuayueneo21:df11_panel_equip_top",
+    "kuayueneo21:df11_reservoir_tank",
+    "kuayueneo21:df11_road_sign",
+    "kuayueneo21:df11_window_equip_small",
+    "kuayueneo21:panel_bottom_df11",
+    "kuayueneo21:panel_top_df11"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayueneo21:block/carriage/carriage_marshalled_cr200j/slab",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayueneo21:block/carriage/carriage_marshalled_cr200j/slab",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayueneo21:block/carriage/carriage_marshalled_cr200j/slab",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayueneo21:block/carriage/carriage_marshalled_cr200j/slab",
+      "y": 90
+    }
+  }
+}

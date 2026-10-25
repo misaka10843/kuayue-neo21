@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "kuayueneo21:block/carriage/carriage_22/22_door_item"
+  }
+}

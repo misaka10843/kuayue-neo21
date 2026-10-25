@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=east,open=false": {
+      "model": "kuayueneo21:block/carriage/facilities/flourescent_light",
+      "y": 270
+    },
+    "facing=north,open=false": {
+      "model": "kuayueneo21:block/carriage/facilities/flourescent_light",
+      "y": 180
+    },
+    "facing=south,open=false": {
+      "model": "kuayueneo21:block/carriage/facilities/flourescent_light",
+      "y": 0
+    },
+    "facing=west,open=false": {
+      "model": "kuayueneo21:block/carriage/facilities/flourescent_light",
+      "y": 90
+    },
+    "facing=east,open=true": {
+      "model": "kuayueneo21:block/carriage/facilities/flourescent_light",
+      "y": 270
+    },
+    "facing=north,open=true": {
+      "model": "kuayueneo21:block/carriage/facilities/flourescent_light",
+      "y": 180
+    },
+    "facing=south,open=true": {
+      "model": "kuayueneo21:block/carriage/facilities/flourescent_light",
+      "y": 0
+    },
+    "facing=west,open=true": {
+      "model": "kuayueneo21:block/carriage/facilities/flourescent_light",
+      "y": 90
+    }
+  }
+}

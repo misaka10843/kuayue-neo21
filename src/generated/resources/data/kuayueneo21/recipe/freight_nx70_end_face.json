@@ -1,0 +1,23 @@
+{
+  "type": "create:mechanical_crafting",
+  "key": {
+    "A": {
+      "item": "kuayueneo21:freight_nx70_floor_center"
+    },
+    "E": {
+      "item": "kuayueneo21:weathering_resistant_steel_ingot"
+    },
+    "D": {
+      "item": "kuayueneo21:weathering_resistant_steel_pole"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "EDE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "kuayueneo21:freight_nx70_end_face"
+  },
+  "accept_mirrored": false
+}

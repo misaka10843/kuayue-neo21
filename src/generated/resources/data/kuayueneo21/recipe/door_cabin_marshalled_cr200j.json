@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayueneo21:door_marshalled_cr200j"
+  },
+  "result": {
+    "id": "kuayueneo21:door_cabin_marshalled_cr200j",
+    "count": 1
+  }
+}

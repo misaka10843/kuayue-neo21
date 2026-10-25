@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayueneo21:vehicle_bogey_blank"
+  },
+  "result": {
+    "id": "kuayueneo21:pk209p_no_motor_bogey",
+    "count": 1
+  }
+}

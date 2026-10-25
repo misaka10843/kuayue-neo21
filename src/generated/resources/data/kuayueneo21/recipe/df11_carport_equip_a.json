@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayueneo21:df11_carport_general"
+  },
+  "result": {
+    "id": "kuayueneo21:df11_carport_equip_a",
+    "count": 1
+  }
+}

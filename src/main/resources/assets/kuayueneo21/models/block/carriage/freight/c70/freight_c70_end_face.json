@@ -1,0 +1,9 @@
+{
+  "loader": "neoforge:obj",
+  "flip_v": true,
+  "render_type": "translucent",
+  "model": "kuayueneo21:models/block/carriage/freight/c70/freight_c70_end_face.obj",
+  "textures": {
+    "particle": "kuayueneo21:block/carriage/freight/c70/freight_c70_end_face"
+  }
+}

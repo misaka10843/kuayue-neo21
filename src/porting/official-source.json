@@ -1,0 +1,367 @@
+{
+  "source": "KuaYue",
+  "minecraft": "1.21.1",
+  "revision": "c8f11d2df50c04d5dc3a32a0f17dad8693a920f5",
+  "classes": [
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/AirVentBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/carport/AirVentBlock.java",
+      "sourceSha256": "3f3f3372d5b47f750b5a2067f5ffca2439a3944548e43bd476b2216dce8d4d5c",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/block_entity/IContraptionMovementBlockEntity.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/block_entity/IContraptionMovementBlockEntity.java",
+      "sourceSha256": "062eb2873c8d8c08b44898bfec6fce515a03b69ac337cb6a91595ab17f196012",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/company/CompanyTrainBlockEntity.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/base/CompanyTrainBlockEntity.java",
+      "sourceSha256": "6e436f398e89d9c209b4527d580b8588e20ae75d29d37cd0a3c09f2c9e8cfe7b",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/company/CompanyTrainDoor.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/base/CompanyTrainDoor.java",
+      "sourceSha256": "0cf25e40adf63948cf6a23533c96a85d2cb5e3d0c95ae51cc1dd5ece25c64b38",
+      "adaptation": "Keep public constructor for deferred registration."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/company/CompanyTrainPanel.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/base/CompanyTrainPanel.java",
+      "sourceSha256": "a4f9add9e0542589a2e537e1f936ce4c74dc60701d72e64f2a3285690f6b35df",
+      "adaptation": "Official item forwarding merged; preserve owned-root removal and assembly guards; avoid null BaseEntityBlock codec."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/company/CompanyTrainSlab.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/base/CompanyTrainSlab.java",
+      "sourceSha256": "9a50bac5cccae7d45cdfa7dbf84c94a3bea0f8754030ad8cf526c9d93583cbc0",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/custom_rendered/CustomRenderedDoorBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/door/CustomRenderedDoorBlock.java",
+      "sourceSha256": "250c866c7ab57e5426de6897bd48d1c274ae162cd215afa4da70f01a06ede9b5",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs. Fix copy constructor to preserve open offset."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/custom_rendered/CustomRenderedDoorEntity.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/block_entity/CustomRenderedDoorEntity.java",
+      "sourceSha256": "7161f949af28087a3e49904519791960d3cdca7b9efc803d6e5f06d1747a514f",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/custom_rendered/CustomRenderedEndFaceBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/end_face/CustomRenderedEndfaceBlock.java",
+      "sourceSha256": "ef67c2c75c0cef31339254e61f101d95c46e68c7d850d0d898c2280fbd9649f7",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/custom_rendered/CustomRenderedEndFaceEntity.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/block_entity/CustomRenderedEndfaceEntity.java",
+      "sourceSha256": "8b1caf6e4b4fbeefe62404855fdf8d362e0ebccf86954b7d46e299e8151f7137",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/custom_rendered/DoubleRotateDoorBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/door/DoubleRotateDoorBlock.java",
+      "sourceSha256": "3e1ef5c1e4c920718ceb782380cbd78b3699ad80ff8d9e24785764a0210756d4",
+      "adaptation": "Keep dedicated double-rotation renderer and entity type."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/custom_rendered/MeterCarriageEndFaceBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/end_face/MeterCarriageEndFaceBlock.java",
+      "sourceSha256": "6f941fbd31d7ebfa03a624ad7037a0d5b4f7dab05e79752d4178bdd6eb4e1e80",
+      "adaptation": "Keep dedicated single-sliding renderer and entity type."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/custom_rendered/renderer/CustomRenderedDoorRenderer.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/block_entity/renderer/CustomRenderedDoorRenderer.java",
+      "sourceSha256": "1ccb658f5020a8abad7d687d8bfee0db0de305bd86eaa7286efdae4b64a8a0ca",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/custom_rendered/renderer/CustomRenderedEndFaceRenderer.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/block_entity/renderer/CustomRenderedEndFaceRenderer.java",
+      "sourceSha256": "07af673fcdf71f9339c3c4de3021d82fd23a26270a5aa9a3c72112a5f13bf296",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/door/TrainDoorBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/door/TrainDoorBlock.java",
+      "sourceSha256": "3254fe19ed84a2d32e741f409c85aaa87264d0cff20dce3a6b65357b6601da4e",
+      "adaptation": "Preserve server authority, extension ownership, synchronized open state and modern sound events."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/EndFaceBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/end_face/TrainEndfaceBlock.java",
+      "sourceSha256": "2a37be39d6fda49665ba50488a76cdefcb6584aa90b4eead65ebd778357aa800",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/EndFaceShapes.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/base/EndFaceShapes.java",
+      "sourceSha256": "009a674512179427c8e25f8bc4350710f429ad56f3ad371f5b382907179c744e",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/FreightC70EndFaceBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/conductor/FreightC70EndFaceBlock.java",
+      "sourceSha256": "f9dc740f20aa004f97c80cdd8836743793f111e06829b1c254061b3fc4518668",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/FreightEndFaceBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/end_face/FreightEndFaceBlock.java",
+      "sourceSha256": "3afd333501d970b0d6409de20c77b2d5b6cf8d3aa65fb98b538dc5a97a168052",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/FreightNX70EndFaceBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/conductor/FreightNX70EndFaceBlock.java",
+      "sourceSha256": "78f220eeb79bc941f925ce3caf7f84373e121c69b4af0c5d418cfb81df6f9ba0",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/FullShapeDirectionalBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/FullShapeDirectionalBlock.java",
+      "sourceSha256": "0302425b71ba9cf4737989cb17a4c4efc74ead663c37bb84608491d1b1a5d161",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/HeadBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/HeadBlock.java",
+      "sourceSha256": "6d389a3ca291849f91777d2c7e04cbc7913b5d070dc34cfdfb55fad9f069057c",
+      "adaptation": "Keep height cycling required by selected CR200J resources."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/HeightSlabBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/slab/HeightSlabBlock.java",
+      "sourceSha256": "a3d148baf4609d49d3965ffca82a8d011d1d9e9e5281b188406d20cad3cb2ec2",
+      "adaptation": "Keep vanilla slab state needed by existing selected content."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/HingeSlabBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/slab/HingeSlabBlock.java",
+      "sourceSha256": "64ed5fdb06106b8916d3c88a5fefca1608a124efedca67787c7f0d3d332df3c3",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/LadderBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/slab/TrainLadderBlock.java",
+      "sourceSha256": "75d46972e55447abc8025b7698d589fcb994c092408415aeaa40fb339b6683d5",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/LevelPanelBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/LevelPanelBlock.java",
+      "sourceSha256": "90fe588830c25e183f0586584acb7bead1081414f8be8531b92c055d4aa98288",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/SkirtBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/SkirtBlock.java",
+      "sourceSha256": "e2346f0c10247f81d7b8b9264047acd78bbb45893cb0fb6e1d3ffddb58984535",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/SlabBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/slab/TrainSlabBlock.java",
+      "sourceSha256": "bd878c9c551c4aa941e19c1635390263e2c5972f6216f3596f35ad8cc95e4f59",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/TrainHingePanelBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/TrainHingePanelBlock.java",
+      "sourceSha256": "acfe25ce738d2784dd48f867ba8f146ae34e6ae3e139e6dae01ce1e298474df3",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/TrainPanelBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/TrainPanelBlock.java",
+      "sourceSha256": "32999c7fe4e605d684b3596d57c24a304c41d21def1a99d87d9fdf9624d43e35",
+      "adaptation": "Remove UnModeledBlockProperty and deferred editor state; preserve safe extension lifecycle."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/TrainPanelProperties.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/base/TrainPanelProperties.java",
+      "sourceSha256": "bb0db7e336df245da15703100ec0c8e9a2da44e09b6e1c59b63884313a3dc694",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/TrainPanelShapes.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/base/TrainPanelShapes.java",
+      "sourceSha256": "32a78110591027f49ef1f469636317ed9195f0e5cf7433ca70419e8fe221cf28",
+      "adaptation": "Equivalent shapes; keep separate CarportHingeSlabBlock rather than nested alias."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/window/LevelWindowBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/window/LevelWindowBlock.java",
+      "sourceSha256": "6a0eaead3f45d9e01dd5fbd3b5720349938e5d5cf3756cb6ff3910b835713123",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/window/TrainOpenableWindowBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/window/TrainOpenableWindowBlock.java",
+      "sourceSha256": "a6adfa84177185cbc02ede0de15eb15547bc9d01d3c20b09ff7a2798a0f87af4",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/window/TrainSmallWindowBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/window/TrainSmallWindowBlock.java",
+      "sourceSha256": "c07879dcd5a77e1850e53eb7259c8450b90af8d42163fb5be46992a9a439514f",
+      "adaptation": "Merge official held-item entry point; preserve owned extension synchronization and server authority."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/window/TrainUnOpenableSmallWindowBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/window/TrainUnOpenableSmallWindowBlock.java",
+      "sourceSha256": "6e3da4a535fdb98c79282bec9d2b36d1d14d4bc0bed081875529768fe389fe63",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/core/panel/window/TrainUnOpenableWindowBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/window/TrainUnOpenableWindowBlock.java",
+      "sourceSha256": "e915db63c256bed08e47bd75e0f2360397000f74b9f51c4723a08556c0e589a7",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/df11/DF11ChimneyBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/carport/DF11ChimneyBlock.java",
+      "sourceSha256": "1a40d630747be7f96728d035444c83e397249e725974b4e194182abb9da170f6",
+      "adaptation": "Keep smoke and lit behavior absent from this official checkout."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/df11/DF11CowCatcherBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/conductor/DF11CowCatcherBlock.java",
+      "sourceSha256": "78b54a1077653206b80132fe74aa7b03ae3f10dcd0c00b6851993b626d7b76f3",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/df11/DF11GChimneyBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/carport/DF11GChimneyBlock.java",
+      "sourceSha256": "b9d6bdc2096dc0b08e4f4da677b2738ce6792d7b30f53f8c84ae499cb4b270fd",
+      "adaptation": "Keep smoke and lit behavior absent from this official checkout."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/df11/DF11GCowCatcherBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/conductor/DF11GCowCatcherBlock.java",
+      "sourceSha256": "36d8e29d40a319f29fdd5f1878dc3fa1a1e5343ec6f8b4337b144527bcc3cafc",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/df11/I11GPanel.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/initial/panel/I11GPanel.java",
+      "sourceSha256": "fda6f4da5a42ba06488a0a7d0986fbb4b80533a75c92df7e3784bc9314eb4517",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/df11/I11Panel.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/initial/panel/I11Panel.java",
+      "sourceSha256": "d2b0f0e14ce323c3e9aa80593ce59988c311ecbe0eafa5969a5a5c3f5e812b6b",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/df21/DF21HeadBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/conductor/DF21HeadBlock.java",
+      "sourceSha256": "1e6b7095017872775fe9b421a27e073c6a2fd73bacd7afbf4c3a39d896b0936c",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/df21/DF21HeadEarlyBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/conductor/DF21HeadEarlyBlock.java",
+      "sourceSha256": "8d24a2388e390294ed3b932ac5e62c6fcd970ab7158cbc736fe0b63fe553cc14",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/df21/I21Panel.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/initial/panel/I21Panel.java",
+      "sourceSha256": "c8f85373c8059319f477c7d2332a2abac67755aaca6ec14143aa3ee981628197",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/df5/DF5ChimneyBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/carport/DF5ChimneyBlock.java",
+      "sourceSha256": "f15d95a7760a59e21a31b8171ed1ebb5dc6195841cb5eeba534b335f3a273e04",
+      "adaptation": "Keep smoke and lit behavior absent from this official checkout."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/df5/DF5CowCatcherBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/conductor/DF5CowCatcherBlock.java",
+      "sourceSha256": "fdfe966e7d6c15b2756438dbe64358e5934d803d7afee2cbc474426e38df59a2",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/df5/I5Panel.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/initial/panel/I5Panel.java",
+      "sourceSha256": "deeab1e05f1b7fd693bdafee6edf1906186acbe01b4a411688fc323d68a6ce68",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs. Restore four functional DF5 doors: official hinge panels lack OPEN required by official blockstates."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/hxd3d/HXD3DCowCatcherBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/conductor/HXD3DCowCatcherBlock.java",
+      "sourceSha256": "987de01d229ef8afc5006e210df220d2fd2b3a864bdacd91b7d7a40b2e9de9da",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/hxd3d/I3DPanel.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/initial/panel/I3DPanel.java",
+      "sourceSha256": "1e49ec7dd1e4b00fddb70123fe34703c81d2152b19396d85acbe537121d88e12",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/jy/IJY290Panel.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/initial/panel/IJY290Panel.java",
+      "sourceSha256": "5ace143d71c2808bd1a77e6139aa212df3056d386cee161f193d02a2c1433c1b",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/jy/JY290ACBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/deco/JY290ACBlock.java",
+      "sourceSha256": "db285cce172f5fe4ea1dd324b56b5efde833e7e95de7e4e8b684ebf9911852e1",
+      "adaptation": "Keep hinge and shape behavior matching selected resources."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/jy/JY290CowCatcherBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/conductor/JY290CowCatcherBlock.java",
+      "sourceSha256": "2b18910b103395327e9cccd4d863feb054715c0e3cdb40b795d1ea9afebada12",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/jy/JY290DoorBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/door/JY290DoorBlock.java",
+      "sourceSha256": "55009884d9af7b6c83021e8795d9a2b090ccb46946a073d23a02aa834b18bae5",
+      "adaptation": "Keep train-specific door collision geometry."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/ss/ISS3Panel.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/initial/panel/ISS3Panel.java",
+      "sourceSha256": "d1deed24a9f8356f476c648c72422f1545f40bfccba70f95a96cf1d652ca7635",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/ss/ISS8Panel.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/initial/panel/ISS8Panel.java",
+      "sourceSha256": "f06222c77efc976618145eef7304f6020d6e56a39de7798c916a0ea5f7b13fc3",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/ss/SS3CowCatcherBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/conductor/SS3CowCatcherBlock.java",
+      "sourceSha256": "8f13fac475d37406cef462bd37377dc97be33dba8b14013a5e69613bee96ff4e",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/train-parts/src/main/java/cn/kycraft/kuayue/parts/locomotives/ss/SS8CowCatcherBlock.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/block/panels/conductor/SS8CowCatcherBlock.java",
+      "sourceSha256": "b947b07c4aec6deef01f91a1e001b6002c73a4f6b360ef60c34ba2e50ef5d694",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    },
+    {
+      "source": "modules/core/src/main/java/cn/kycraft/kuayue/utils/DirectionUtil.java",
+      "target": "src/main/java/com/misaka10843/kuayue_neo21/legacy/utils/DirectionUtil.java",
+      "sourceSha256": "3f8463603786038b016936d81bc3e8a9af44b779995052954ee3a539a4b557ef",
+      "adaptation": "Adapted official implementation; replace registrations and initialization with native APIs."
+    }
+  ]
+}

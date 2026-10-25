@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayueneo21:slab_bottom_m1"
+  },
+  "result": {
+    "id": "kuayueneo21:window_large_jy30",
+    "count": 1
+  }
+}
