@@ -16,6 +16,8 @@ Schematic loading must not mutate neighboring blocks from onPlace in virtual lev
 
 ## Code
 
+CEE pantograph compatibility concerns mounting the base flush against decorative roof blocks, not changing arm extension height. Keep rendering, hit/collision geometry, saved assembly offsets and electrical contact coordinates consistent. CEE remains optional; validate its actual supplied JAR without bundling its implementation.
+
 Use the `kuayue` mod and resource namespace so included original block IDs can resolve in Create schematics. Keep the project standalone from the official mod and its removed library framework.
 
 Use Java 21 and NeoForge 1.21.1 with Create. Organize code by responsibility. Prefer descriptive English names and direct implementations. Evaluate splitting at roughly 300 lines and prioritize splitting around 500 lines. Avoid unnecessary abstractions, commented-out implementations and unrelated formatting. Comments are exceptional, short English explanations of constraints or reasons. Preserve upstream license notices. Generated files must be maintained through their source generator.

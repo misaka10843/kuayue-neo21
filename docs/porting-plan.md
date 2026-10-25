@@ -4,6 +4,8 @@
 
 挂钩／摘钩本轮加入。接触网柱、桁架等支撑构件纳入，并与机械动力：电力学（Create: Electro-Energetics）的接触网架兼容；跨越自有接触网电气／连线系统及受电弓不移植。驾驶设备、GUI 编辑及公司定制、蓝图工作台和科技解锁仍按既有要求排除或暂缓。旧版本章节中的范围说明仅作历史记录。
 
+电力学受电弓适配的是底座贴合车顶装饰块，不能误解为修改升弓高度。安装偏移应同时覆盖静态和组装后渲染、碰撞、保存数据与电气接触坐标。
+
 蓝图掉落在用户复测中仍存在，必须继续追踪实际 Create 放置路径，不得以策略回放通过宣称游戏修复完成。客户端与游戏测试仍由用户执行；每个完整功能经对应自动检查后提交 Git commit。
 
 # 1.2.0 用户确认的命名空间与提交规则
@@ -18,11 +20,11 @@ Registered vehicle parts for 22, 25B/G/K/T/Z, shared 25, M1/JY30, CR200J, DF11, 
 
 ## Excluded
 
-Overhead lines, ground facilities, platform walls/doors, new tracks, pantographs, driving controllers/seats, editable signs and company customization. No blueprint workstation, blueprint items, technology gates or unrelated food, ore generation and fluid systems. No old-world upgrade compatibility.
+Kuayue's overhead electrical/wire system and pantographs, driving controllers/seats, editable signs and company customization. No blueprint workstation, blueprint items, technology gates or unrelated food/fluid systems. Ordinary infrastructure, tracks and salt ores are included by the latest scope correction. No old-world upgrade compatibility.
 
 ## Implementation
 
-Keep kuayueneo21, Java 21 and NeoForge 1.21.1. Adapt to Create without importing the old registration library. Separate common vehicle behavior, families, interiors, bogeys, rendering and generation. Preserve door/window interaction, animation, seating, lights and necessary contraption behavior. Preserve meter-gauge installation semantics and document dependencies on excluded track systems.
+Keep kuayue, Java 21 and NeoForge 1.21.1. Adapt to Create without importing the old registration library. Separate vehicle behavior, families, interiors, bogeys, infrastructure, rendering and generation. Preserve door/window interaction, animation, seating, lights and contraption behavior. Include meter track and preserve its gauge-specific bogey placement.
 
 All obtainable blocks require reachable survival recipes. Preserve suitable vanilla/Create processing, remove blueprint operations and retain only the minimal material closure. Replace otherwise unavailable ingredients consistently. Generate recipes, loot and tags and validate references and reachability.
 
@@ -30,7 +32,7 @@ All obtainable blocks require reachable survival recipes. Preserve suitable vani
 
 The port includes behavior, not only registration and visual assets. Bogeys must participate in Create's native track placement, wrench style selection, station assembly, train data and rendering. Preserve assisted placement of panels, floors and skirts, and interaction/collision of multi-block doors on moving contraptions. Validate PNG and model dependencies as different resource types.
 
-The user confirmed that the separate legacy custom coupling/uncoupling system is deferred. The current scope restores vehicle blocks and native Create integration; it does not add that custom train-management subsystem.
+The latest user instruction includes train coupling/uncoupling. Implement actual Create topology and synchronization. Keep any remaining orientation or third-party-state gaps explicit in docs/train-coupling.md and the current status.
 
 ## Delivery
 
