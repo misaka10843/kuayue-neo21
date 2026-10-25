@@ -66,7 +66,9 @@ def modernize(recipe):
             if value.get('nbt') == {}:
                 value.pop('nbt')
             for key, item in list(value.items()):
-                if key == 'tag' and item.startswith('forge:'):
+                if key == 'tag' and item == 'minecraft:concrete_powder':
+                    value[key] = PREFIX + 'concrete_powders'
+                elif key == 'tag' and item.startswith('forge:'):
                     value[key] = item.replace('forge:', 'c:')
                 else:
                     tags(item)
@@ -230,6 +232,8 @@ def main():
     for name in ['tracks', 'girdable_tracks']:
         save(GENERATED / 'data/create/tags/block' / (name + '.json'), {'replace': False, 'values': tracks})
     save(GENERATED / 'data/create/tags/item/tracks.json', {'replace': False, 'values': tracks})
+    colors = ['white', 'orange', 'magenta', 'light_blue', 'yellow', 'lime', 'pink', 'gray', 'light_gray', 'cyan', 'purple', 'blue', 'brown', 'green', 'red', 'black']
+    save(GENERATED / 'data' / MOD / 'tags/item/concrete_powders.json', {'replace': False, 'values': ['minecraft:' + color + '_concrete_powder' for color in colors]})
     save(GENERATED / 'data/c/tags/block/relocation_not_supported.json', {'replace': False, 'values': tracks})
     block_tags = json.loads(Path('src/porting/block-tags.json').read_text(encoding='utf-8'))
     extension_ids = {'company_panel_block': 'company_panel_block', 'company_door_block': 'company_panel_door',

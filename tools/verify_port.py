@@ -97,10 +97,20 @@ def main():
     for file in Path('src/generated/resources/data').rglob('*.json'):
         if '/recipe/' in file.as_posix():
             recipes[file.as_posix()] = json.loads(file.read_text(encoding='utf-8'))
+    item_tags = {}
+    for root in roots:
+        tag_root = root / 'data' / MOD / 'tags/item'
+        for file in tag_root.rglob('*.json'):
+            id = PREFIX + file.relative_to(tag_root).as_posix().removesuffix('.json')
+            definition = json.loads(file.read_text(encoding='utf-8'))
+            if definition.get('replace', False): item_tags[id] = []
+            item_tags.setdefault(id, []).extend(value if isinstance(value, str) else value['id'] for value in definition['values'])
     reachable = set()
-    def available(item):
+    def available(item, visiting=frozenset()):
         if item.startswith('#' + PREFIX):
-            return False
+            tag = item[1:]
+            if tag in visiting: return False
+            return any(available(value, visiting | {tag}) for value in item_tags.get(tag, []))
         return not item.startswith(PREFIX) or item in reachable
     changed = True
     while changed:
