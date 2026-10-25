@@ -5,6 +5,8 @@ import com.misaka10843.kuayue_neo21.content.VehicleDoorInteraction;
 import com.misaka10843.kuayue_neo21.content.VehiclePartGeometry;
 import com.misaka10843.kuayue_neo21.legacy.block.panels.base.TrainPanelProperties;
 import com.misaka10843.kuayue_neo21.legacy.block.panels.end_face.TrainEndfaceBlock;
+import com.misaka10843.kuayue_neo21.legacy.block.panels.end_face.CustomRenderedEndfaceBlock;
+import com.misaka10843.kuayue_neo21.legacy.block.panels.block_entity.CustomRenderedEndfaceEntity;
 import java.util.List;
 import java.util.Map;
 import net.minecraft.core.BlockPos;
@@ -26,6 +28,12 @@ public final class VehicleInteractionAudit {
                 if (VehicleDoorInteraction.canInteract(state) != hasDoor) failures.add("Incorrect door interaction: " + entry.id());
                 if (hasDoor && VehiclePartGeometry.localShape(outline, BlockPos.ZERO, BlockPos.ZERO.above()).isEmpty()) {
                     failures.add("Empty upper door selection: " + entry.id() + " " + facing);
+                }
+                if (end instanceof CustomRenderedEndfaceBlock rendered) {
+                    var entity = (CustomRenderedEndfaceEntity) rendered.newBlockEntity(BlockPos.ZERO, state);
+                    if (entity.type != end.DOOR_TYPE) failures.add("Incorrect first-frame door type: " + entry.id());
+                    if (!entity.getRenderBoundingBox().contains(0.5, 3.1, 0.5)) failures.add("Clipped upper end frame: " + entry.id());
+                    if (entity.getModels() == null) failures.add("Missing first-frame models: " + entry.id());
                 }
                 checks++;
             }

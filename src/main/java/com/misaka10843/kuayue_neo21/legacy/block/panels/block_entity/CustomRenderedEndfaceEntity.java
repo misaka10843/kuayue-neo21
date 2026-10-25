@@ -31,6 +31,8 @@ public class CustomRenderedEndfaceEntity extends SmartBlockEntity implements ICo
 
     public CustomRenderedEndfaceEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
+        if (state.getBlock() instanceof CustomRenderedEndfaceBlock end) this.type = end.DOOR_TYPE;
+        if (state.hasProperty(DoorBlock.OPEN)) this.open = state.getValue(DoorBlock.OPEN);
     }
 
     public CustomRenderedEndfaceEntity(BlockPos pos, BlockState state) {
@@ -56,7 +58,7 @@ public class CustomRenderedEndfaceEntity extends SmartBlockEntity implements ICo
     }
 
     public boolean isOpen() {
-        return open;
+        return getBlockState().hasProperty(DoorBlock.OPEN) ? getBlockState().getValue(DoorBlock.OPEN) : open;
     }
 
     public boolean isRotateDoor() {
@@ -81,15 +83,13 @@ public class CustomRenderedEndfaceEntity extends SmartBlockEntity implements ICo
     }
 
     public Couple<PartialModel> getModels() {
-        if (this.level == null) return null;
-        BlockState state = this.level.getBlockState(this.getBlockPos());
+        BlockState state = getBlockState();
         if (!(state.getBlock() instanceof CustomRenderedEndfaceBlock block)) return null;
         return block.models;
     }
 
     public PartialModel getFrameModel() {
-        if (this.level == null) return null;
-        BlockState state = this.level.getBlockState(this.getBlockPos());
+        BlockState state = getBlockState();
         if (!(state.getBlock() instanceof CustomRenderedEndfaceBlock block)) return null;
         return block.frameModel;
     }
@@ -101,6 +101,8 @@ public class CustomRenderedEndfaceEntity extends SmartBlockEntity implements ICo
 
     @Override
     public AABB getRenderBoundingBox() {
-        return AABB.ofSize(Vec3.atCenterOf(this.getBlockPos()), 5, 5, 5);
+        BlockPos pos = getBlockPos();
+        return new AABB(pos.getX() - 2, pos.getY() - 1, pos.getZ() - 2,
+                pos.getX() + 3, pos.getY() + 5, pos.getZ() + 3);
     }
 }

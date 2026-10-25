@@ -22,6 +22,11 @@ public class CustomRenderedEndFaceRenderer implements BlockEntityRenderer<Custom
     public CustomRenderedEndFaceRenderer(BlockEntityRendererProvider.Context pContext) {}
 
     @Override
+    public boolean shouldRenderOffScreen(CustomRenderedEndfaceEntity entity) {
+        return true;
+    }
+
+    @Override
     public void render(
             CustomRenderedEndfaceEntity pBlockEntity,
             float pPartialTick,
