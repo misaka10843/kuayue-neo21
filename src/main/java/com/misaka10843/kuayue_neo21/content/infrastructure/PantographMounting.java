@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Rotation;
 
 public final class PantographMounting {
     public static final String OFFSET_TAG = "KuayueMountOffset";
+    public static final String VERSION_TAG = "KuayueMountVersion";
     private PantographMounting() {}
 
     public static double movingOffset(Carriage carriage, BlockPos rotatedPos) {
@@ -25,7 +26,7 @@ public final class PantographMounting {
         };
         for (var block : contraption.getBlocks().values()) {
             if (block.nbt() != null && block.nbt().contains(OFFSET_TAG) && block.pos().rotate(rotation).equals(rotatedPos))
-                return block.nbt().getDouble(OFFSET_TAG);
+                return savedOffset(block.nbt());
         }
         return 0;
     }
@@ -36,8 +37,12 @@ public final class PantographMounting {
         if (!BuiltInRegistries.BLOCK.getKey(state.getBlock()).getNamespace().equals("kuayue")) return 0;
         VoxelShape shape = state.getShape(level, support);
         if (shape.isEmpty()) return 0;
-        // CEE's base starts five pixels above its block origin.
         double top = shape.max(Direction.Axis.Y);
-        return top > 0 && top <= 1 ? top - 1 - 5.0 / 16 : 0;
+        return top > 0 && top <= 1 ? top - 1 : 0;
+    }
+
+    public static double savedOffset(net.minecraft.nbt.CompoundTag tag) {
+        double offset = tag.getDouble(OFFSET_TAG);
+        return offset != 0 && tag.getInt(VERSION_TAG) < 2 ? offset + 5.0 / 16 : offset;
     }
 }

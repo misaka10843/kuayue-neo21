@@ -22,6 +22,7 @@ public final class VehicleClient {
 
     @SubscribeEvent
     public static void bakeTracks(net.neoforged.neoforge.client.event.ModelEvent.ModifyBakingResult event) {
+        PantographBaseModels.redirectBakedModels(event.getModels());
         var ids = com.misaka10843.kuayue_neo21.content.track.RailwayTracks.BLOCKS.values().stream()
                 .map(entry -> com.misaka10843.kuayue_neo21.content.PortRegistration.resource(entry.id())).collect(java.util.stream.Collectors.toSet());
         event.getModels().replaceAll((id, model) -> ids.contains(id.id()) && !id.variant().equals("inventory")

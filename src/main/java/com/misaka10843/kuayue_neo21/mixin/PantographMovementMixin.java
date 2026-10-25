@@ -19,11 +19,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class PantographMovementMixin {
     @ModifyExpressionValue(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/phys/Vec3;add(Lnet/minecraft/world/phys/Vec3;)Lnet/minecraft/world/phys/Vec3;", ordinal = 0))
     private Vec3 kuayue$moveSearch(Vec3 original, MovementContext context) {
-        return original.add(context.rotation.apply(new Vec3(0, context.blockEntityData.getDouble(PantographMounting.OFFSET_TAG), 0)));
+        return original.add(context.rotation.apply(new Vec3(0, PantographMounting.savedOffset(context.blockEntityData), 0)));
     }
     @Inject(method = "getConnectorPos", at = @At("RETURN"), cancellable = true)
     private void kuayue$moveContact(float extension, MovementContext context, CallbackInfoReturnable<Vec3> callback) {
-        double offset = context.blockEntityData.getDouble(PantographMounting.OFFSET_TAG);
+        double offset = PantographMounting.savedOffset(context.blockEntityData);
         callback.setReturnValue(callback.getReturnValue().add(context.rotation.apply(new Vec3(0, offset, 0))));
     }
 
@@ -31,7 +31,9 @@ public abstract class PantographMovementMixin {
     private void kuayue$lowerBase(MovementContext context, VirtualRenderWorld world, ContraptionMatrices matrices,
                                   MultiBufferSource buffer, CallbackInfo callback) {
         matrices.getModel().pushPose();
-        matrices.getModel().translate(0, context.blockEntityData.getDouble(PantographMounting.OFFSET_TAG), 0);
+        matrices.getModel().translate(0, PantographMounting.savedOffset(context.blockEntityData), 0);
+        com.misaka10843.kuayue_neo21.client.PantographBaseModels.render(context.state, matrices.getModel(), buffer,
+                net.minecraft.client.renderer.LevelRenderer.getLightColor(world, context.localPos), net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY);
     }
 
     @Inject(method = "renderInContraption", at = @At("RETURN"))

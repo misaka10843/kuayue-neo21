@@ -19,6 +19,7 @@ public abstract class PantographRendererMixin {
                                   int light, int overlay, CallbackInfo callback) {
         pose.pushPose();
         if (entity.getLevel() != null) pose.translate(0, PantographMounting.offset(entity.getLevel(), entity.getBlockPos()), 0);
+        com.misaka10843.kuayue_neo21.client.PantographBaseModels.render(entity.getBlockState(), pose, buffer, light, overlay);
     }
 
     @Inject(method = "renderSafe(Lcom/george_vi/electroenergetics/content/railway_electrification/pantograph/PantographBlockEntity;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;II)V", at = @At("RETURN"))

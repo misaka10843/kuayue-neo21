@@ -94,6 +94,7 @@ public final class PortAuditProvider implements DataProvider {
                     try { Class.forName("com.george_vi.electroenergetics.simulation.infrastructure.CatenaryModule").getDeclaredMethods(); }
                     catch (ReflectiveOperationException error) { throw new IllegalStateException(error); }
                     report.put("electroEnergeticsMixinTargets", 7);
+                    report.put("pantographBaseModels", PantographModelAudit.run(failures));
                 }
                 report.put("vehicleInteractions", VehicleInteractionAudit.run(failures));
                 report.put("vehiclePlacement", VehiclePlacementAudit.run(failures));

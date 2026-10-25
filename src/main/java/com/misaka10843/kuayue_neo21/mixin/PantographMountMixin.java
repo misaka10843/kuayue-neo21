@@ -25,8 +25,10 @@ public abstract class PantographMountMixin {
     @Inject(method = "write", at = @At("TAIL"))
     private void kuayue$saveMount(CompoundTag tag, HolderLookup.Provider registries, boolean clientPacket, CallbackInfo callback) {
         BlockEntity entity = (BlockEntity) (Object) this;
-        if (entity.getLevel() != null)
+        if (entity.getLevel() != null) {
             tag.putDouble(PantographMounting.OFFSET_TAG, PantographMounting.offset(entity.getLevel(), entity.getBlockPos()));
+            tag.putInt(PantographMounting.VERSION_TAG, 2);
+        }
     }
 
     @Inject(method = "getConnectorPos", at = @At("RETURN"), cancellable = true)

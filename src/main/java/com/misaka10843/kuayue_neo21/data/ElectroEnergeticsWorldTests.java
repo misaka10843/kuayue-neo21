@@ -29,11 +29,16 @@ public final class ElectroEnergeticsWorldTests {
             helper.setBlock(roof.above(), pantograph);
             BlockPos absolute = helper.absolutePos(roof.above());
             double offset = PantographMounting.offset(level, absolute);
-            helper.assertTrue(Math.abs(offset + 13.0 / 16) < 0.00001, "Pantograph base does not meet half-height roof");
+            helper.assertTrue(Math.abs(offset + 0.5) < 0.00001, "Pantograph feet do not meet half-height roof");
             var entity = level.getBlockEntity(absolute);
             var saved = entity.saveWithoutMetadata(level.registryAccess());
             helper.assertTrue(Math.abs(saved.getDouble(PantographMounting.OFFSET_TAG) - offset) < 0.00001,
                     "Assembly NBT lost pantograph mount offset");
+            var legacy = new net.minecraft.nbt.CompoundTag();
+            legacy.putDouble(PantographMounting.OFFSET_TAG, -13.0 / 16);
+            helper.assertTrue(Math.abs(PantographMounting.savedOffset(legacy) - offset) < 0.00001, "Legacy assembly offset did not migrate");
+            helper.assertTrue(saved.getInt(PantographMounting.VERSION_TAG) == 2
+                    && PantographMounting.savedOffset(saved) == offset, "Current assembly offset migrated twice");
             helper.setBlock(6, 2, 3, InfrastructureBlocks.OVERHEAD_PILLAR_STEEL.get());
             var mount = BuiltInRegistries.BLOCK.get(ResourceLocation.parse("electroenergetics:pole_mount"));
             helper.setBlock(new BlockPos(7, 2, 3), mount.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST));
