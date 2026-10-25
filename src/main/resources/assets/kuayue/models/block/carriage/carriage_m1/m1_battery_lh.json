@@ -194,7 +194,8 @@
             16,
             3.875
           ],
-          "texture": "#0"
+          "texture": "#0",
+          "cullface": "north"
         },
         "east": {
           "uv": [
@@ -203,7 +204,8 @@
             16,
             5.875
           ],
-          "texture": "#0"
+          "texture": "#0",
+          "cullface": "east"
         },
         "south": {
           "uv": [
@@ -212,7 +214,8 @@
             16,
             7.875
           ],
-          "texture": "#0"
+          "texture": "#0",
+          "cullface": "south"
         },
         "west": {
           "uv": [
@@ -221,7 +224,8 @@
             16,
             1.875
           ],
-          "texture": "#0"
+          "texture": "#0",
+          "cullface": "west"
         },
         "up": {
           "uv": [

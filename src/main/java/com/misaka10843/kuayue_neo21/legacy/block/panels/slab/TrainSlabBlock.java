@@ -27,12 +27,12 @@ public class TrainSlabBlock extends TrainPanelBlock implements IWrenchable {
     public final boolean carport;
 
     public TrainSlabBlock(Properties pProperties, boolean isCarport) {
-        super(pProperties);
+        super(com.misaka10843.kuayue_neo21.content.VehicleSlabLighting.opaque(pProperties));
         this.carport = isCarport;
     }
 
     public TrainSlabBlock(Properties properties, boolean isCarport, int left, int right){
-        super(properties, new Vec2(left, 0), new Vec2(right, 1));
+        super(com.misaka10843.kuayue_neo21.content.VehicleSlabLighting.opaque(properties), new Vec2(left, 0), new Vec2(right, 1));
         this.carport = isCarport;
     }
 
@@ -45,6 +45,14 @@ public class TrainSlabBlock extends TrainPanelBlock implements IWrenchable {
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return getShape(pState, pLevel, pPos, pContext);
+    }
+
+    @Override
+    protected boolean useShapeForLightOcclusion(BlockState state) { return true; }
+
+    @Override
+    public VoxelShape getOcclusionShape(BlockState state, BlockGetter level, BlockPos pos) {
+        return com.misaka10843.kuayue_neo21.content.VehicleSlabLighting.localOcclusion(getShape(state, level, pos, CollisionContext.empty()));
     }
 
     @Override

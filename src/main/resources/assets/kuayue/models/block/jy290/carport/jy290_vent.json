@@ -512,7 +512,8 @@
             8,
             0.25
           ],
-          "texture": "#13"
+          "texture": "#13",
+          "cullface": "north"
         },
         "east": {
           "uv": [
@@ -521,7 +522,8 @@
             2,
             5.75
           ],
-          "texture": "#13"
+          "texture": "#13",
+          "cullface": "east"
         },
         "south": {
           "uv": [
@@ -530,7 +532,8 @@
             2,
             5.875
           ],
-          "texture": "#13"
+          "texture": "#13",
+          "cullface": "south"
         },
         "west": {
           "uv": [
@@ -539,7 +542,8 @@
             2,
             6
           ],
-          "texture": "#13"
+          "texture": "#13",
+          "cullface": "west"
         },
         "up": {
           "uv": [
@@ -559,7 +563,8 @@
             6
           ],
           "rotation": 270,
-          "texture": "#13"
+          "texture": "#13",
+          "cullface": "down"
         }
       }
     },

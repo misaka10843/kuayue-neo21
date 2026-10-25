@@ -3,6 +3,7 @@
   "asset_files": 3157,
   "missing_blockstates": [],
   "missing_asset_references": [],
+  "slabBoundaryCullfaces": 240,
   "primarySource": "KuaYue 1.21.1",
   "officialAssetFiles": 3116,
   "fallbackAssetFiles": 41

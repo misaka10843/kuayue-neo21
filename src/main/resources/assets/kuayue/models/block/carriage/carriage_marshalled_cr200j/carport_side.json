@@ -55,7 +55,8 @@
             6,
             4
           ],
-          "texture": "#6"
+          "texture": "#6",
+          "cullface": "south"
         },
         "west": {
           "uv": [
@@ -82,7 +83,8 @@
             8,
             7.75
           ],
-          "texture": "#6"
+          "texture": "#6",
+          "cullface": "down"
         }
       }
     },

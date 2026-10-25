@@ -16,7 +16,7 @@ public class HeightSlabBlock extends SlabBlock implements IWrenchable {
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     public HeightSlabBlock(Properties pProperties) {
-        super(pProperties);
+        super(com.misaka10843.kuayue_neo21.content.VehicleSlabLighting.opaque(pProperties));
         registerDefaultState(this.getStateDefinition().any()
                 .setValue(FACING, Direction.EAST));
     }
