@@ -4,6 +4,8 @@ This implementation operates on actual Create trains, carriages, spacing, bogey 
 
 ## Implemented controls
 
+Successful manual coupling, automatic coupling and uncoupling play the original NeoKuayue `kuayue:coupler` sound event (eight random Vorbis clips, shared by coupling and release in the original implementation) and its short CRIT particle effect. Selection, rejection and failed operations stay silent. The real server broadcasts effects once; clients do not replay them from the topology packet. Source: `ConductorHelper.playEffects` and `resources/generated/systems/train_extension`. Source/resource licenses remain in the packaged notices. The importer maintains sound definitions and files; static checks validate Ogg page checksums and referenced sound paths. Actual playback and volume are user game checks.
+
 - Stop and pause the schedule before using a Create wrench. Only the owner or an operator can manually change the train.
 - Wrench a connected end/coupler to split that boundary. Both adjacent carriages must have ported coupling parts. The rear portion becomes a separate train. Carriages, cargo and bogey data retain their identity; the original train keeps its schedule and the new portion receives no duplicate schedule or consumed fuel.
 - Wrench an external coupler, then the nearby external coupler on another train within 30 seconds to connect. Both trains must be stopped on the same track graph, in one dimension, with opposite ends selected and matching world orientation. Remove any rear-train schedule before merging. The selected couplers must be within two blocks.

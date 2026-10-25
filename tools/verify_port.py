@@ -6,6 +6,7 @@ import zlib
 from pathlib import Path
 from generate_data import MOD, PREFIX, output_ids
 from asset_references import asset_references, asset_path, verify_png
+from sound_assets import verify_ogg
 
 
 def references(value):
@@ -67,6 +68,11 @@ def main():
                 verify_png(file.read_bytes())
             except (ValueError, zlib.error) as error:
                 errors.append('Invalid image ' + key + ': ' + str(error))
+        elif file.suffix == '.ogg':
+            try:
+                verify_ogg(file.read_bytes())
+            except ValueError as error:
+                errors.append('Invalid sound ' + key + ': ' + str(error))
         elif file.suffix in ['.obj', '.mtl']:
             text = file.read_text(encoding='utf-8-sig')
             if 'kuayueneo21:' in text:
@@ -135,6 +141,7 @@ def main():
     report = {'obtainableBlocks': len(targets), 'materials': len(materials), 'assetFiles': len(assets),
               'recipes': len(recipes), 'reachableBlocks': len(targets & reachable),
               'verifiedPngTextures': sum(file.suffix == '.png' for file in assets.values()),
+              'verifiedOggSounds': sum(file.suffix == '.ogg' for file in assets.values()),
               'unreachableMaterials': sorted({PREFIX + id for id in materials} - reachable - transitional),
               'failures': sorted(set(errors))}
     if args.jar:

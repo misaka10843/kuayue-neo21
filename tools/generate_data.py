@@ -266,6 +266,7 @@ def main():
         save(GENERATED / 'assets' / MOD / 'blockstates' / (id + '.json'), {'variants': {'': {'model': 'minecraft:block/air'}}})
     for locale in ['en_us', 'zh_cn']:
         language = json.loads((Path('src/porting/languages') / (locale + '.json')).read_text(encoding='utf-8'))
+        language['sounds.kuayue.coupler'] = '车钩挂接或解锁' if locale == 'zh_cn' else 'Train coupler clanks'
         tab_names = {'carriages': '客车与货车', 'locomotives': '机车', 'interiors': '内饰与设备', 'bogeys': '转向架', 'materials': '车辆制造材料', 'infrastructure': '轨道、设施与建筑'}
         coupling_messages = {
             'unsafe': ('请停车、暂停时刻表，并操作你有权限的同维度列车。', 'Stop, pause the schedule, and use a train you own in one dimension.'),

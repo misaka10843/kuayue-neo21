@@ -85,6 +85,7 @@ def main():
     ids.update(bogey_ids)
     materials = set(json.loads(Path('src/porting/materials.json').read_text(encoding='utf-8')))
     assets, recipes, tags = load_modules(args.source)
+    coupler_sound = assets.get('assets/kuayue/sounds.json', {}).get('coupler')
     official_assets = {}
     if args.official_source:
         official_assets, official_recipes, official_tags = load_modules(args.official_source)
@@ -108,6 +109,8 @@ def main():
         model['textures']['particle'] = f'kuayue:block/vacuum_toilet_{number}'
     output = Path('src/main/resources/assets') / MOD
     selected, missing_states = {}, []
+    if coupler_sound:
+        selected['assets/kuayue/sounds.json'] = {'coupler': coupler_sound}
     for id in sorted(ids | materials):
         prefix = 'assets/kuayue/'
         for kind in ['blockstates', 'models/item']:

@@ -8,7 +8,13 @@ def asset_references(value):
             yield from asset_references(item)
     elif isinstance(value, dict):
         for key, item in value.items():
-            if key == 'textures' and isinstance(item, dict):
+            if key == 'sounds' and isinstance(item, list):
+                for sound in item:
+                    if isinstance(sound, str):
+                        yield 'sound', sound
+                    elif isinstance(sound, dict) and sound.get('type', 'file') == 'file':
+                        yield 'sound', sound['name']
+            elif key == 'textures' and isinstance(item, dict):
                 for texture in item.values():
                     if isinstance(texture, str) and not texture.startswith('#'):
                         yield 'texture', texture
@@ -23,7 +29,7 @@ def asset_references(value):
 def asset_path(kind, reference):
     namespace, path = reference.split(':', 1) if ':' in reference else ('minecraft', reference)
     path = path.replace('//', '/')
-    suffix = {'texture': 'textures/' + path + '.png', 'model': 'models/' + path + '.json', 'file': path}[kind]
+    suffix = {'texture': 'textures/' + path + '.png', 'model': 'models/' + path + '.json', 'sound': 'sounds/' + path + '.ogg', 'file': path}[kind]
     return 'assets/' + namespace + '/' + suffix
 
 

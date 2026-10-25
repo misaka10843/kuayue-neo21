@@ -731,6 +731,7 @@
   "tech_tree.kuayue.exp_unlock_false": "需要更高等级",
   "tech_tree.kuayue.exp_unlock_true": "满足等级条件",
   "tech_tree.kuayue.group.ready": "前置科技",
+  "sounds.kuayue.coupler": "车钩挂接或解锁",
   "message.kuayue.coupling.unsafe": "请停车、暂停时刻表，并操作你有权限的同维度列车。",
   "message.kuayue.coupling.failed": "当前车钩无法执行此操作。",
   "message.kuayue.coupling.split": "已摘钩，后方车厢成为独立列车。",

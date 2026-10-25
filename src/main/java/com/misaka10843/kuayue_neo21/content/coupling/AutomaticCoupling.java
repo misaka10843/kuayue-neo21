@@ -46,6 +46,7 @@ public final class AutomaticCoupling {
                 front.collectInitiallyOccupiedSignalBlocks();
                 Create.RAILWAYS.markTracksDirty();
                 PacketDistributor.sendToAllPlayers(new TrainTopologyPayload(front.id, rear.id, 0, spacing, false));
+                CouplingEffects.play((net.minecraft.server.level.ServerLevel) firstEntity.level(), frontPoint.add(rearPoint).scale(0.5));
                 return;
             }
         }

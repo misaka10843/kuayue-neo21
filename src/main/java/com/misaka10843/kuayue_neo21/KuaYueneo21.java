@@ -30,6 +30,7 @@ public class KuaYueneo21 {
         com.misaka10843.kuayue_neo21.content.PortEntityType.TYPES.register(modEventBus);
         com.misaka10843.kuayue_neo21.legacy.initial.AllEntities.TYPES.register(modEventBus);
         com.misaka10843.kuayue_neo21.content.VehicleTabs.TABS.register(modEventBus);
+        com.misaka10843.kuayue_neo21.content.coupling.CouplingEffects.SOUNDS.register(modEventBus);
         modEventBus.addListener((net.neoforged.neoforge.data.event.GatherDataEvent event) ->
                 event.addProvider(new com.misaka10843.kuayue_neo21.data.PortAuditProvider(event.getLookupProvider())));
         modEventBus.addListener((net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent event) ->

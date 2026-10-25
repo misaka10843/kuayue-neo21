@@ -61,6 +61,7 @@ public final class CouplerInteraction extends MovingInteractionBehaviour {
             Create.RAILWAYS.markTracksDirty();
             PacketDistributor.sendToAllPlayers(new TrainTopologyPayload(train.id, newId, boundary, 0, true));
             SELECTED.remove(player.getUUID());
+            CouplingEffects.play((net.minecraft.server.level.ServerLevel) entity.level(), entity.toGlobalVector(Vec3.atCenterOf(pos), 1));
             return message(player, "split");
         }
         Vec3 position = entity.toGlobalVector(Vec3.atCenterOf(pos), 1);
@@ -90,6 +91,7 @@ public final class CouplerInteraction extends MovingInteractionBehaviour {
         front.collectInitiallyOccupiedSignalBlocks();
         Create.RAILWAYS.markTracksDirty();
         PacketDistributor.sendToAllPlayers(new TrainTopologyPayload(front.id, rear.id, 0, spacing, false));
+        CouplingEffects.play((net.minecraft.server.level.ServerLevel) entity.level(), position);
         return message(player, "merged");
     }
 
