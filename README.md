@@ -1,49 +1,75 @@
-## info (WIP)
+# 跨越：独立移植（KuaYue: Standalone）
 
-一个将跨越模组的大部分方块先移植到1.21.1 neoforge的mod
+把跨越的车辆部件、轨道和建筑方块带到 Minecraft 1.21.1，配合 Create 搭车、组装和行驶。这个非官方移植以 KuaYue 的 1.21.1 源码为主，部分内容取自 NeoKuayue，移除了 KasugaLib、Micronaut 和原有注册框架依赖。
 
-为了不让自己等的太久所搓出来的mod，可能与跨越的小部分功能不同
+保留 `kuayue` 模组 ID，方便读取原模组蓝图中已移植的方块。不能与同 ID 的官方跨越同时安装，也没有为早期 `kuayueneo21` 测试存档提供转换工具。
 
-移植方块及其交互和 Create 联动；驾驶控制和跨越自身受电弓仍排除，供电与受电弓使用机械动力：电力学。
+## 运行环境
 
-## 当前版本
+- Minecraft 1.21.1、Java 21、NeoForge 21.1.264。
+- Create 6.0.10 及其匹配依赖。
+- 可选安装机械动力：电力学（Create: Electro-Energetics）。当前兼容检查使用 1.1.4，不装它也可以使用车辆、轨道和建筑方块。
 
-1.4.0 恢复手动／自动挂钩、摘钩的原版八段随机音效及粒子；含跨越部件列车的同轨纵向碰撞加入重量、速度交换与回弹，保留轨道并暂停时刻表。重量计入结构、物品与流体，碰撞速度同步不替换客户端库存。侧撞、纯原版列车和跨维度列车保留 Create 原生处理。见[碰撞说明](docs/train-collisions.md)，实际声音、行驶与多人效果待游戏验收。
+## 移植了什么
 
-1.3.1 修正电力学受电弓仅移动弓架、底座未移动及偏移量错误，并兼容旧组装偏移；修复挂摘钩重绑客户端车厢库存导致的崩溃。自动检查与待游戏复测项目见[当前状态](docs/porting-status.md)。
+当前有 **491 个可获得方块**，其中包含 **53 个转向架**；另有九种内部扩展方块和 534 条制作配方。具体 ID 见[方块清单](docs/legacy-blocks.json)和[转向架清单](docs/legacy-bogeys.json)。
 
-1.3.0 加入五种轨道、普通设施与装饰材料、接触网支柱／桁架，以及电力学接触网架和车顶受电弓底座兼容。蓝图床头回调已修正，并加入实际服务端放置回归。[蓝图兼容范围](docs/schematic-compatibility.md)、[当前状态](docs/porting-status.md)。
+| 类别 | 内容 |
+| --- | --- |
+| 客车部件 | 22 型、25B/G/K/T/Z、25 型通用部件、M1/JY30、CR200J |
+| 机车部件 | DF11、DF11G、DF21、DF5、HXD3D、SS3、SS8、JY290 |
+| 货车部件 | C70、NX70 |
+| 内饰与装饰 | 座椅、桌子、灯具、车底设备、CR 标志、240km 纪念装饰等 |
+| 转向架 | 已注册的客车、货车、机车和米轨转向架，包括相应的正反向、动力和安山岩变体；QJ、DFH21 等只包含转向架 |
+| 轨道 | 标准、无枕、无砟、米轨、护轨五类 |
+| 建筑与材料 | 站台门／墙、装饰板、石英装饰、盐矿／盐块、耐候钢、接触网柱和桁架等普通方块 |
 
-当前共 491 个可获得方块（含 53 个转向架）和 534 条制作配方，另有九种隐藏扩展块。米轨与对应转向架共用独立轨道类型。蓝图工作台和科技解锁已移除。同向列车支持真实挂摘钩；头对头／尾对尾反向重映射仍未完成，详见[挂摘钩说明](docs/train-coupling.md)。客户端、视觉及完整游戏行为等待用户验收。
+车辆部件保留门窗开关、乘坐、灯光、辅助铺设、动画和必要的 Create 行为。左右相邻、同款同朝向且铰链相对的两扇门可一起开关，上层扩展块也能触发。转向架接入 Create 的轨道放置、样式切换、组装和渲染；米轨使用独立轨道类型。
 
-运行环境：Minecraft 1.21.1、NeoForge 21.1.264、Java 21、Create 6.0.10 及其匹配依赖。完整依赖见 [资源来源与维护](docs/resource-provenance.md)。
+制作使用原版工作台和 Create 加工链。蓝图工作台、蓝图物品和科技解锁步骤已移除，可获得方块仍有生存制作路径。
 
-## 构建与检查
+### 挂摘钩与碰撞
 
-普通构建使用仓库内的生成资源，不需要旧项目或官方源码目录：
+支持同向编组的手动挂钩、低速自动联挂和摘钩，并恢复原车钩音效与粒子。手动操作前停车、暂停时刻表，再用扳手选择车端；已连接车端可拆分编组。**头对头、尾对尾联挂的整车反向重映射尚未实现。** 操作条件见[挂摘钩说明](docs/train-coupling.md)。
+
+含本模组部件的列车发生同轨纵向碰撞时，会按结构、载货与速度计算冲击和回弹，保留轨道并暂停时刻表。侧撞、纯 Create 列车和跨维度编组沿用 Create 原生处理。见[碰撞说明](docs/train-collisions.md)。
+
+### 电力学兼容
+
+接触网柱和结构支撑可以配合电力学的接触网架使用。电力学受电弓的安装偏移按车顶表面计算，底座和弓架一起移动，也保存组装后的偏移；升降和供电仍由电力学负责。见[兼容说明](docs/electroenergetics-compatibility.md)。
+
+## 没有移植什么
+
+- 跨越自己的接触线、电气系统和受电弓；供电使用电力学。
+- 驾驶控制设备和驾驶席功能。
+- 需要 GUI 编辑的水牌、标牌及公司定制系统，暂缓移植。
+- 蓝图工作台、蓝图物品和科技树。
+
+原蓝图若包含这些内容或其他模组方块，仍需要替换或安装对应模组。例如 `railways:link_and_pin` 不在本项目内。已包含部件的蓝图兼容范围见[蓝图说明](docs/schematic-compatibility.md)。
+
+## 验证情况
+
+自动检查覆盖编译、打包、配方解码与原料可达性、模型／贴图／音频引用、去库化，以及服务端的蓝图放置、门交互、挂摘钩、碰撞和电力学兼容回归。地板遮光与原版台阶作了对照，保留正常明暗变化。
+
+客户端与游戏测试由使用者完成。门的实际动画、地板在光影下的表现、完整列车运行和多人同步仍需游戏内复测；自动检查结果不代替这些验收。[当前状态](docs/porting-status.md)记录每次交付的结果，[游戏测试清单](docs/gameplay-checklist.md)列出复测项目。
+
+## 构建
+
+普通构建直接使用仓库内的生成资源，不需要额外下载原项目源码：
 
 ```powershell
 ./gradlew.bat build
 ```
 
-修改配方源、语言源或生成规则后，使用已安装的 uv 执行：
+修改配方、语言或生成规则后，安装 uv 并执行：
 
 ```powershell
 ./gradlew.bat generatePortData
 ./gradlew.bat verifyPortResources runData build
 ```
 
-`runData` 只执行注册表和数据检查，输出到 `build/datagen`，不会清理 `src/generated/resources`。JAR 位于 `build/libs/`。
+JAR 输出到 `build/libs/`。`runData` 的检查结果位于 `build/datagen`，不会清理已提交的生成资源。生成入口和维护方式见[资源来源与维护](docs/resource-provenance.md)。
 
-若当前 Windows 桌面环境出现 `Unable to establish loopback connection`，可仅为构建进程指定已存在的短临时路径，例如 `$env:JAVA_TOOL_OPTIONS='-Djdk.net.unixdomain.tmpdir=D:/Temp'`。不要为此修改系统 Java 或全局设置。
+## 来源与许可
 
-## 项目文档
-
-- [仓库约束](AGENTS.md)
-- [移植范围](docs/porting-plan.md)
-- [完成情况与自动验证](docs/porting-status.md)
-- [游戏内验收清单](docs/gameplay-checklist.md)
-- [资源来源、许可证与生成入口](docs/resource-provenance.md)
-- [官方 1.21.1 源码适配与去库化](docs/official-port.md)
-
-原 NeoKuayue 代码的 MIT 许可证与资源的 CC-BY-SA-4.0 许可证保存在 `src/main/resources/META-INF/licenses/` 并随 JAR 分发。
+感谢 KuaYue 和 NeoKuayue 原作者提供代码与资源。本项目保留原代码的 MIT 许可、资源的 CC-BY-SA-4.0 许可及署名，许可证随 JAR 放在 `META-INF/licenses/`。来源映射见[资源来源](docs/resource-provenance.md)，适配方式见[官方源码适配与去库化](docs/official-port.md)。
