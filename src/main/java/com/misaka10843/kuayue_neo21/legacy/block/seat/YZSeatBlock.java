@@ -8,6 +8,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.common.util.FakePlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.player.Player;
@@ -113,7 +116,7 @@ public class YZSeatBlock extends SeatBlock implements IWrenchable, IBE<SeatBlock
             BlockHitResult p_225533_6_) {
         InteractionHand hand = InteractionHand.MAIN_HAND;
 
-        if (player.isShiftKeyDown()) return InteractionResult.PASS;
+        if (player.isShiftKeyDown() || player instanceof FakePlayer) return InteractionResult.PASS;
 
         if (world.isClientSide) return InteractionResult.SUCCESS;
 
@@ -123,6 +126,16 @@ public class YZSeatBlock extends SeatBlock implements IWrenchable, IBE<SeatBlock
 
         sitAvailable(world, state, pos, player);
         return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                               Player player, InteractionHand hand, BlockHitResult hit) {
+        if (player.isShiftKeyDown() || player instanceof FakePlayer || stack.is(com.simibubi.create.AllItems.WRENCH.get())) {
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+        if (!level.isClientSide) sitAvailable(level, state, pos, SeatBlock.getLeashed(level, player).or(player));
+        return ItemInteractionResult.sidedSuccess(level.isClientSide);
     }
 
     public void sitAvailable(Level world, BlockState state, BlockPos pos, Entity passenger) {
