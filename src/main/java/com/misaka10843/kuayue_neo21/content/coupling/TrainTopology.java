@@ -61,8 +61,9 @@ public final class TrainTopology {
             for (var dimension : carriage.getPresentDimensions()) {
                 var entity = carriage.getDimensional(dimension).entity.get();
                 if (entity != null) {
-                    entity.setCarriage(carriage);
-                    entity.syncCarriage();
+                    // setCarriage swaps in the server cargo manager, which is uninitialized on clients.
+                    entity.trainId = train.id;
+                    entity.carriageIndex = train.carriages.indexOf(carriage);
                 }
             }
         }

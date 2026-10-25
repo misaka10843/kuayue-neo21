@@ -19,3 +19,9 @@ Head-to-head and tail-to-tail coupling require reversing assembled carriages, mo
 ## Validation
 
 Native data-run checks split and rejoin four actual Create carriages, preserving identity, spacing, train references and bogey data, and reject invalid boundaries/self-merges. Compilation and packet registration are checked with and without CEE. These do not prove multi-client rendering, signal/station behavior, mounted cargo during travel, automatic approach coupling or saved-world reload. Those require user game tests.
+
+## 1.3.1 storage binding fix
+
+The supplied client crash reports `MountedStorageManager.tick` dereferencing null `syncedItems`. Rebinding through `CarriageContraptionEntity.setCarriage` calls `swapStorageAfterAssembly`, replacing the client's already initialized contraption storage proxy with the network carriage's uninitialized server cargo manager. A topology change retains the same carriage objects and track graph, so it now updates only entity train ID/index. It leaves the existing carriage pointer, storage proxy, anchors and client interpolation intact; normal native ticks continue synchronization.
+
+A headless server regression constructs real carriage entities with the client-style empty cargo managers and initialized contraption storage. It merges/splits three times, checks IDs/indexes and storage identity, and invokes native `Contraption.tickStorage` after each cycle. This exercises the crash's storage tick path without launching a client; multi-client gameplay remains pending.
