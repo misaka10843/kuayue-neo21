@@ -16,15 +16,6 @@
         7,
         16
       ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          4,
-          7
-        ]
-      },
       "faces": {
         "north": {
           "uv": [
@@ -95,15 +86,6 @@
         1,
         14
       ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          4,
-          7
-        ]
-      },
       "faces": {
         "north": {
           "uv": [
@@ -172,15 +154,6 @@
         7,
         14
       ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          4,
-          7
-        ]
-      },
       "faces": {
         "north": {
           "uv": [
@@ -249,15 +222,6 @@
         4.5,
         8.5
       ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          4,
-          7
-        ]
-      },
       "faces": {
         "north": {
           "uv": [
@@ -326,15 +290,6 @@
         3.5,
         4
       ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          4,
-          7
-        ]
-      },
       "faces": {
         "north": {
           "uv": [
@@ -403,15 +358,6 @@
         4.25,
         4
       ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          4,
-          7
-        ]
-      },
       "faces": {
         "north": {
           "uv": [
@@ -480,15 +426,6 @@
         6.25,
         8.5
       ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          4,
-          7
-        ]
-      },
       "faces": {
         "north": {
           "uv": [
@@ -557,15 +494,6 @@
         5.25,
         6.75
       ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          4,
-          7
-        ]
-      },
       "faces": {
         "north": {
           "uv": [
@@ -634,15 +562,6 @@
         2.5,
         1.75
       ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          4,
-          7
-        ]
-      },
       "faces": {
         "north": {
           "uv": [
@@ -942,15 +861,6 @@
         8,
         16.01
       ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          8,
-          4,
-          7
-        ]
-      },
       "faces": {
         "north": {
           "uv": [

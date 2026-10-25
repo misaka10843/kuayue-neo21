@@ -56,18 +56,23 @@ final class SlabSurfaceLightingAudit {
             }
             var sprite = new AuditSprite();
             var renderer = new ModelBlockRenderer(new BlockColors());
-            for (String id : List.of("floor_25b", "floor_25g", "22_floor", "22_floor_center")) {
-                var state = net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(PortRegistration.resource(id)).defaultBlockState();
+            for (String id : List.of("floor_25b", "floor_25g", "floor_25k", "floor_25t", "floor_25z", "panel_slab_universal_25", "22_floor", "22_floor_center")) {
                 var definition = com.google.gson.JsonParser.parseString(Files.readString(project.resolve("src/main/resources/assets/kuayue/blockstates/" + id + ".json"))).getAsJsonObject();
-                var variant = definition.getAsJsonObject("variants").entrySet().iterator().next().getValue().getAsJsonObject();
+                for (var variantEntry : definition.getAsJsonObject("variants").entrySet()) {
+                var state = net.minecraft.core.registries.BuiltInRegistries.BLOCK.get(PortRegistration.resource(id)).defaultBlockState()
+                        .setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING,
+                                net.minecraft.core.Direction.byName(variantEntry.getKey().substring("facing=".length())));
+                var variant = variantEntry.getValue().getAsJsonObject();
                 var model = (BlockModel) source.apply(ResourceLocation.parse(variant.get("model").getAsString()));
                 model.resolveParents(source);
-                var baked = model.bake(null, model, material -> sprite, BlockModelRotation.X0_Y0, true);
+                var rotation = BlockModelRotation.by(variant.has("x") ? variant.get("x").getAsInt() : 0,
+                        variant.has("y") ? variant.get("y").getAsInt() : 0);
+                var baked = model.bakeVanilla(null, model, material -> sprite, rotation, true);
                 if (!baked.useAmbientOcclusion()) failures.add("Floor disables ambient occlusion: " + id);
                 var lights = new ArrayList<List<Integer>>();
                 var level = (BlockAndTintGetter) Proxy.newProxyInstance(BlockAndTintGetter.class.getClassLoader(), new Class<?>[]{BlockAndTintGetter.class}, (proxy, method, args) -> switch (method.getName()) {
                     case "getBlockState" -> ((BlockPos) args[0]).getY() == 0 ? state : Blocks.AIR.defaultBlockState();
-                    case "getBrightness" -> args[0] == LightLayer.SKY ? 0 : Math.max(0, 12 - Math.abs(((BlockPos) args[1]).getX() + 2) - Math.abs(((BlockPos) args[1]).getZ() + 2));
+                    case "getBrightness" -> args[0] == LightLayer.SKY ? 0 : Math.max(0, 15 - 2 * Math.abs(((BlockPos) args[1]).getX() + 2) - Math.abs(((BlockPos) args[1]).getZ() + 2));
                     case "getShade" -> 1f;
                     case "getBlockTint" -> -1;
                     default -> throw new UnsupportedOperationException(method.toString());
@@ -91,7 +96,7 @@ final class SlabSurfaceLightingAudit {
                     if (other.isEmpty()) continue;
                     shared++;
                     if (vertex.blockLight != other.get().blockLight || vertex.skyLight != other.get().skyLight || vertex.red != other.get().red)
-                        failures.add("Floor light seam at " + id + ": " + vertex.z);
+                        failures.add("Floor light seam at " + id + "/" + variantEntry.getKey() + ": " + vertex.z);
                 }
                 if (shared < 2) failures.add("Missing adjacent floor vertices: " + id);
                 if (first.stream().map(vertex -> vertex.blockLight).distinct().count() < 2) failures.add("Floor light was flattened: " + id);
@@ -119,9 +124,16 @@ final class SlabSurfaceLightingAudit {
                     details.put("sodiumQuadFlags", quadType.getMethod("getFlags").invoke(top.getFirst()));
                     pipelineType.getMethod("calculate", quadType, BlockPos.class, outputType, net.minecraft.core.Direction.class, net.minecraft.core.Direction.class, boolean.class, boolean.class)
                             .invoke(pipeline, top.getFirst(), BlockPos.ZERO, output, net.minecraft.core.Direction.UP, net.minecraft.core.Direction.UP, true, false);
-                    details.put("sodiumVertexLights", java.util.Arrays.stream((int[]) outputType.getField("lm").get(output)).boxed().toList());
+                    int[] sodiumLights = (int[]) outputType.getField("lm").get(output);
+                    details.put("sodiumVertexLights", java.util.Arrays.stream(sodiumLights).boxed().toList());
+                    for (int index = 0; index < 4; index++) {
+                        var vertex = first.get(index);
+                        if (sodiumLights[index] != (vertex.blockLight | vertex.skyLight << 16))
+                            failures.add("Sodium floor sampling differs: " + id + "/" + variantEntry.getKey());
+                    }
                 }
-                observations.put(id, details);
+                observations.put(id + "/" + variantEntry.getKey(), details);
+                }
             }
         }
         return observations;

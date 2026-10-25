@@ -30,7 +30,7 @@ The implementer runs compilation, packaging, generation and static resource/reci
 
 Validate texture references against actual PNG files, model references against model definitions, and OBJ references against geometry/material files. A same-named model must never satisfy a texture dependency. Validate image contents and exercise Create integration APIs separately from recipe/registry checks.
 
-Floor lighting validation must include baked model AO flags and rendered vertex light continuity across adjacent faces. Server light propagation alone does not validate smooth surface lighting. Keep visual reports unresolved until the reported client path is explained or retested; diagnostic builds must be labeled explicitly.
+Floor lighting validation must include baked model AO flags and rendered vertex light continuity across adjacent faces in all blockstate rotations. Compare shared world-space vertices, not vertex array indices. Zero-angle element rotations still suppress native FaceBakery winding repair; remove identity rotations through the model importer while preserving real rotations and rescaling. Server light propagation alone does not validate smooth surface lighting. Keep visual reports unresolved until the reported client path is explained or retested; diagnostic builds must be labeled explicitly.
 
 ## Work and Git
 

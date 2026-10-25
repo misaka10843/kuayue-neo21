@@ -23,15 +23,6 @@
         5.5,
         9.45
       ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          27,
-          4,
-          3.45
-        ]
-      },
       "faces": {
         "north": {
           "uv": [
@@ -100,15 +91,6 @@
         3.75,
         10.45
       ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          27,
-          2,
-          3.45
-        ]
-      },
       "faces": {
         "north": {
           "uv": [
@@ -177,15 +159,6 @@
         8,
         16
       ],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [
-          -172,
-          4,
-          -16
-        ]
-      },
       "faces": {
         "north": {
           "uv": [

@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 from extract_legacy import extract, strip_comments
 from asset_references import asset_references, asset_path
-from slab_models import add_boundary_cullfaces
+from slab_models import add_boundary_cullfaces, remove_identity_rotations
 
 MOD = 'kuayue'
 
@@ -182,6 +182,7 @@ def main():
             state = selected.get('assets/kuayue/blockstates/' + record['id'] + '.json', {})
             slab_models.extend(asset_path(kind, ref) for kind, ref in asset_references(state) if kind == 'model' and ref.startswith('kuayue:'))
     slab_cullfaces = 0
+    slab_identity_rotations = 0
     while slab_models:
         key = slab_models.pop()
         if key in visited_models:
@@ -190,6 +191,7 @@ def main():
         model = selected.get(key)
         if not isinstance(model, dict):
             continue
+        slab_identity_rotations += remove_identity_rotations(model)
         slab_cullfaces += add_boundary_cullfaces(model)
         slab_models.extend(asset_path(kind, ref) for kind, ref in asset_references(model) if kind == 'model' and ref.startswith('kuayue:'))
     for key, value in assets.items():
@@ -221,6 +223,7 @@ def main():
     Path('src/porting/block-tags.json').write_text(json.dumps(remap(tags), ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     report = {'blocks': len(ids), 'asset_files': len(selected), 'missing_blockstates': missing_states, 'missing_asset_references': sorted(missing_refs)}
     report['slabBoundaryCullfaces'] = slab_cullfaces
+    report['slabIdentityRotationsRemoved'] = slab_identity_rotations
     if args.official_source:
         report['primarySource'] = 'KuaYue 1.21.1'
         report['officialAssetFiles'] = len(set(selected) & official_assets.keys())

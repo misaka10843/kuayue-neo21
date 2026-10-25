@@ -1,3 +1,14 @@
+def remove_identity_rotations(model):
+    changed = 0
+    for element in model.get('elements', []):
+        rotation = element.get('rotation')
+        if rotation and rotation.get('angle') == 0 and not rotation.get('rescale', False):
+            # A zero-angle rotation still suppresses FaceBakery's vertex winding repair.
+            del element['rotation']
+            changed += 1
+    return changed
+
+
 def add_boundary_cullfaces(model):
     changed = 0
     boundaries = {'west': (0, 0, 'from'), 'east': (0, 16, 'to'),
