@@ -26,15 +26,25 @@ public final class VehicleDoorInteraction extends SimpleBlockMovingInteraction {
         var infoAtRoot = entity.getContraption().getBlocks().get(root);
         if (infoAtRoot == null || !canInteract(infoAtRoot.state())) return false;
         if (player.level().isClientSide) return true;
+        var roots = VehicleDoorPairs.roots(root, infoAtRoot.state(), pos -> {
+            var info = entity.getContraption().getBlocks().get(pos);
+            return info == null ? net.minecraft.world.level.block.Blocks.AIR.defaultBlockState() : info.state();
+        });
         if (!super.handlePlayerInteraction(player, hand, root, entity)) return false;
         var contraption = entity.getContraption();
         boolean open = contraption.getBlocks().get(root).state().getValue(BlockStateProperties.OPEN);
+        for (BlockPos paired : roots) {
+            if (paired.equals(root)) continue;
+            var info = contraption.getBlocks().get(paired);
+            if (info.state().getValue(BlockStateProperties.OPEN) != open)
+                setContraptionBlockData(entity, paired, new StructureBlockInfo(info.pos(), info.state().setValue(BlockStateProperties.OPEN, open), info.nbt()));
+        }
         for (var entry : List.copyOf(contraption.getBlocks().entrySet())) {
             var info = entry.getValue();
             if (!(info.state().getBlock() instanceof CompanyTrainPanel) || !info.state().hasProperty(BlockStateProperties.OPEN) || info.nbt() == null) continue;
             var tag = info.nbt();
             BlockPos parent = entry.getKey().offset(tag.getInt("px"), tag.getInt("py"), tag.getInt("pz"));
-            if (parent.equals(root)) setContraptionBlockData(entity, entry.getKey(),
+            if (roots.contains(parent)) setContraptionBlockData(entity, entry.getKey(),
                     new StructureBlockInfo(info.pos(), info.state().setValue(BlockStateProperties.OPEN, open), info.nbt()));
         }
         contraption.invalidateColliders();

@@ -61,15 +61,7 @@ public class TrainSmallWindowBlock extends TrainPanelBlock {
         if (player.getItemInHand(hand).getItem() instanceof BlockItem) return InteractionResult.PASS;
         if (level.isClientSide) return InteractionResult.SUCCESS;
         boolean open = !state.getValue(OPEN);
-        BlockUseFunction function = (l, parentPos, parentState, myPos, myState, player1, hand1, hit1) -> {
-            if(!myState.hasProperty(OPEN)) return InteractionResult.PASS;
-            if (!myPos.equals(pos) && (!(myState.getBlock() instanceof com.misaka10843.kuayue_neo21.legacy.block.panels.base.CompanyTrainPanel)
-                    || !pos.equals(com.misaka10843.kuayue_neo21.legacy.block.panels.base.CompanyTrainPanel.getParentPos(level, myPos)))) return InteractionResult.PASS;
-            myState = myState.setValue(OPEN, open);
-            level.setBlock(myPos, myState, 10);
-            return InteractionResult.sidedSuccess(l.isClientSide);
-        };
-        ((TrainPanelBlock)state.getBlock()).walkAllValidPos(level, pos, state, player, hand, hit, function);
+        com.misaka10843.kuayue_neo21.content.VehicleDoorPairs.setOpen(level, pos, state, open);
         playDoorSound(level, pos, material, open);
         level.gameEvent(player, open ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pos);
         return InteractionResult.sidedSuccess(level.isClientSide);

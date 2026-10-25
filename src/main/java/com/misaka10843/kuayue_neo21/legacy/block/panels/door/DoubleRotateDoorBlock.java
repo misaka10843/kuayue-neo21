@@ -39,8 +39,8 @@ public class DoubleRotateDoorBlock extends CustomRenderedEndfaceBlock {
 
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return super.getStateForPlacement(pContext)
-                .setValue(HINGE, TrainOpenableWindowBlock.getHinge(pContext));
+        BlockState state = super.getStateForPlacement(pContext);
+        return state.setValue(HINGE, com.misaka10843.kuayue_neo21.content.VehicleDoorPairs.hingeForPlacement(pContext, state));
     }
 
     @Override

@@ -61,7 +61,7 @@ public class TrainDoorBlock extends TrainPanelBlock {
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return super.getStateForPlacement(pContext)
                 .setValue(FACING, pContext.getHorizontalDirection().getOpposite())
-                .setValue(HINGE, TrainOpenableWindowBlock.getHinge(pContext))
+                .setValue(HINGE, getHinge(pContext, this))
                 .setValue(OPEN, false);
     }
 
@@ -83,15 +83,9 @@ public class TrainDoorBlock extends TrainPanelBlock {
 
     public static InteractionResult doorUse(BlockState state, LegacyMaterial material, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (level.isClientSide) return InteractionResult.SUCCESS;
-        state = state.cycle(OPEN);
-        BlockPos abovePos = pos.above();
-        BlockState aboveState = level.getBlockState(abovePos);
-        if (aboveState.getBlock() instanceof CompanyTrainDoor && pos.equals(CompanyTrainDoor.getParentPos(level, abovePos))) {
-            aboveState = aboveState.setValue(OPEN, state.getValue(OPEN));
-            level.setBlock(abovePos, aboveState, 10);
-            CompanyTrainDoor.setParentBlock(abovePos, level, aboveState, pos);
-        }
-        level.setBlock(pos, state, 10);
+        boolean open = !state.getValue(OPEN);
+        com.misaka10843.kuayue_neo21.content.VehicleDoorPairs.setOpen(level, pos, state, open);
+        state = state.setValue(OPEN, open);
         playDoorSound(level, pos, material, state.getValue(OPEN));
         level.gameEvent(player, isOpen(state) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pos);
         return InteractionResult.sidedSuccess(level.isClientSide);
@@ -125,13 +119,8 @@ public class TrainDoorBlock extends TrainPanelBlock {
     }
 
     protected static DoorHingeSide getHinge(BlockPlaceContext pContext, Block block) {
-        BlockGetter blockGetter = pContext.getLevel();
-        BlockPos pos = pContext.getClickedPos();
         Direction direction = pContext.getHorizontalDirection().getOpposite();
-        BlockState leftState = blockGetter.getBlockState(DirectionUtil.left(pos, direction, 1));
-        if (leftState.is(block) && leftState.getValue(FACING) == direction && leftState.getValue(HINGE) == DoorHingeSide.LEFT)
-            return DoorHingeSide.RIGHT;
-        return DoorHingeSide.LEFT;
+        return com.misaka10843.kuayue_neo21.content.VehicleDoorPairs.hingeForPlacement(pContext, block.defaultBlockState().setValue(FACING, direction));
     }
 
     public static class Sliding extends TrainDoorBlock {
