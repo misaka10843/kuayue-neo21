@@ -70,6 +70,9 @@ neoForge {
         // The gametest system is also enabled by default for other run configs under the /test command.
         gameTestServer {
             type = "gameTestServer"
+            gameDirectory = project.file('build/gametest-run')
+            systemProperty 'kuayue.projectDir', project.projectDir.absolutePath
+            systemProperty 'kuayue.schematicFixture', providers.gradleProperty('schematicFixture').getOrElse('src/porting/schematic-regression.json')
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
@@ -120,6 +123,9 @@ configurations {
 }
 
 dependencies {
+    if (providers.gradleProperty('compatMod').isPresent()) {
+        localRuntime files(providers.gradleProperty('compatMod').get())
+    }
     implementation('com.simibubi.create:create-1.21.1:6.0.10-280:slim') { transitive = false }
     implementation('net.createmod.ponder:ponder-neoforge:1.0.82+mc1.21.1')
     compileOnly('dev.engine-room.flywheel:flywheel-neoforge-api-1.21.1:1.0.6')
