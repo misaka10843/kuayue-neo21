@@ -1,8 +1,12 @@
 # 跨越：独立移植（KuaYue: Standalone）
 
-把跨越的车辆部件、轨道和建筑方块带到 Minecraft 1.21.1，配合 Create 搭车、组装和行驶。这个非官方移植以 KuaYue 的 1.21.1 源码为主，部分内容取自 NeoKuayue，移除了 KasugaLib、Micronaut 和原有注册框架依赖。
+把跨越的车辆部件、轨道和建筑方块带到 Minecraft 1.21.1，配合 Create 搭车、组装和行驶。这个非官方移植以 KuaYue 的 1.21.1 源码为主，部分内容取自 NeoKuayue(1.20.1)，移除了 KasugaLib、Micronaut 和原有注册框架依赖。
 
-保留 `kuayue` 模组 ID，方便读取原模组蓝图中已移植的方块。不能与同 ID 的官方跨越同时安装，也没有为早期 `kuayueneo21` 测试存档提供转换工具。
+保留 `kuayue` 模组 ID，方便读取原模组蓝图中已移植的方块。不能与同 ID 的官方跨越同时安装。
+
+此Mod大部分为GPT 6.1 Sol编写，人工进行review+手动测试，当前测试并不会因为`KasugaLib`等问题导致不支持iris光影等（总的来说兼容更好支持的系统更多也是为什么要移植的根本原因）
+
+当前绝大部分原mod的交互ui等都并没有进行移植，因为并不在移植计划中
 
 ## 运行环境
 
@@ -12,7 +16,7 @@
 
 ## 移植了什么
 
-当前有 **491 个可获得方块**，其中包含 **53 个转向架**；另有九种内部扩展方块和 534 条制作配方。具体 ID 见[方块清单](docs/legacy-blocks.json)和[转向架清单](docs/legacy-bogeys.json)。
+当前有 **大部分车辆和装饰方块**，其中包含 **转向架(但是可能要加个ui，因为转向架有点多不好用扳手进行切换)**；具体 ID 见[方块清单](docs/legacy-blocks.json)和[转向架清单](docs/legacy-bogeys.json)。
 
 | 类别 | 内容 |
 | --- | --- |
