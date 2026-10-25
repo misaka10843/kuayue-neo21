@@ -82,6 +82,18 @@ public final class PortAuditProvider implements DataProvider {
                 report.put("loadedMixinTargets", mixinTargets.length);
                 report.put("createIntegration", BogeyIntegrationAudit.run(provider, failures));
                 report.put("tracks", TrackIntegrationAudit.run(failures));
+                if (net.neoforged.fml.ModList.get().isLoaded("electroenergetics")) {
+                    String base = "com.george_vi.electroenergetics.content.";
+                    for (String name : List.of("pole.PoleMountBlock", "railway_electrification.catenary.CatenaryHolderBlockEntity",
+                            "railway_electrification.pantograph.PantographBlock", "railway_electrification.pantograph.PantographBlockEntity",
+                            "railway_electrification.pantograph.PantographRenderer", "railway_electrification.pantograph.PantographMovementBehaviour")) {
+                        try { Class.forName(base + name).getDeclaredMethods(); }
+                        catch (ReflectiveOperationException error) { throw new IllegalStateException(error); }
+                    }
+                    try { Class.forName("com.george_vi.electroenergetics.simulation.infrastructure.CatenaryModule").getDeclaredMethods(); }
+                    catch (ReflectiveOperationException error) { throw new IllegalStateException(error); }
+                    report.put("electroEnergeticsMixinTargets", 7);
+                }
                 report.put("vehicleInteractions", VehicleInteractionAudit.run(failures));
                 report.put("vehiclePlacement", VehiclePlacementAudit.run(failures));
                 report.put("schematicPlacement", SchematicPlacementAudit.run(project, failures));

@@ -5,15 +5,22 @@
   "mixins": [
     "ContraptionSeatsMixin",
     "ContraptionPassengersMixin",
-    "SchematicBlockPlacementMixin"
+    "SchematicBlockPlacementMixin",
+    "CatenaryHolderMixin",
+    "PoleMountMixin",
+    "PantographMountMixin",
+    "PantographShapeMixin",
+    "CatenaryCircuitMixin"
+  ],
+  "client": [
+    "TrackSegmentAnglesMixin",
+    "PantographRendererMixin",
+    "PantographMovementMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "overwrites": {
     "requireAnnotations": true
-  },
-  "client": [
-    "TrackSegmentAnglesMixin"
-  ]
+  }
 }
