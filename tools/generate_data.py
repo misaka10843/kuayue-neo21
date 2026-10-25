@@ -217,6 +217,10 @@ def main():
             save(generated_model, {'parent': 'minecraft:item/generated', 'textures': {'layer0': texture}})
         elif generated_model.exists():
             generated_model.unlink()
+    for old_id in ['panel_extension', 'door_extension', 'sliding_door_extension', 'floor_extension', 'roof_extension']:
+        old_state = GENERATED / 'assets' / MOD / 'blockstates' / (old_id + '.json')
+        if old_state.exists():
+            old_state.unlink()
     for id in extension_ids.values():
         save(GENERATED / 'assets' / MOD / 'blockstates' / (id + '.json'), {'variants': {'': {'model': 'minecraft:block/air'}}})
     for locale in ['en_us', 'zh_cn']:
@@ -242,12 +246,13 @@ def main():
                 if id.endswith('_a'): variants.append('安山岩版')
                 if id.endswith('_s'): variants.append('标准轨')
                 language['block.' + MOD + '.' + id] = name + ('（' + '，'.join(variants) + '）' if variants else '')
-        for id in materials:
+        for material in sorted(materials):
+            id = material.removeprefix(PREFIX)
             language.setdefault('item.' + MOD + '.' + id, blank_names.get(id, id.replace('_', ' ').title()) if locale == 'zh_cn' else id.replace('_', ' ').title())
         group_names = {'carriage': '客车转向架', 'freight_carriage': '货车转向架', 'meter_carriage': '米轨客车转向架',
                        'andesite_carriage': '安山岩版客货车转向架', 'loco': '机车转向架', 'meter_loco': '米轨机车转向架',
                        'asymmetry_loco': '单侧机车转向架', 'andesite_loco': '安山岩版机车转向架'}
-        for group in {record['group'] for record in bogeys}:
+        for group in sorted({record['group'] for record in bogeys}):
             language['bogey.style.' + MOD + '.' + group] = group_names[group] if locale == 'zh_cn' else group.replace('_', ' ').title()
         save(GENERATED / 'assets' / MOD / 'lang' / (locale + '.json'), language)
     save(Path('docs/recipe-generation.json'), {'recipes': len(selected), 'materials': sorted(materials), 'supplements': supplements})

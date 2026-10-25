@@ -1,3 +1,7 @@
+# 1.2.0 用户确认的命名空间与提交规则
+
+从本版起统一使用官方 `kuayue` mod ID／资源命名空间，支持已包含原方块 ID 的 Create 结构蓝图。先前计划中的 `kuayueneo21` 命名空间要求由本条替代。每完成一个完整功能并通过对应自动检查后提交 Git commit；不推送、不改写历史。原有移植范围、去库化要求和客户端测试分工保持有效。
+
 # NeoKuayue 1.21.1 port
 
 ## Included
@@ -28,4 +32,3 @@ The implementer handles build, generation, resource/recipe validation and static
 # 2026-10-25 implementation source update
 
 Use the official sibling `KuaYue` 1.21.1 code and assets as the primary reference. Replace KasugaLib, its injection/registration/resource plugins and Micronaut with native NeoForge initialization and Create integration. Do not shade or relocate the removed frameworks. Preserve the previously confirmed scope, survival production and verification division. Where the official checkout lacks selected behavior, retain the functional implementation and document the difference in `docs/official-port.md` and `src/porting/official-source.json`.
-

@@ -1,6 +1,10 @@
 # Official 1.21.1 source and library removal
 
-Primary source: the read-only sibling `KuaYue` checkout, revision `c8f11d2df50c04d5dc3a32a0f17dad8693a920f5`. Source fingerprints and the 60 class mappings are recorded in `src/porting/official-source.json`. This is a source adaptation, with the `kuayueneo21` namespace and the previously confirmed content scope.
+## 1.2.0 namespace update
+
+The active namespace is now `kuayue`, as explicitly requested for original Create schematics. Use `build/libs/kuayue-1.2.0.jar` in the verification commands below. The original companion block IDs and three shared block-entity IDs have also been aligned with the official 1.21.1 source. Earlier version names below describe the 1.1.0 implementation. See `docs/porting-status.md` for current interaction, rendering, seating and placement repairs, and `docs/gameplay-checklist.md` for pending game checks.
+
+Primary source: the read-only sibling `KuaYue` checkout, revision `c8f11d2df50c04d5dc3a32a0f17dad8693a920f5`. Source fingerprints and the 60 class mappings are recorded in `src/porting/official-source.json`. This is a source adaptation, with the `kuayue` namespace and the previously confirmed content scope.
 
 The checkout contains Java implementations for common panels and eight locomotive registration families. It also contains carriage, seat and bogey resources, but no corresponding Java seat or vehicle-bogey implementation was found in its main source sets. Those functions continue using the adapted implementations already in this project. Interlocking, dispatching, driving equipment and tracks are outside the confirmed scope.
 
@@ -40,8 +44,8 @@ uv run --no-project python tools/import_resources.py --source ../NeoKuayue --off
 uv run --no-project python tools/generate_data.py
 ./gradlew.bat verifyPortResources runData build --no-configuration-cache
 uv run --no-project python -m unittest discover -s tools/tests -v
-uv run --no-project python tools/verify_port.py --jar build/libs/kuayueneo21-1.1.0.jar
-uv run --no-project python tools/verify_library_independence.py --jar build/libs/kuayueneo21-1.1.0.jar
+uv run --no-project python tools/verify_port.py --jar build/libs/kuayue-1.2.0.jar
+uv run --no-project python tools/verify_library_independence.py --jar build/libs/kuayue-1.2.0.jar
 ```
 
 The data generator removes identical duplicate recipes introduced by overlapping source layouts and removes stale JSON only inside its own generated recipe directory. The result has 484 distinct recipes. Java source is maintained normally; `audit_official_source.py` produces review candidates under `build/official-review`, never overwrites maintained Java, and optionally refreshes the provenance snapshot with `--record`.
@@ -50,4 +54,4 @@ Upstream MIT code and CC BY-SA 4.0 resource licenses are included under `META-IN
 
 ## User game checks
 
-Replace the previously installed port JAR with `1.1.0`; keep Create and its required components. The port itself does not require KasugaLib. Check the previous problem examples (SS8 windows, auxiliary reservoir, soft seats and 22-series parts), held-item/empty-hand window interaction, companion clicks, DF5 door collision changes and native bogey style/assembly behavior. Use `docs/gameplay-checklist.md` for the complete behavior checklist. No client or game-world acceptance is claimed by the automated checks.
+Replace the previously installed port JAR with `1.2.0`; keep Create and its required components. The port itself does not require KasugaLib. Check the previous problem examples (SS8 windows, auxiliary reservoir, soft seats and 22-series parts), held-item/empty-hand window interaction, companion clicks, DF5 door collision changes and native bogey style/assembly behavior. Use `docs/gameplay-checklist.md` for the complete behavior checklist. No client or game-world acceptance is claimed by the automated checks.

@@ -1,298 +1,298 @@
 {
   "recipes": 484,
   "materials": [
-    "kuayueneo21:brush",
-    "kuayueneo21:carbon_dust",
-    "kuayueneo21:circuit_board",
-    "kuayueneo21:circuit_board_constructing",
-    "kuayueneo21:circuit_motherboard",
-    "kuayueneo21:color_masterbatch",
-    "kuayueneo21:copper_dust",
-    "kuayueneo21:green_brush",
-    "kuayueneo21:head_cr200j_circuit",
-    "kuayueneo21:head_cr200j_mould",
-    "kuayueneo21:head_cr200j_mould_constructing",
-    "kuayueneo21:iron_dust",
-    "kuayueneo21:plastic_board",
-    "kuayueneo21:plastic_ingot",
-    "kuayueneo21:plastic_nugget",
-    "kuayueneo21:solidify_slime_ball",
-    "kuayueneo21:train_moulds",
-    "kuayueneo21:vehicle_bogey_blank",
-    "kuayueneo21:vehicle_interior_blank",
-    "kuayueneo21:vehicle_panel_blank",
-    "kuayueneo21:weathering_resistant_steel_block_0",
-    "kuayueneo21:weathering_resistant_steel_board",
-    "kuayueneo21:weathering_resistant_steel_dust",
-    "kuayueneo21:weathering_resistant_steel_ingot",
-    "kuayueneo21:weathering_resistant_steel_nugget",
-    "kuayueneo21:weathering_resistant_steel_pole",
-    "kuayueneo21:zinc_dust"
+    "kuayue:brush",
+    "kuayue:carbon_dust",
+    "kuayue:circuit_board",
+    "kuayue:circuit_board_constructing",
+    "kuayue:circuit_motherboard",
+    "kuayue:color_masterbatch",
+    "kuayue:copper_dust",
+    "kuayue:green_brush",
+    "kuayue:head_cr200j_circuit",
+    "kuayue:head_cr200j_mould",
+    "kuayue:head_cr200j_mould_constructing",
+    "kuayue:iron_dust",
+    "kuayue:plastic_board",
+    "kuayue:plastic_ingot",
+    "kuayue:plastic_nugget",
+    "kuayue:solidify_slime_ball",
+    "kuayue:train_moulds",
+    "kuayue:vehicle_bogey_blank",
+    "kuayue:vehicle_interior_blank",
+    "kuayue:vehicle_panel_blank",
+    "kuayue:weathering_resistant_steel_block_0",
+    "kuayue:weathering_resistant_steel_board",
+    "kuayue:weathering_resistant_steel_dust",
+    "kuayue:weathering_resistant_steel_ingot",
+    "kuayue:weathering_resistant_steel_nugget",
+    "kuayue:weathering_resistant_steel_pole",
+    "kuayue:zinc_dust"
   ],
   "supplements": [
     {
-      "output": "kuayueneo21:toilet_dd_25b",
-      "blank": "kuayueneo21:vehicle_panel_blank"
+      "output": "kuayue:toilet_dd_25b",
+      "blank": "kuayue:vehicle_panel_blank"
     },
     {
-      "output": "kuayueneo21:toilet_dd_25g",
-      "blank": "kuayueneo21:vehicle_panel_blank"
+      "output": "kuayue:toilet_dd_25g",
+      "blank": "kuayue:vehicle_panel_blank"
     },
     {
-      "output": "kuayueneo21:toilet_dd_25k",
-      "blank": "kuayueneo21:vehicle_panel_blank"
+      "output": "kuayue:toilet_dd_25k",
+      "blank": "kuayue:vehicle_panel_blank"
     },
     {
-      "output": "kuayueneo21:toilet_dd_25t",
-      "blank": "kuayueneo21:vehicle_panel_blank"
+      "output": "kuayue:toilet_dd_25t",
+      "blank": "kuayue:vehicle_panel_blank"
     },
     {
-      "output": "kuayueneo21:toilet_dd_25z",
-      "blank": "kuayueneo21:vehicle_panel_blank"
+      "output": "kuayue:toilet_dd_25z",
+      "blank": "kuayue:vehicle_panel_blank"
     },
     {
-      "output": "kuayueneo21:toilet_dd_marshalled_cr200j",
-      "blank": "kuayueneo21:vehicle_panel_blank"
+      "output": "kuayue:toilet_dd_marshalled_cr200j",
+      "blank": "kuayue:vehicle_panel_blank"
     },
     {
-      "output": "kuayueneo21:df5_handrail",
-      "blank": "kuayueneo21:vehicle_panel_blank"
+      "output": "kuayue:df5_handrail",
+      "blank": "kuayue:vehicle_panel_blank"
     },
     {
-      "output": "kuayueneo21:jy290_vent",
-      "blank": "kuayueneo21:vehicle_panel_blank"
+      "output": "kuayue:jy290_vent",
+      "blank": "kuayue:vehicle_panel_blank"
     },
     {
-      "output": "kuayueneo21:boiling_water_place",
-      "blank": "kuayueneo21:vehicle_interior_blank"
+      "output": "kuayue:boiling_water_place",
+      "blank": "kuayue:vehicle_interior_blank"
     },
     {
-      "output": "kuayueneo21:vacuum_toilet_1",
-      "blank": "kuayueneo21:vehicle_panel_blank"
+      "output": "kuayue:vacuum_toilet_1",
+      "blank": "kuayue:vehicle_panel_blank"
     },
     {
-      "output": "kuayueneo21:vacuum_toilet_2",
-      "blank": "kuayueneo21:vehicle_panel_blank"
+      "output": "kuayue:vacuum_toilet_2",
+      "blank": "kuayue:vehicle_panel_blank"
     },
     {
-      "output": "kuayueneo21:vacuum_toilet_3",
-      "blank": "kuayueneo21:vehicle_panel_blank"
+      "output": "kuayue:vacuum_toilet_3",
+      "blank": "kuayue:vehicle_panel_blank"
     },
     {
-      "output": "kuayueneo21:cr_logo",
-      "blank": "kuayueneo21:vehicle_panel_blank"
+      "output": "kuayue:cr_logo",
+      "blank": "kuayue:vehicle_panel_blank"
     },
     {
-      "output": "kuayueneo21:pk209p_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:pk209p_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:pk209p_no_motor_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:pk209p_no_motor_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:pk209p_backward_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:pk209p_backward_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:cw2_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:cw2_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:sw220k_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:sw220k_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:sw220k_backward_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:sw220k_backward_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:sw160_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:sw160_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:zk6_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:zk6_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:mkz_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:mkz_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:tkz2_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:tkz2_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:tkz1_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:tkz1_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:tkz2_motor_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:tkz2_motor_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:tkz2_motor_backward_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:tkz2_motor_backward_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:pk209p_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:pk209p_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:pk209p_no_motor_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:pk209p_no_motor_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:pk209p_backward_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:pk209p_backward_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:cw2_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:cw2_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:sw220k_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:sw220k_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:sw220k_backward_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:sw220k_backward_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:sw160_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:sw160_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:zk6_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:zk6_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:df11g_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:df11g_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:df11g_backward_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:df11g_backward_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:qj_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:qj_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:ss3_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:ss3_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:ss3_backward_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:ss3_backward_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:hxd3d_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:hxd3d_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:hxd3d_backward_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:hxd3d_backward_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:ss8_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:ss8_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:ss8_backward_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:ss8_backward_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:dfh21_bogey_s",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:dfh21_bogey_s",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:dfh21_backward_bogey_s",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:dfh21_backward_bogey_s",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:jy290_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:jy290_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:jy290_backward_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:jy290_backward_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:df5_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:df5_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:df5_backward_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:df5_backward_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:df21_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:df21_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:df21_backward_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:df21_backward_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:dfh21_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:dfh21_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:dfh21_backward_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:dfh21_backward_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:qj_guide_bogey",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:qj_guide_bogey",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:ss8_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:ss8_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:ss8_backward_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:ss8_backward_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:ss3_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:ss3_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:ss3_backward_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:ss3_backward_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:df11g_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:df11g_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:df11g_backward_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:df11g_backward_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:qj_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:qj_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:qj_guide_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:qj_guide_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:hxd3d_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:hxd3d_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:hxd3d_backward_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:hxd3d_backward_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:dfh21_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:dfh21_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     },
     {
-      "output": "kuayueneo21:dfh21_backward_bogey_a",
-      "blank": "kuayueneo21:vehicle_bogey_blank"
+      "output": "kuayue:dfh21_backward_bogey_a",
+      "blank": "kuayue:vehicle_bogey_blank"
     }
   ]
 }

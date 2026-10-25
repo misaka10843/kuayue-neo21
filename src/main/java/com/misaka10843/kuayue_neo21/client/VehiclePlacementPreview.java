@@ -23,7 +23,7 @@ public final class VehiclePlacementPreview {
     private static VehiclePlacement.Placement preview(BlockHitResult hit) {
         var minecraft = Minecraft.getInstance();
         var player = minecraft.player;
-        if (player == null || minecraft.level == null || player.isShiftKeyDown() || minecraft.options.hideGui) return null;
+        if (player == null || minecraft.level == null || minecraft.screen != null || player.isShiftKeyDown() || minecraft.options.hideGui) return null;
         var stack = player.getMainHandItem();
         if (!(stack.getItem() instanceof VehicleBlockItem item)) return null;
         var context = new BlockPlaceContext(player, InteractionHand.MAIN_HAND, stack, hit);
