@@ -36,7 +36,6 @@ public final class TrainCollisionResponse {
         double alignment = firstGeometry.forward.dot(secondGeometry.forward);
         if (Math.abs(alignment) < 0.9) return false;
         double separation = secondGeometry.center.subtract(firstGeometry.center).dot(firstGeometry.forward);
-        if (Math.abs(separation) < 0.0001) return false;
         var contacts = CONTACTS.computeIfAbsent(level, ignored -> new HashMap<>());
         long now = level.getGameTime();
         contacts.entrySet().removeIf(entry -> entry.getValue() < now);
@@ -45,7 +44,13 @@ public final class TrainCollisionResponse {
 
         double orientation = Math.signum(alignment);
         double secondSpeed = second.speed * orientation;
-        double closingSpeed = (first.speed - secondSpeed) * Math.signum(separation);
+        double relativeSpeed = first.speed - secondSpeed;
+        double closingSpeed = relativeSpeed * Math.signum(separation);
+        if (closingSpeed <= 0.000001) {
+            // The native detector can report contact after the current movement crossed the other center.
+            if (separation * (separation + relativeSpeed) > 0) return true;
+            closingSpeed = Math.abs(relativeSpeed);
+        }
         if (closingSpeed <= 0.000001) return true;
         var result = ImpactPhysics.resolve(TrainMass.of(first), TrainMass.of(second), first.speed, secondSpeed);
         stopNavigation(first, result.firstSpeed());

@@ -93,6 +93,18 @@ public final class TrainCollisionWorldTests {
     }
 
     @GameTest(template = "schematic_room")
+    public static void firstContactAfterMovementCrossesCenter(GameTestHelper helper) throws Exception {
+        Fixture fixture = fixture(helper, true, false, 1, 1);
+        fixture.first.carriages.getFirst().getLeadingPoint().position = 52.05;
+        fixture.first.carriages.getFirst().getTrailingPoint().position = 50.05;
+        fixture.first.speed = 0.1;
+        fixture.run(helper);
+        helper.assertTrue(Math.abs(fixture.first.speed) < 1e-8 && Math.abs(fixture.second.speed - 0.1) < 1e-8,
+                "Late first-contact detection was mistaken for receding contact");
+        helper.succeed();
+    }
+
+    @GameTest(template = "schematic_room")
     public static void mountedCargoChangesCollisionMass(GameTestHelper helper) throws Exception {
         Fixture fixture = fixture(helper, true, false, 4, 1);
         var chestPos = new net.minecraft.core.BlockPos(2, 2, 2);
