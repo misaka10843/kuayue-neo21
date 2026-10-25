@@ -9,6 +9,13 @@ import net.minecraft.world.level.block.state.BlockState;
 public final class VehicleBlockItem extends BlockItem {
     public VehicleBlockItem(TrainPanelBlock block, Properties properties) { super(block, properties); }
 
+    public VehiclePlacement.Placement preview(BlockPlaceContext source) {
+        BlockPlaceContext context = updatePlacementContext(source);
+        if (context == null) return null;
+        BlockState state = getPlacementState(context);
+        return state == null ? null : new VehiclePlacement.Placement(context.getClickedPos(), state);
+    }
+
     @Override
     public BlockPlaceContext updatePlacementContext(BlockPlaceContext context) {
         BlockState state = getBlock().getStateForPlacement(context);
