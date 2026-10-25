@@ -263,6 +263,18 @@ def main():
     for locale in ['en_us', 'zh_cn']:
         language = json.loads((Path('src/porting/languages') / (locale + '.json')).read_text(encoding='utf-8'))
         tab_names = {'carriages': '客车与货车', 'locomotives': '机车', 'interiors': '内饰与设备', 'bogeys': '转向架', 'materials': '车辆制造材料', 'infrastructure': '轨道、设施与建筑'}
+        coupling_messages = {
+            'unsafe': ('请停车、暂停时刻表，并操作你有权限的同维度列车。', 'Stop, pause the schedule, and use a train you own in one dimension.'),
+            'failed': ('当前车钩无法执行此操作。', 'This coupler cannot complete the operation.'),
+            'split': ('已摘钩，后方车厢成为独立列车。', 'Uncoupled: rear carriages are now a separate train.'),
+            'selected': ('已选中外端车钩，请在 30 秒内用扳手点击另一列车的相邻车钩。', 'Coupler selected. Wrench the adjacent coupler on another train within 30 seconds.'),
+            'too_far': ('两车钩需要在同一轨道网络且相距不超过两格。', 'Couplers must share a track network and be within two blocks.'),
+            'orientation': ('当前仅支持同向列车的头尾联挂，请调整列车朝向。', 'Head-to-tail coupling requires trains facing the same way.'),
+            'schedule': ('请先取出后方列车的时刻表，避免联挂时丢失。', 'Remove the rear train schedule before coupling.'),
+            'merged': ('已挂钩，车厢已合并为同一列车。', 'Coupled: carriages now belong to the same train.'),
+        }
+        for key, messages in coupling_messages.items():
+            language['message.kuayue.coupling.' + key] = messages[0 if locale == 'zh_cn' else 1]
         blank_names = {'vehicle_panel_blank': '车辆板材毛坯', 'vehicle_floor_blank': '车辆地板毛坯', 'vehicle_roof_blank': '车辆车顶毛坯', 'vehicle_interior_blank': '内饰毛坯', 'vehicle_bogey_blank': '转向架毛坯'}
         for id, name in tab_names.items():
             language['itemGroup.' + MOD + '.' + id] = '跨越：' + name if locale == 'zh_cn' else 'KuaYue: ' + id.title()

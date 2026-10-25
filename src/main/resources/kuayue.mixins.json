@@ -2,21 +2,8 @@
   "required": true,
   "package": "com.misaka10843.kuayue_neo21.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [
-    "ContraptionSeatsMixin",
-    "ContraptionPassengersMixin",
-    "SchematicBlockPlacementMixin",
-    "CatenaryHolderMixin",
-    "PoleMountMixin",
-    "PantographMountMixin",
-    "PantographShapeMixin",
-    "CatenaryCircuitMixin"
-  ],
-  "client": [
-    "TrackSegmentAnglesMixin",
-    "PantographRendererMixin",
-    "PantographMovementMixin"
-  ],
+  "mixins": ["ContraptionSeatsMixin", "ContraptionPassengersMixin", "SchematicBlockPlacementMixin", "CatenaryHolderMixin", "PoleMountMixin", "PantographMountMixin", "PantographShapeMixin", "CatenaryCircuitMixin", "TrainTopologyAccessor"],
+  "client": ["TrackSegmentAnglesMixin", "PantographRendererMixin", "PantographMovementMixin"],
   "injectors": {
     "defaultRequire": 1
   },

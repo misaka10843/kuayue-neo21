@@ -23,6 +23,7 @@ public final class VehicleBehaviours {
             var block = entry.get();
             if (block instanceof CompanyTrainPanel) MovingInteractionBehaviour.REGISTRY.register(block, new ExtensionInteraction());
             else if (block instanceof YZSeatBlock) MovingInteractionBehaviour.REGISTRY.register(block, new SeatInteraction());
+            else if (com.misaka10843.kuayue_neo21.content.coupling.CouplerInteraction.isCoupler(block.defaultBlockState())) MovingInteractionBehaviour.REGISTRY.register(block, new com.misaka10843.kuayue_neo21.content.coupling.CouplerInteraction());
             else if (VehicleDoorInteraction.canInteract(block.defaultBlockState())) MovingInteractionBehaviour.REGISTRY.register(block, new VehicleDoorInteraction());
             if (block instanceof DF11GChimneyBlock) MovementBehaviour.REGISTRY.register(block, new ChimneyMovement());
             else if (block instanceof IBE<?>) MovementBehaviour.REGISTRY.register(block, new MovementBehaviour() {

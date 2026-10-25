@@ -82,6 +82,7 @@ public final class PortAuditProvider implements DataProvider {
                 report.put("loadedMixinTargets", mixinTargets.length);
                 report.put("createIntegration", BogeyIntegrationAudit.run(provider, failures));
                 report.put("tracks", TrackIntegrationAudit.run(failures));
+                report.put("coupling", CouplingIntegrationAudit.run(failures));
                 if (net.neoforged.fml.ModList.get().isLoaded("electroenergetics")) {
                     String base = "com.george_vi.electroenergetics.content.";
                     for (String name : List.of("pole.PoleMountBlock", "railway_electrification.catenary.CatenaryHolderBlockEntity",
