@@ -1,0 +1,94 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kuayue:head_cr200j_mould"
+  },
+  "loops": 3,
+  "results": [
+    {
+      "id": "kuayue:panel_wide_logo_cr_marshalled_cr200j"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:head_cr200j_mould_constructing"
+        },
+        {
+          "item": "kuayue:head_cr200j_circuit"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:head_cr200j_mould_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:head_cr200j_mould_constructing"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_board"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:head_cr200j_mould_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:head_cr200j_mould_constructing"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_board"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:head_cr200j_mould_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:head_cr200j_mould_constructing"
+        },
+        {
+          "item": "kuayue:color_masterbatch"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:head_cr200j_mould_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "kuayue:head_cr200j_mould_constructing"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:head_cr200j_mould_constructing"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "kuayue:head_cr200j_mould_constructing"
+  }
+}

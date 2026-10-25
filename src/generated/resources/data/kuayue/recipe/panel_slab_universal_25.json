@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayue:weathering_resistant_steel_block_0"
+  },
+  "result": {
+    "id": "kuayue:panel_slab_universal_25",
+    "count": 2
+  }
+}

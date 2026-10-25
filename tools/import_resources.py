@@ -5,7 +5,7 @@ from pathlib import Path
 from extract_legacy import extract, strip_comments
 from asset_references import asset_references, asset_path
 
-MOD = 'kuayueneo21'
+MOD = 'kuayue'
 
 
 def remap(value):

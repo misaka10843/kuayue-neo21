@@ -1,0 +1,19 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "amount": 100,
+      "type": "neoforge:tag",
+      "tag": "c:honey"
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayue:solidify_slime_ball"
+    }
+  ],
+  "heat_requirement": "heated"
+}

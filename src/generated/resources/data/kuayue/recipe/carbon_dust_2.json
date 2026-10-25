@@ -1,0 +1,18 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "minecraft:charcoal"
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayue:carbon_dust"
+    },
+    {
+      "chance": 0.02,
+      "id": "create:experience_nugget"
+    }
+  ],
+  "processing_time": 800
+}

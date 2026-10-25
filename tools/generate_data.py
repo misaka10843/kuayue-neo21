@@ -3,7 +3,7 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
-MOD = 'kuayueneo21'
+MOD = 'kuayue'
 PREFIX = MOD + ':'
 GENERATED = Path('src/generated/resources')
 
@@ -195,8 +195,8 @@ def main():
     save(GENERATED / 'data/minecraft/tags/block/mineable/pickaxe.json', {'replace': False, 'values': sorted(target)})
     save(GENERATED / 'data/minecraft/tags/block/needs_stone_tool.json', {'replace': False, 'values': sorted(target)})
     block_tags = json.loads(Path('src/porting/block-tags.json').read_text(encoding='utf-8'))
-    extension_ids = {'company_panel_block': 'panel_extension', 'company_door_block': 'door_extension',
-                     'company_sliding_door': 'sliding_door_extension', 'company_floor': 'floor_extension', 'company_carport': 'roof_extension'}
+    extension_ids = {'company_panel_block': 'company_panel_block', 'company_door_block': 'company_panel_door',
+                     'company_sliding_door': 'company_panel_sliding_door', 'company_floor': 'company_panel_floor', 'company_carport': 'company_panel_carport'}
     for name, tag in block_tags.items():
         values = []
         for value in tag.get('values', []):
@@ -217,7 +217,7 @@ def main():
             save(generated_model, {'parent': 'minecraft:item/generated', 'textures': {'layer0': texture}})
         elif generated_model.exists():
             generated_model.unlink()
-    for id in ['panel_extension', 'door_extension', 'sliding_door_extension', 'floor_extension', 'roof_extension']:
+    for id in extension_ids.values():
         save(GENERATED / 'assets' / MOD / 'blockstates' / (id + '.json'), {'variants': {'': {'model': 'minecraft:block/air'}}})
     for locale in ['en_us', 'zh_cn']:
         language = json.loads((Path('src/porting/languages') / (locale + '.json')).read_text(encoding='utf-8'))

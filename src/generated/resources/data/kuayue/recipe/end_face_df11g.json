@@ -1,0 +1,25 @@
+{
+  "type": "create:mechanical_crafting",
+  "key": {
+    "A": {
+      "item": "kuayue:panel_bottom_df11g"
+    },
+    "B": {
+      "item": "kuayue:floor_df11g"
+    },
+    "D": {
+      "item": "kuayue:circuit_board"
+    }
+  },
+  "pattern": [
+    "D  ",
+    "A A",
+    "A A",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "kuayue:end_face_df11g"
+  },
+  "accept_mirrored": false
+}

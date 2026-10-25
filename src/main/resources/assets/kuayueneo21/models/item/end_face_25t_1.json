@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "kuayueneo21:block/carriage_end_face/end_face_25t_rubber_non_ac_item"
-  }
-}

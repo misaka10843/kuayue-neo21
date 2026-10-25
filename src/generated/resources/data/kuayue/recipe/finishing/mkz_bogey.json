@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayue:vehicle_bogey_blank"
+  },
+  "result": {
+    "id": "kuayue:mkz_bogey",
+    "count": 1
+  }
+}

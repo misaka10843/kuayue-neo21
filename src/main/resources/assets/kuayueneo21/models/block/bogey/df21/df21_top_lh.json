@@ -1,9 +1,0 @@
-{
-  "parent": "block/block",
-  "loader": "neoforge:obj",
-  "flip_v": true,
-  "model": "kuayueneo21:models/block/bogey/df21/df21_top_lh.obj",
-  "textures": {
-    "particle": "kuayueneo21:block/bogey/df21/df21_top"
-  }
-}

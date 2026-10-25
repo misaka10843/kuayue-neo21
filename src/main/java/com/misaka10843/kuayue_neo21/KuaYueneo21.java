@@ -12,7 +12,7 @@ import net.neoforged.fml.ModContainer;
 @Mod(KuaYueneo21.MODID)
 public class KuaYueneo21 {
     // Define mod id in a common place for everything to reference
-    public static final String MODID = "kuayueneo21";
+    public static final String MODID = "kuayue";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 

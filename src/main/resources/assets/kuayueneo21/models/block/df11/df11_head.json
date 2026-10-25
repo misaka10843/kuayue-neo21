@@ -1,8 +1,0 @@
-{
-  "loader": "neoforge:obj",
-  "model": "kuayueneo21:models/block/df11/df11_head.obj",
-  "flip_v": true,
-  "textures": {
-    "particle": "kuayueneo21:block/df11/df11_head"
-  }
-}

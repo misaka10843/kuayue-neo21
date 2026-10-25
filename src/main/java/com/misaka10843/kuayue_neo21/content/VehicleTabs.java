@@ -18,13 +18,13 @@ public final class VehicleTabs {
         add("locomotives", VehicleTabs::isLocomotive, block -> !(block instanceof VehicleBogeyBlock));
         add("interiors", VehicleTabs::isInterior, block -> !(block instanceof VehicleBogeyBlock));
         add("bogeys", id -> true, VehicleBogeyBlock.class::isInstance);
-        TABS.register("materials", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.kuayueneo21.materials"))
+        TABS.register("materials", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.kuayue.materials"))
                 .icon(() -> AllBlocks.CR_LOGO.item().getDefaultInstance())
                 .displayItems((parameters, output) -> VehicleMaterials.ITEMS.values().forEach(item -> output.accept(item.get()))).build());
     }
 
     private static void add(String id, Predicate<String> ids, Predicate<Block> blocks) {
-        TABS.register(id, () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.kuayueneo21." + id))
+        TABS.register(id, () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.kuayue." + id))
                 .icon(() -> AllBlocks.CR_LOGO.item().getDefaultInstance())
                 .displayItems((parameters, output) -> PortRegistration.ENTRIES.stream().filter(entry -> !entry.isHidden())
                         .filter(entry -> ids.test(entry.id()) && blocks.test(entry.get())).forEach(entry -> output.accept(entry.item()))).build());

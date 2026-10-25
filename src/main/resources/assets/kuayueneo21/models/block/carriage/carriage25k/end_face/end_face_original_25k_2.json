@@ -1,8 +1,0 @@
-{
-  "loader": "neoforge:obj",
-  "flip_v": true,
-  "model": "kuayueneo21:models/block/carriage/carriage25k/end_face/end_face_original_25k_2.obj",
-  "textures": {
-    "particle": "kuayueneo21:block/carriage_end_face/end_face_25k_original_rubber_non_ac"
-  }
-}

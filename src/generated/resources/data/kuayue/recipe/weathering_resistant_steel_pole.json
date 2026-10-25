@@ -1,0 +1,15 @@
+{
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "kuayue:weathering_resistant_steel_board"
+    }
+  ],
+  "results": [
+    {
+      "count": 4,
+      "id": "kuayue:weathering_resistant_steel_pole"
+    }
+  ],
+  "processing_time": 800
+}

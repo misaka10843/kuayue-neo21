@@ -1,0 +1,18 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayue:iron_dust"
+    },
+    {
+      "chance": 0.02,
+      "id": "create:experience_nugget"
+    }
+  ],
+  "processing_time": 800
+}

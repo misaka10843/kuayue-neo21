@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayue:carport_25z"
+    },
+    {
+      "item": "kuayue:circuit_board"
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayue:carport_ac_25z"
+    }
+  ],
+  "keep_held_item": false
+}

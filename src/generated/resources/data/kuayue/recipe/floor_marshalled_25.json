@@ -1,0 +1,94 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kuayue:weathering_resistant_steel_pole"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "id": "kuayue:floor_marshalled_25"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:weathering_resistant_steel_pole"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_block_0"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:weathering_resistant_steel_pole"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:weathering_resistant_steel_pole"
+        },
+        {
+          "item": "minecraft:green_dye"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:weathering_resistant_steel_pole"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:weathering_resistant_steel_pole"
+        },
+        {
+          "item": "kuayue:green_brush"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:weathering_resistant_steel_pole"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:weathering_resistant_steel_pole"
+        },
+        {
+          "item": "kuayue:color_masterbatch"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:weathering_resistant_steel_pole"
+        }
+      ]
+    },
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "kuayue:weathering_resistant_steel_pole"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:weathering_resistant_steel_pole"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "kuayue:weathering_resistant_steel_pole"
+  }
+}

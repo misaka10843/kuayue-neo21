@@ -1,8 +1,0 @@
-{
-  "loader": "neoforge:obj",
-  "model": "kuayueneo21:models/block/hxd3d/hxd3d_cowcatcher.obj",
-  "flip_v": true,
-  "textures": {
-    "particle": "kuayueneo21:block/hxd3d/hxd3d_cowcatcher"
-  }
-}

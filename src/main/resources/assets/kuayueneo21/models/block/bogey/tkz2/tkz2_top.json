@@ -1,9 +1,0 @@
-{
-  "parent": "block/block",
-  "loader": "neoforge:obj",
-  "flip_v": true,
-  "model": "kuayueneo21:models/block/bogey/tkz2/tkz2_top.obj",
-  "textures": {
-    "particle": "kuayueneo21:block/bogey/tkz2/tkz2_top"
-  }
-}

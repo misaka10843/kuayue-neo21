@@ -1,6 +1,0 @@
-{
-  "parent": "block/block",
-  "loader": "neoforge:obj",
-  "flip_v": true,
-  "model": "kuayueneo21:models/block/bogey/tkz2/tkz2_motor_pony_wheel.obj"
-}

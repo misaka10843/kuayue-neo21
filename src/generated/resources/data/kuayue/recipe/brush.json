@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:white_wool"
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayue:brush"
+    }
+  ],
+  "keep_held_item": false
+}

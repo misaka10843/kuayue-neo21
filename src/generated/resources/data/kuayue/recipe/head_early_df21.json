@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayue:head_df21"
+  },
+  "result": {
+    "id": "kuayue:head_early_df21",
+    "count": 1
+  }
+}

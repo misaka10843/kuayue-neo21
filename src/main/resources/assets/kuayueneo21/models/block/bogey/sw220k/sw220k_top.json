@@ -1,6 +1,0 @@
-{
-  "parent": "block/block",
-  "loader": "neoforge:obj",
-  "flip_v": true,
-  "model": "kuayueneo21:models/block/bogey/sw220k/sw220k_top.obj"
-}

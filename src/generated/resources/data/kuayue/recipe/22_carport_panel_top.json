@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "kuayue:22_carport_panel_top_lamp"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "kuayue:22_carport_panel_top"
+  },
+  "show_notification": true
+}

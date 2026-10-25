@@ -1,0 +1,49 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kuayue:weathering_resistant_steel_pole"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "id": "kuayue:general_slab_df21"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:weathering_resistant_steel_pole"
+        },
+        {
+          "item": "kuayue:color_masterbatch"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:weathering_resistant_steel_pole"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:weathering_resistant_steel_pole"
+        },
+        {
+          "item": "kuayue:train_moulds"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:weathering_resistant_steel_pole"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "kuayue:weathering_resistant_steel_pole"
+  }
+}

@@ -1,6 +1,0 @@
-{
-  "loader": "neoforge:obj",
-  "render_type": "cutout_mipped",
-  "model": "kuayueneo21:models/block/ss8/ss8_carport_link.obj",
-  "flip_v": true
-}

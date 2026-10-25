@@ -1,7 +1,0 @@
-{
-  "parent": "kuayueneo21:block/kuayue_panel_lh",
-  "textures": {
-    "0": "kuayueneo21:block/panel_25k_original_symbol",
-    "particle": "kuayueneo21:block/panel_25k_original_symbol"
-  }
-}

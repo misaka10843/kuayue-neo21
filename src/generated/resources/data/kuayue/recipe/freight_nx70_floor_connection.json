@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayue:freight_nx70_floor_center"
+  },
+  "result": {
+    "id": "kuayue:freight_nx70_floor_connection",
+    "count": 1
+  }
+}

@@ -1,6 +1,0 @@
-{
-  "parent": "block/block",
-  "loader": "neoforge:obj",
-  "flip_v": true,
-  "model": "kuayueneo21:models/block/bogey/df11g/df11g_wheel.obj"
-}

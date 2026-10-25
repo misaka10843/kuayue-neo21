@@ -56,7 +56,7 @@ def main():
         if file.suffix == '.json' and '/lang/' not in key:
             value = json.loads(file.read_text(encoding='utf-8-sig'))
             for kind, ref in asset_references(value):
-                if ref.startswith('kuayue:') or ref == 'forge:obj':
+                if ref.startswith('kuayueneo21:') or ref == 'forge:obj':
                     errors.append('Legacy reference in ' + key + ': ' + ref)
                 if not ref.startswith(PREFIX):
                     continue
@@ -69,7 +69,7 @@ def main():
                 errors.append('Invalid image ' + key + ': ' + str(error))
         elif file.suffix in ['.obj', '.mtl']:
             text = file.read_text(encoding='utf-8-sig')
-            if 'kuayue:' in text:
+            if 'kuayueneo21:' in text:
                 errors.append('Legacy OBJ/MTL namespace: ' + key)
             if file.suffix == '.obj':
                 for material in re.findall(r'^mtllib\s+([^\r\n]+)', text, re.M):

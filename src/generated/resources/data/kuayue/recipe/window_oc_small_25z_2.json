@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayue:window_oc_25z"
+  },
+  "result": {
+    "id": "kuayue:window_oc_small_25z_2",
+    "count": 1
+  }
+}

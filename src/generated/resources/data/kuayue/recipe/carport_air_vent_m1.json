@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayue:carport_middle_m1"
+  },
+  "result": {
+    "id": "kuayue:carport_air_vent_m1",
+    "count": 2
+  }
+}

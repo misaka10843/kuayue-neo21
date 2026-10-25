@@ -37,7 +37,7 @@ public final class PortAuditProvider implements DataProvider {
                         com.simibubi.create.content.contraptions.AbstractContraptionEntity.class};
                 for (Class<?> target : mixinTargets) target.getDeclaredMethods();
                 RegistryOps<com.google.gson.JsonElement> ops = RegistryOps.create(JsonOps.INSTANCE, provider);
-                try (var paths = Files.walk(project.resolve("src/generated/resources/data/kuayueneo21/recipe"))) {
+                try (var paths = Files.walk(project.resolve("src/generated/resources/data/kuayue/recipe"))) {
                     for (Path file : paths.filter(path -> path.toString().endsWith(".json")).sorted().toList()) {
                         recipes++;
                         var parsed = Recipe.CODEC.parse(ops, JsonParser.parseString(Files.readString(file)));
@@ -46,8 +46,8 @@ public final class PortAuditProvider implements DataProvider {
                 }
                 for (var entry : PortRegistration.ENTRIES) {
                     var block = entry.get();
-                    Path stateFile = project.resolve("src/main/resources/assets/kuayueneo21/blockstates/" + entry.id() + ".json");
-                    if (!Files.exists(stateFile)) stateFile = project.resolve("src/generated/resources/assets/kuayueneo21/blockstates/" + entry.id() + ".json");
+                    Path stateFile = project.resolve("src/main/resources/assets/kuayue/blockstates/" + entry.id() + ".json");
+                    if (!Files.exists(stateFile)) stateFile = project.resolve("src/generated/resources/assets/kuayue/blockstates/" + entry.id() + ".json");
                     if (!Files.exists(stateFile)) {
                         failures.add("Missing blockstate: " + entry.id());
                     } else {

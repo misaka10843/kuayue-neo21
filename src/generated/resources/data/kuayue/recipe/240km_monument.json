@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item": "kuayue:color_masterbatch"
+    },
+    "B": {
+      "item": "kuayue:weathering_resistant_steel_board"
+    },
+    "C": {
+      "item": "kuayue:ss8_panel_bottom"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "BCB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "kuayue:240km_monument"
+  },
+  "show_notification": true
+}

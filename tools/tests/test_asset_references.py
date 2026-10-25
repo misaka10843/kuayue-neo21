@@ -10,15 +10,15 @@ from asset_references import asset_references, asset_path, verify_png
 
 class AssetReferenceTests(unittest.TestCase):
     def test_model_with_same_named_texture_requires_both_files(self):
-        model = {'parent': 'kuayueneo21:block/parent', 'textures': {'particle': 'kuayueneo21:block/seat_rz'}}
+        model = {'parent': 'kuayue:block/parent', 'textures': {'particle': 'kuayue:block/seat_rz'}}
         paths = {asset_path(kind, ref) for kind, ref in asset_references(model)}
-        self.assertIn('assets/kuayueneo21/textures/block/seat_rz.png', paths)
-        self.assertNotIn('assets/kuayueneo21/models/block/seat_rz.json', paths)
+        self.assertIn('assets/kuayue/textures/block/seat_rz.png', paths)
+        self.assertNotIn('assets/kuayue/models/block/seat_rz.json', paths)
 
     def test_obj_geometry_and_texture_are_distinct_dependencies(self):
-        refs = dict(asset_references({'model': 'kuayueneo21:models/block/frame.obj', 'textures': {'body': 'kuayueneo21:block/frame', 'alias': '#body'}}))
-        self.assertEqual(refs['file'], 'kuayueneo21:models/block/frame.obj')
-        self.assertEqual(refs['texture'], 'kuayueneo21:block/frame')
+        refs = dict(asset_references({'model': 'kuayue:models/block/frame.obj', 'textures': {'body': 'kuayue:block/frame', 'alias': '#body'}}))
+        self.assertEqual(refs['file'], 'kuayue:models/block/frame.obj')
+        self.assertEqual(refs['texture'], 'kuayue:block/frame')
         self.assertEqual(len(refs), 2)
 
     def test_lfs_pointer_is_not_a_png(self):

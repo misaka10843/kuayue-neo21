@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "kuayue:22_carport_panel_top"
+  },
+  "result": {
+    "id": "kuayue:22_carport_top_cap",
+    "count": 2
+  }
+}

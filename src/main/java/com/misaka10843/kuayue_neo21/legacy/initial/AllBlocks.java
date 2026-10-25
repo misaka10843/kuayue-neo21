@@ -14,15 +14,15 @@ import net.minecraft.world.level.block.Block;
 
 public final class AllBlocks {
     public static final PortRegistration<Block> CR_LOGO = new PortRegistration<Block>("cr_logo").factory(Block::new).submit();
-    public static final PortRegistration<CompanyTrainPanel> COMPANY_TRAIN_PANEL = new PortRegistration<CompanyTrainPanel>("panel_extension").factory(CompanyTrainPanel::new).hidden().submit();
-    public static final PortRegistration<CompanyTrainDoor> COMPANY_TRAIN_DOOR = new PortRegistration<CompanyTrainDoor>("door_extension").factory(CompanyTrainDoor::new).hidden().submit();
-    public static final PortRegistration<CompanyTrainDoor.Sliding> COMPANY_SLIDING_DOOR = new PortRegistration<CompanyTrainDoor.Sliding>("sliding_door_extension").factory(CompanyTrainDoor.Sliding::new).hidden().submit();
-    public static final PortRegistration<CompanyTrainSlab> COMPANY_FLOOR = new PortRegistration<CompanyTrainSlab>("floor_extension").factory(p -> new CompanyTrainSlab(p, false)).hidden().submit();
-    public static final PortRegistration<CompanyTrainSlab> COMPANY_CARPORT = new PortRegistration<CompanyTrainSlab>("roof_extension").factory(p -> new CompanyTrainSlab(p, true)).hidden().submit();
+    public static final PortRegistration<CompanyTrainPanel> COMPANY_TRAIN_PANEL = new PortRegistration<CompanyTrainPanel>("company_panel_block").factory(CompanyTrainPanel::new).hidden().submit();
+    public static final PortRegistration<CompanyTrainDoor> COMPANY_TRAIN_DOOR = new PortRegistration<CompanyTrainDoor>("company_panel_door").factory(CompanyTrainDoor::new).hidden().submit();
+    public static final PortRegistration<CompanyTrainDoor.Sliding> COMPANY_SLIDING_DOOR = new PortRegistration<CompanyTrainDoor.Sliding>("company_panel_sliding_door").factory(CompanyTrainDoor.Sliding::new).hidden().submit();
+    public static final PortRegistration<CompanyTrainSlab> COMPANY_FLOOR = new PortRegistration<CompanyTrainSlab>("company_panel_floor").factory(p -> new CompanyTrainSlab(p, false)).hidden().submit();
+    public static final PortRegistration<CompanyTrainSlab> COMPANY_CARPORT = new PortRegistration<CompanyTrainSlab>("company_panel_carport").factory(p -> new CompanyTrainSlab(p, true)).hidden().submit();
 
-    public static final PortEntityType<CompanyTrainBlockEntity> COMPANY_TRAIN_BLOCK_ENTITY = new PortEntityType<>("panel_extension", CompanyTrainBlockEntity::new, CompanyTrainPanel.class::isInstance);
-    public static final PortEntityType<CustomRenderedDoorEntity> CUSTOM_RENDERED_DOOR_ENTITY = new PortEntityType<>("vehicle_door", CustomRenderedDoorEntity::new, CustomRenderedDoorBlock.class::isInstance);
-    public static final PortEntityType<CustomRenderedEndfaceEntity> CUSTOM_RENDERED_ENDFACE_ENTITY = new PortEntityType<>("vehicle_end", CustomRenderedEndfaceEntity::new, b -> b instanceof CustomRenderedEndfaceBlock && !(b instanceof MeterCarriageEndFaceBlock) && !(b instanceof DoubleRotateDoorBlock));
+    public static final PortEntityType<CompanyTrainBlockEntity> COMPANY_TRAIN_BLOCK_ENTITY = new PortEntityType<>("company_panel", CompanyTrainBlockEntity::new, CompanyTrainPanel.class::isInstance);
+    public static final PortEntityType<CustomRenderedDoorEntity> CUSTOM_RENDERED_DOOR_ENTITY = new PortEntityType<>("custom_rendered_door_entity", CustomRenderedDoorEntity::new, CustomRenderedDoorBlock.class::isInstance);
+    public static final PortEntityType<CustomRenderedEndfaceEntity> CUSTOM_RENDERED_ENDFACE_ENTITY = new PortEntityType<>("custom_rendered_endface_entity", CustomRenderedEndfaceEntity::new, b -> b instanceof CustomRenderedEndfaceBlock && !(b instanceof MeterCarriageEndFaceBlock) && !(b instanceof DoubleRotateDoorBlock));
     public static final PortEntityType<SingleSlidingDoorEntity> SINGLE_SLIDING_DOOR_ENTITY = new PortEntityType<>("single_sliding_door", SingleSlidingDoorEntity::new, MeterCarriageEndFaceBlock.class::isInstance);
     public static final PortEntityType<DoubleRotateDoorEntity> DOUBLE_ROTATE_DOOR_ENTITY = new PortEntityType<>("double_rotate_door", DoubleRotateDoorEntity::new, DoubleRotateDoorBlock.class::isInstance);
     public static final PortEntityType<DF11GChimneyEntity> DF11G_CHIMNEY_ENTITY = new PortEntityType<>("chimney", DF11GChimneyEntity::new, DF11GChimneyBlock.class::isInstance);

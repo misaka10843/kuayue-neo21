@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "kuayue:plastic_ingot"
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayue:plastic_board"
+    }
+  ]
+}

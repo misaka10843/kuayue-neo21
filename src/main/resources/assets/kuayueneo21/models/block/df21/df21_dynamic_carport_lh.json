@@ -1,9 +1,0 @@
-{
-  "loader": "neoforge:obj",
-  "model": "kuayueneo21:models/block/df21/df21_dynamic_carport_lh.obj",
-  "render_type": "cutout_mipped",
-  "flip_v": true,
-  "textures": {
-    "particle": "kuayueneo21:block/df21/df21_general_carport2"
-  }
-}

@@ -12,7 +12,7 @@ class LibraryIndependenceTests(unittest.TestCase):
     def make_jar(self, directory, files):
         path = Path(directory) / 'port.jar'
         with zipfile.ZipFile(path, 'w') as jar:
-            jar.writestr('META-INF/neoforge.mods.toml', '[[mods]]\nmodId="kuayueneo21"\n')
+            jar.writestr('META-INF/neoforge.mods.toml', '[[mods]]\nmodId="kuayue"\n')
             for name in ('KuaYue-LICENSE.txt', 'KuaYue-LICENSE-RESOURCES.txt'):
                 jar.writestr('META-INF/licenses/' + name, 'test license')
             for name, data in files.items():
