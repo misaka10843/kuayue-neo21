@@ -5,6 +5,12 @@ import com.misaka10843.kuayue_neo21.content.coupling.TrainTopologyPayload;
 import com.simibubi.create.CreateClient;
 
 public final class ClientTrainCoupling {
+    public static void impact(com.misaka10843.kuayue_neo21.content.coupling.TrainImpactPayload payload) {
+        var first = CreateClient.RAILWAYS.trains.get(payload.first());
+        var second = CreateClient.RAILWAYS.trains.get(payload.second());
+        if (first != null) { first.speed = payload.firstSpeed(); first.targetSpeed = 0; first.runtime.paused = true; }
+        if (second != null) { second.speed = payload.secondSpeed(); second.targetSpeed = 0; second.runtime.paused = true; }
+    }
     public static void apply(TrainTopologyPayload payload) {
         var manager = CreateClient.RAILWAYS;
         var front = manager.trains.get(payload.front());

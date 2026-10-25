@@ -12,5 +12,7 @@ public final class CouplingNetwork {
     public static void register(RegisterPayloadHandlersEvent event) {
         event.registrar("1").playToClient(TrainTopologyPayload.TYPE, TrainTopologyPayload.CODEC,
                 (payload, context) -> context.enqueueWork(() -> ClientTrainCoupling.apply(payload)));
+        event.registrar("1").playToClient(TrainImpactPayload.TYPE, TrainImpactPayload.CODEC,
+                (payload, context) -> context.enqueueWork(() -> ClientTrainCoupling.impact(payload)));
     }
 }
