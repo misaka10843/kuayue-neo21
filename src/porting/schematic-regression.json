@@ -1,0 +1,159 @@
+{
+  "source": "25G schematic entrance regression excerpt",
+  "palette": [
+    {
+      "Name": "minecraft:white_concrete"
+    },
+    {
+      "Properties": {
+        "hinge": "single",
+        "edit_type": "none",
+        "facing": "north"
+      },
+      "Name": "kuayue:ceilin_shelf_3"
+    },
+    {
+      "Properties": {
+        "hinge": "single",
+        "edit_type": "none",
+        "facing": "south"
+      },
+      "Name": "kuayue:ceilin_shelf_3"
+    },
+    {
+      "Properties": {
+        "hinge": "left",
+        "edit_type": "none",
+        "facing": "north",
+        "open": "false"
+      },
+      "Name": "kuayue:door_sliding_25g"
+    },
+    {
+      "Properties": {
+        "edit_type": "none",
+        "facing": "east",
+        "open": "false"
+      },
+      "Name": "kuayue:end_face_25g_2"
+    },
+    {
+      "Properties": {
+        "hinge": "right",
+        "edit_type": "none",
+        "facing": "south",
+        "open": "false"
+      },
+      "Name": "kuayue:door_sliding_25g"
+    },
+    {
+      "Properties": {
+        "hinge": "left",
+        "facing": "north",
+        "shape_type": "normal",
+        "open": "false"
+      },
+      "Name": "kuayue:company_sliding_door"
+    },
+    {
+      "Properties": {
+        "hinge": "right",
+        "facing": "south",
+        "shape_type": "normal",
+        "open": "false"
+      },
+      "Name": "kuayue:company_sliding_door"
+    }
+  ],
+  "blocks": [
+    {
+      "pos": [
+        1,
+        4,
+        2
+      ],
+      "state": 0
+    },
+    {
+      "pos": [
+        1,
+        4,
+        1
+      ],
+      "state": 1
+    },
+    {
+      "pos": [
+        1,
+        4,
+        3
+      ],
+      "state": 2
+    },
+    {
+      "nbt": {
+        "id": "kuayue:custom_rendered_door"
+      },
+      "pos": [
+        1,
+        2,
+        1
+      ],
+      "state": 3
+    },
+    {
+      "nbt": {
+        "id": "kuayue:custom_rendered_end_face",
+        "type": "rotate_single_sided",
+        "open": 0
+      },
+      "pos": [
+        1,
+        2,
+        2
+      ],
+      "state": 4
+    },
+    {
+      "nbt": {
+        "id": "kuayue:custom_rendered_door"
+      },
+      "pos": [
+        1,
+        2,
+        3
+      ],
+      "state": 5
+    },
+    {
+      "nbt": {
+        "px": 0,
+        "py": -1,
+        "pz": 0,
+        "id": "kuayue:company_panel",
+        "direction": "NORTH"
+      },
+      "pos": [
+        1,
+        3,
+        1
+      ],
+      "state": 6
+    },
+    {
+      "nbt": {
+        "px": 0,
+        "py": -1,
+        "pz": 0,
+        "id": "kuayue:company_panel",
+        "direction": "SOUTH"
+      },
+      "pos": [
+        1,
+        3,
+        3
+      ],
+      "state": 7
+    }
+  ]
+}

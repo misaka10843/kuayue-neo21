@@ -75,7 +75,9 @@ neoForge {
 
         data {
             data()
+            gameDirectory = project.file('build/data-run')
             systemProperty 'kuayue.projectDir', project.projectDir.absolutePath
+            systemProperty 'kuayue.schematicFixture', providers.gradleProperty('schematicFixture').getOrElse('src/porting/schematic-regression.json')
             // example of overriding the workingDirectory set in configureEach above, uncomment if you want to use it
             // gameDirectory = project.file('run-data')
 

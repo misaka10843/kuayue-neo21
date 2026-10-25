@@ -82,6 +82,7 @@ public final class PortAuditProvider implements DataProvider {
                 report.put("createIntegration", BogeyIntegrationAudit.run(provider, failures));
                 report.put("vehicleInteractions", VehicleInteractionAudit.run(failures));
                 report.put("vehiclePlacement", VehiclePlacementAudit.run(failures));
+                report.put("schematicPlacement", SchematicPlacementAudit.run(project, failures));
                 report.put("failures", failures);
                 Path destination = project.resolve("build/reports/port-audit.json");
                 Files.createDirectories(destination.getParent());

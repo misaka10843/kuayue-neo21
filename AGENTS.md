@@ -12,6 +12,8 @@ Do not depend on, shade, relocate or imitate the KasugaLib framework, its inject
 
 Preserve the included blocks' behavior and Create integration, including track-aligned bogey placement, native style cycling, assembly data, doors, seats and assisted vehicle-part placement. Registration and models alone do not constitute a functional port. Keep any unresolved behavior gaps explicit.
 
+Schematic loading must not mutate neighboring blocks from onPlace in virtual levels. Repair companions on the real server after placement, claim only air or companions owned by the same root, and never destroy a root merely because a companion was replaced. Direct player removal and wrench removal must still remove the owned part correctly. Keep regression coverage for legacy companion IDs and overlapping schematic footprints.
+
 ## Code
 
 Use the `kuayue` mod and resource namespace so included original block IDs can resolve in Create schematics. Keep the project standalone from the official mod and its removed library framework.

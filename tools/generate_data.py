@@ -221,7 +221,7 @@ def main():
         old_state = GENERATED / 'assets' / MOD / 'blockstates' / (old_id + '.json')
         if old_state.exists():
             old_state.unlink()
-    for id in extension_ids.values():
+    for id in list(extension_ids.values()) + ['company_door_block', 'company_sliding_door']:
         save(GENERATED / 'assets' / MOD / 'blockstates' / (id + '.json'), {'variants': {'': {'model': 'minecraft:block/air'}}})
     for locale in ['en_us', 'zh_cn']:
         language = json.loads((Path('src/porting/languages') / (locale + '.json')).read_text(encoding='utf-8'))

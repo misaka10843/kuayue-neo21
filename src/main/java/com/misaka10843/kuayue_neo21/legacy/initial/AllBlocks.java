@@ -19,6 +19,8 @@ public final class AllBlocks {
     public static final PortRegistration<CompanyTrainDoor.Sliding> COMPANY_SLIDING_DOOR = new PortRegistration<CompanyTrainDoor.Sliding>("company_panel_sliding_door").factory(CompanyTrainDoor.Sliding::new).hidden().submit();
     public static final PortRegistration<CompanyTrainSlab> COMPANY_FLOOR = new PortRegistration<CompanyTrainSlab>("company_panel_floor").factory(p -> new CompanyTrainSlab(p, false)).hidden().submit();
     public static final PortRegistration<CompanyTrainSlab> COMPANY_CARPORT = new PortRegistration<CompanyTrainSlab>("company_panel_carport").factory(p -> new CompanyTrainSlab(p, true)).hidden().submit();
+    public static final PortRegistration<CompanyTrainDoor> LEGACY_COMPANY_DOOR = new PortRegistration<CompanyTrainDoor>("company_door_block").factory(CompanyTrainDoor::new).hidden().submit();
+    public static final PortRegistration<CompanyTrainDoor.Sliding> LEGACY_COMPANY_SLIDING_DOOR = new PortRegistration<CompanyTrainDoor.Sliding>("company_sliding_door").factory(CompanyTrainDoor.Sliding::new).hidden().submit();
 
     public static final PortEntityType<CompanyTrainBlockEntity> COMPANY_TRAIN_BLOCK_ENTITY = new PortEntityType<>("company_panel", CompanyTrainBlockEntity::new, CompanyTrainPanel.class::isInstance);
     public static final PortEntityType<CustomRenderedDoorEntity> CUSTOM_RENDERED_DOOR_ENTITY = new PortEntityType<>("custom_rendered_door_entity", CustomRenderedDoorEntity::new, CustomRenderedDoorBlock.class::isInstance);

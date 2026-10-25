@@ -1,6 +1,13 @@
 package com.misaka10843.kuayue_neo21.legacy.block.panels;
 
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
+import com.misaka10843.kuayue_neo21.content.VehicleExtensionPlacement;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import java.util.ArrayList;
+import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -82,7 +89,18 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
     @Override
     public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
         super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
-        if (!pLevel.isClientSide && !pIsMoving && !pState.is(pOldState.getBlock())) generateCompanyBlock(pLevel, pState, pPos, false);
+        if (pLevel instanceof ServerLevel server && !pIsMoving && !pState.is(pOldState.getBlock())) server.scheduleTick(pPos, this, 1);
+    }
+
+    @Override
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        generateCompanyBlock(level, state, pos, false);
+    }
+
+    @Override
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+        super.setPlacedBy(level, pos, state, placer, stack);
+        if (placer != null && level instanceof ServerLevel) generateCompanyBlock(level, state, pos, false);
     }
 
     public boolean hasHinge() {
@@ -99,6 +117,7 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
         boolean leftHinge = !state.hasProperty(BlockStateProperties.DOOR_HINGE) || state.getValue(BlockStateProperties.DOOR_HINGE) == DoorHingeSide.LEFT;
         BlockUseFunction function = (l, p, parentState, myPos, myState, player, hand, hit) -> {
             if (p.equals(myPos)) return InteractionResult.SUCCESS;
+            if (!VehicleExtensionPlacement.canClaim(l, p, myPos)) return InteractionResult.PASS;
             BlockState state1 = generateCompanyState(direction, leftHinge ? DoorHingeSide.LEFT : DoorHingeSide.RIGHT, open);
             level.setBlock(myPos, state1, 10);
             CompanyTrainPanel.setParentBlock(myPos, level, state1, pos);
@@ -114,10 +133,6 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
     }
 
 
-    public void specialRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
-        if (!isMoving && level.getBlockState(pos).is(state.getBlock())) level.destroyBlock(pos, true);
-    }
-
     public void removeCompanyBlock(Level level, BlockState state, BlockPos pos, boolean isMoving) {
         BlockUseFunction function = (l, p, parentState, myPos, myState, player, hand, hit) -> {
             if (p.equals(myPos)) return InteractionResult.SUCCESS;
@@ -132,6 +147,13 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
 
     public void walkAllValidPos(Level level, BlockPos blockPos, BlockState parentState,
                                 Player player, InteractionHand hand, BlockHitResult hit, BlockUseFunction function) {
+        for (BlockPos part : getOccupiedPositions(level, blockPos, parentState)) {
+            function.apply(level, blockPos, parentState, part, level.getBlockState(part), player, hand, hit);
+        }
+    }
+
+    public List<BlockPos> getOccupiedPositions(BlockGetter level, BlockPos blockPos, BlockState parentState) {
+        List<BlockPos> positions = new ArrayList<>();
         Direction direction = parentState.getValue(FACING);
         BlockPos firstPos = blockPos;
         boolean leftHinge = !parentState.hasProperty(BlockStateProperties.DOOR_HINGE) ||
@@ -143,12 +165,13 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
 
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < height; j++) {
-                function.apply(level, blockPos, parentState, firstPos, level.getBlockState(firstPos), player, hand, hit);
+                positions.add(firstPos);
                 firstPos = firstPos.above();
             }
             firstPos = firstPos.offset(0, - height, 0);
             firstPos = DirectionUtil.right(firstPos, direction, leftHinge ? 1 : -1);
         }
+        return positions;
     }
 
     @Override

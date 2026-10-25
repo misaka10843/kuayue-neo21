@@ -70,21 +70,6 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
         return super.getStateForPlacement(pContext).setValue(OPEN, false);
     }
 
-    public void generateCompanyBlock(Level level, BlockState state, BlockPos pos, boolean isMoving) {
-        Direction direction = state.getValue(FACING);
-        boolean open = state.hasProperty(BlockStateProperties.OPEN) ?
-                state.getValue(BlockStateProperties.OPEN) : false;
-        boolean leftHinge = !state.hasProperty(BlockStateProperties.DOOR_HINGE) || state.getValue(BlockStateProperties.DOOR_HINGE) == DoorHingeSide.LEFT;
-        BlockUseFunction function = (l, p, parentState, myPos, myState, player, hand, hit) -> {
-            if (myPos.equals(p)) return InteractionResult.SUCCESS;
-            BlockState state1 = generateCompanyState(direction, leftHinge ? DoorHingeSide.LEFT : DoorHingeSide.RIGHT, open);
-            level.setBlock(myPos, state1, 10);
-            CompanyTrainPanel.setParentBlock(myPos, level, state1, pos);
-            return InteractionResult.SUCCESS;
-        };
-        walkAllValidPos(level, pos, state, null, null, null, function);
-    }
-
     public BlockState generateCompanyState(Direction direction, DoorHingeSide hingeSide, boolean open) {
         return AllBlocks.COMPANY_TRAIN_PANEL.instance().defaultBlockState()
                 .setValue(CompanyTrainPanel.FACING, direction.getOpposite())
@@ -93,11 +78,9 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
     }
 
     @Override
-    public void walkAllValidPos(Level level, BlockPos root, BlockState state, Player player, InteractionHand hand, BlockHitResult hit, BlockUseFunction function) {
+    public java.util.List<BlockPos> getOccupiedPositions(BlockGetter level, BlockPos root, BlockState state) {
         VoxelShape closed = getShape(state.setValue(OPEN, false), level, root, CollisionContext.empty());
-        for (BlockPos part : VehiclePartGeometry.footprint(root, state.getValue(FACING), closed)) {
-            function.apply(level, root, state, part, level.getBlockState(part), player, hand, hit);
-        }
+        return VehiclePartGeometry.footprint(root, state.getValue(FACING), closed);
     }
 
     @Override

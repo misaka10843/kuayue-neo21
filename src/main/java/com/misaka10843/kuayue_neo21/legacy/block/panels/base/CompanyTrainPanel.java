@@ -84,23 +84,12 @@ public class CompanyTrainPanel extends Block implements EntityBlock, IWrenchable
     }
 
     @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (pIsMoving || pState.is(pNewState.getBlock())) {
-            super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
-            return;
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        BlockPos root = getParentPos(level, pos);
+        if (!level.isClientSide && root != null && !root.equals(pos) && level.getBlockState(root).getBlock() instanceof TrainPanelBlock) {
+            level.destroyBlock(root, !player.isCreative());
         }
-        BlockPos pos = getParentPos(pLevel, pPos);
-        if (pos == null) {
-            super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
-            return;
-        }
-        BlockState state = pLevel.getBlockState(pos);
-        Block block = state.getBlock();
-        if (block instanceof TrainPanelBlock trainPanelBlock && !pState.getBlock().equals(pNewState.getBlock()))
-            trainPanelBlock.specialRemove(state, pLevel, pos, pNewState, pIsMoving);
-        else
-            super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
-        pLevel.removeBlockEntity(pPos);
+        return super.playerWillDestroy(level, pos, state, player);
     }
 
     @Override
@@ -162,6 +151,7 @@ public class CompanyTrainPanel extends Block implements EntityBlock, IWrenchable
         BlockEntity entity = level.getBlockEntity(myPos);
         if (!(entity instanceof CompanyTrainBlockEntity companyTrainBlockEntity)) return;
         companyTrainBlockEntity.setParentPos(pos.subtract(myPos), state.getValue(FACING));
+        if (level instanceof Level world && !world.isClientSide) world.sendBlockUpdated(myPos, state, state, Block.UPDATE_CLIENTS);
     }
 
     public static BlockState getParentBlock(BlockGetter level, BlockPos myPos) {
