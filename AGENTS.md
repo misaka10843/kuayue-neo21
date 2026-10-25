@@ -30,6 +30,8 @@ The implementer runs compilation, packaging, generation and static resource/reci
 
 Validate texture references against actual PNG files, model references against model definitions, and OBJ references against geometry/material files. A same-named model must never satisfy a texture dependency. Validate image contents and exercise Create integration APIs separately from recipe/registry checks.
 
+Floor lighting validation must include baked model AO flags and rendered vertex light continuity across adjacent faces. Server light propagation alone does not validate smooth surface lighting. Keep visual reports unresolved until the reported client path is explained or retested; diagnostic builds must be labeled explicitly.
+
 ## Work and Git
 
 Work continuously in complete implementation and verification phases; do not request approval for each block. Preserve unrelated work. The user authorizes a Git commit after each complete feature and its appropriate automatic checks. Use English `type (scope): description`, stage only task paths and group complete features. Do not push, rewrite history or change Git configuration. Authorization from another repository does not transfer here.

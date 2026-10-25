@@ -77,6 +77,8 @@ public final class PortAuditProvider implements DataProvider {
                 }
                 Map<String, Object> report = new LinkedHashMap<>();
                 report.put("blocks", PortRegistration.ENTRIES.size());
+                try { report.put("slabSurfaceLighting", SlabSurfaceLightingAudit.run(failures)); }
+                catch (Exception error) { throw new IllegalStateException("Slab surface lighting audit failed", error); }
                 report.put("obtainableBlocks", PortRegistration.ENTRIES.stream().filter(entry -> !entry.isHidden()).count());
                 report.put("decodedRecipes", recipes);
                 report.put("loadedMixinTargets", mixinTargets.length);
