@@ -34,7 +34,8 @@ public final class PortAuditProvider implements DataProvider {
             int recipes = 0;
             try {
                 Class<?>[] mixinTargets = {com.simibubi.create.content.contraptions.Contraption.class,
-                        com.simibubi.create.content.contraptions.AbstractContraptionEntity.class};
+                        com.simibubi.create.content.contraptions.AbstractContraptionEntity.class,
+                        com.simibubi.create.foundation.utility.BlockHelper.class};
                 for (Class<?> target : mixinTargets) target.getDeclaredMethods();
                 RegistryOps<com.google.gson.JsonElement> ops = RegistryOps.create(JsonOps.INSTANCE, provider);
                 try (var paths = Files.walk(project.resolve("src/generated/resources/data/kuayue/recipe"))) {

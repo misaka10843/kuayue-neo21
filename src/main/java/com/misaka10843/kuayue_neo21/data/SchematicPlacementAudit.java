@@ -62,6 +62,15 @@ public final class SchematicPlacementAudit {
         }
         int protectedOccupiedCells = 0;
         int replayedRoots = 0;
+        int bedCallbacksSkipped = 0;
+        for (var state : original.values()) {
+            if (state.getBlock() instanceof net.minecraft.world.level.block.BedBlock) {
+                boolean foot = state.getValue(net.minecraft.world.level.block.BedBlock.PART) == net.minecraft.world.level.block.state.properties.BedPart.FOOT;
+                boolean callback = com.misaka10843.kuayue_neo21.content.SchematicPlacementRules.needsPlacementCallback(state);
+                if (callback != foot) failures.add("Bed half placement callback mismatch");
+                if (!callback) bedCallbacksSkipped++;
+            }
+        }
         var savedView = new PlacementView(original, savedEntities);
         for (var entry : savedEntities.entrySet()) {
             BlockPos root = ((CompanyTrainBlockEntity) entry.getValue()).getParentPos().offset(entry.getKey());
@@ -92,7 +101,7 @@ public final class SchematicPlacementAudit {
             }
         }
         return Map.of("fixture", project.relativize(fixture).toString(), "blocks", entries.size(),
-                "replayedRoots", replayedRoots, "protectedOccupiedCells", protectedOccupiedCells, "unregisteredBlocks", missing);
+                "replayedRoots", replayedRoots, "protectedOccupiedCells", protectedOccupiedCells, "bedHeadCallbacksSkipped", bedCallbacksSkipped, "unregisteredBlocks", missing);
     }
 
     private static int generate(PlacementView level, BlockPos root, BlockState state, TrainPanelBlock panel) {
