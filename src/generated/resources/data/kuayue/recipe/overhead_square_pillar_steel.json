@@ -1,0 +1,14 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "kuayue:weathering_resistant_steel_board"
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayue:overhead_square_pillar_steel"
+    }
+  ],
+  "heat_requirement": "heated"
+}

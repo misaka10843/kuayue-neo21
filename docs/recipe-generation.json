@@ -1,5 +1,5 @@
 {
-  "recipes": 484,
+  "recipes": 534,
   "materials": [
     "kuayue:brush",
     "kuayue:carbon_dust",
@@ -12,16 +12,21 @@
     "kuayue:head_cr200j_circuit",
     "kuayue:head_cr200j_mould",
     "kuayue:head_cr200j_mould_constructing",
+    "kuayue:incomplete_ballastless_track",
+    "kuayue:incomplete_guard_track",
+    "kuayue:incomplete_meter_track",
+    "kuayue:incomplete_standard_track",
+    "kuayue:incomplete_tieless_track",
     "kuayue:iron_dust",
     "kuayue:plastic_board",
     "kuayue:plastic_ingot",
     "kuayue:plastic_nugget",
+    "kuayue:salt",
     "kuayue:solidify_slime_ball",
     "kuayue:train_moulds",
     "kuayue:vehicle_bogey_blank",
     "kuayue:vehicle_interior_blank",
     "kuayue:vehicle_panel_blank",
-    "kuayue:weathering_resistant_steel_block_0",
     "kuayue:weathering_resistant_steel_board",
     "kuayue:weathering_resistant_steel_dust",
     "kuayue:weathering_resistant_steel_ingot",
@@ -76,6 +81,34 @@
     },
     {
       "output": "kuayue:vacuum_toilet_3",
+      "blank": "kuayue:vehicle_panel_blank"
+    },
+    {
+      "output": "kuayue:exposed_weathering_steel_block",
+      "blank": "kuayue:vehicle_panel_blank"
+    },
+    {
+      "output": "kuayue:yellowing_weathering_steel_block",
+      "blank": "kuayue:vehicle_panel_blank"
+    },
+    {
+      "output": "kuayue:rusted_weathering_steel_block",
+      "blank": "kuayue:vehicle_panel_blank"
+    },
+    {
+      "output": "kuayue:stably_rusted_weathering_steel_block",
+      "blank": "kuayue:vehicle_panel_blank"
+    },
+    {
+      "output": "kuayue:fully_rusted_weathering_steel_block",
+      "blank": "kuayue:vehicle_panel_blank"
+    },
+    {
+      "output": "kuayue:salt_ore",
+      "blank": "kuayue:vehicle_panel_blank"
+    },
+    {
+      "output": "kuayue:deepslate_salt_ore",
       "blank": "kuayue:vehicle_panel_blank"
     },
     {

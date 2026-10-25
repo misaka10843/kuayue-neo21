@@ -1,0 +1,32 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "amount": 500,
+      "fluid": "minecraft:water",
+      "type": "neoforge:single"
+    },
+    {
+      "item": "minecraft:sea_pickle"
+    },
+    {
+      "item": "minecraft:sea_pickle"
+    },
+    {
+      "item": "minecraft:sea_pickle"
+    },
+    {
+      "item": "minecraft:sea_pickle"
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayue:salt"
+    },
+    {
+      "chance": 0.125,
+      "id": "kuayue:salt"
+    }
+  ],
+  "heat_requirement": "heated"
+}

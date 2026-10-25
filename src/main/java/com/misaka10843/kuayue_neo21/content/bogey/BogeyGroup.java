@@ -18,7 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 
 final class BogeyGroup {
-    public static final TrackType METER = new TrackType(PortRegistration.resource("meter"), TrackBlock::new);
+    public static final TrackType METER = com.misaka10843.kuayue_neo21.content.track.PortTrackTypes.METER;
     private final ResourceLocation id;
     private final ResourceLocation cycle;
     private final boolean meter;

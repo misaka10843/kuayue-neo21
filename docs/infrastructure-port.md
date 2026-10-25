@@ -1,0 +1,13 @@
+# Tracks and ordinary infrastructure
+
+The expanded inventory adds 40 obtainable blocks: five tracks, thirteen material/decorative blocks, three salt blocks/ores, two platform blocks and seventeen structural catenary pillars/trusses. The registry now contains 491 obtainable blocks and nine hidden companion IDs. Kuayue's electrical supports/wires, pantographs and driving devices remain excluded. `company_floor` and `company_carport` are accepted as legacy companion aliases.
+
+Track blocks use Create 6 `TrackBlock`, `TrackBlockItem`, `TrackMaterial`, native track block entities, straight model wrapping and curved track rendering. Standard, tieless, ballastless and guard track share the standard gauge; meter track uses the same meter `TrackType` as the ported meter bogeys. Anchors choose PK209P or MKZ accordingly. Curve rail transforms preserve the upstream 0.755/0.525 model offsets; the native default is retained for other mods. Actual rail placement, paving, track connections, train assembly, signals, slopes, junctions, turns and meter operation require user game testing.
+
+Platform doors retain sliding leaves and upper interaction companions, with their own renderer and redstone state. Quartz panels preserve orientation/shape rules, steel has six weathering stages, pillars join vertically, and truss hangers retain neighbor-driven appearance. Multi-block trusses use the same server-only, ownership-preserving companion placement as vehicle panels.
+
+Track production uses Create sequenced assembly: andesite slab, two iron nugget deployments and pressing. Salt has explicit ingredient references, ore drops with Silk Touch/Fortune, and overworld generation. Other blocks retain converted upstream recipes or the existing documented blank-and-processing supplements. All 491 obtainable blocks pass the production reachability check; recipe reachability does not validate balance.
+
+Sources: sibling `KuaYue` is primary for assets and 1.21.1 behavior; missing infrastructure implementations and registrations come from `NeoKuayue` classes `AllTracks`, `AllMaterials`, `AllOres`, `AllBlocks`, `AllOverheadLineDecoratingBlocks` and their block implementations. No registration framework was copied. Native deferred registers and Create interfaces replace framework registration/builders. Original MIT and resource license notices remain packaged.
+
+Automatic evidence: native registry/blockstate/recipe audit, all five curve transforms and material serialization, valid native track block entities, complete typed asset references and PNG validation. These checks do not prove visual or driving behavior.

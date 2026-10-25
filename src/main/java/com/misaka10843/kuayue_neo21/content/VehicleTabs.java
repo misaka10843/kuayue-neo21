@@ -14,10 +14,11 @@ public final class VehicleTabs {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, KuaYueneo21.MODID);
 
     public static void initialize() {
-        add("carriages", id -> !isLocomotive(id) && !isInterior(id), block -> !(block instanceof VehicleBogeyBlock));
+        add("carriages", id -> !isLocomotive(id) && !isInterior(id) && !isInfrastructure(id), block -> !(block instanceof VehicleBogeyBlock));
         add("locomotives", VehicleTabs::isLocomotive, block -> !(block instanceof VehicleBogeyBlock));
         add("interiors", VehicleTabs::isInterior, block -> !(block instanceof VehicleBogeyBlock));
         add("bogeys", id -> true, VehicleBogeyBlock.class::isInstance);
+        add("infrastructure", VehicleTabs::isInfrastructure, block -> true);
         TABS.register("materials", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.kuayue.materials"))
                 .icon(() -> AllBlocks.CR_LOGO.item().getDefaultInstance())
                 .displayItems((parameters, output) -> VehicleMaterials.ITEMS.values().forEach(item -> output.accept(item.get()))).build());
@@ -32,4 +33,7 @@ public final class VehicleTabs {
 
     private static boolean isLocomotive(String id) { return id.matches(".*(df11g?|df21|df5|hxd3d|ss3|ss8|jy290|240km).*"); }
     private static boolean isInterior(String id) { return id.matches(".*(seat|shelf|luggage|yz_table|boiling_water|flourescent|ac_outdoor|reservoir|carriage_battery|vacuum_toilet|brake_cylinder).*"); }
+    private static boolean isInfrastructure(String id) {
+        return id.matches("(standard|tieless|ballastless|meter|guard)_track|platform_.*|smooth_quartz_.*|.*weathering.*steel_block.*|overhead_.*|truss_hanger_.*|clay_.*|.*salt.*|original_25z_floor_carpet");
+    }
 }

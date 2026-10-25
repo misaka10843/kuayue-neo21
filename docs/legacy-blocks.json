@@ -2779,6 +2779,286 @@
     "definition": "new SlabRegistration<TrainSlabBlock>(\"carriage_brake_cylinder\")\n                    .block(p -> new TrainSlabBlock(p, false))\n                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)\n                    .tab(AllElements.neoKuayueCarriageTab )\n                    .noOcclusion().strengthAndTool(1.5f, 3f)\n                    "
   },
   {
+    "id": "clay_slab",
+    "family": "AllMaterials",
+    "registration": "BlockReg",
+    "type": "SlabBlock",
+    "definition": "new BlockReg<SlabBlock>(\"clay_slab\")\n                    .blockType(SlabBlock::new)\n                    .material(Material.CLAY)\n                    .materialColor(MaterialColor.STONE)\n                    .addProperty(BlockBehaviour.Properties::noOcclusion)\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .addProperty(properties -> properties.strength(1.0f, 2.0f))\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "clay_stairs",
+    "family": "AllMaterials",
+    "registration": "BlockReg",
+    "type": "StairBlock",
+    "definition": "new BlockReg<StairBlock>(\"clay_stairs\")\n                    .blockType(new BlockReg.BlockBuilder<StairBlock>() {\n                        @Override\n                        public StairBlock build(BlockBehaviour.Properties properties) {\n                            return new StairBlock(Blocks.CLAY::defaultBlockState, BlockBehaviour.Properties.of(Material.CLAY, MaterialColor.STONE));\n                        }\n                    })\n                    .addProperty(BlockBehaviour.Properties::noOcclusion)\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .addProperty(properties -> properties.strength(1.0f, 2.0f))\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "smooth_quartz_panel_2",
+    "family": "AllMaterials",
+    "registration": "PanelRegistration",
+    "type": "QuartzPanelBlock2",
+    "definition": "new PanelRegistration<QuartzPanelBlock2>(\"smooth_quartz_panel_2\")\n                    .block(QuartzPanelBlock2::new)\n                    .materialAndColor(Material.STONE, MaterialColor.NONE)\n                    .tab(AllElements.neoKuayueMainTab)\n                    .noOcclusion().strengthAndTool(1f, 3f)\n                    "
+  },
+  {
+    "id": "smooth_quartz_panel_half",
+    "family": "AllMaterials",
+    "registration": "PanelRegistration",
+    "type": "QuartzPanelBlockHalf",
+    "definition": "new PanelRegistration<QuartzPanelBlockHalf>(\"smooth_quartz_panel_half\")\n                    .block(QuartzPanelBlockHalf::new)\n                    .materialAndColor(Material.STONE, MaterialColor.NONE)\n                    .tab(AllElements.neoKuayueMainTab)\n                    .noOcclusion().strengthAndTool(1f, 3f)\n                    "
+  },
+  {
+    "id": "smooth_quartz_panel_4",
+    "family": "AllMaterials",
+    "registration": "PanelRegistration",
+    "type": "QuartzPanelBlock4",
+    "definition": "new PanelRegistration<QuartzPanelBlock4>(\"smooth_quartz_panel_4\")\n                    .block(QuartzPanelBlock4::new)\n                    .materialAndColor(Material.STONE, MaterialColor.NONE)\n                    .tab(AllElements.neoKuayueMainTab)\n                    .noOcclusion().strengthAndTool(1f, 3f)\n                    "
+  },
+  {
+    "id": "smooth_quartz_angle_22_up",
+    "family": "AllMaterials",
+    "registration": "PanelRegistration",
+    "type": "QuartzAngleBlock22",
+    "definition": "new PanelRegistration<QuartzAngleBlock22>(\"smooth_quartz_angle_22_up\")\n                    .block(QuartzAngleBlock22::new)\n                    .materialAndColor(Material.STONE, MaterialColor.NONE)\n                    .tab(AllElements.neoKuayueMainTab)\n                    .noOcclusion().strengthAndTool(1f, 3f)\n                    "
+  },
+  {
+    "id": "weathering_resistant_steel_block_0",
+    "family": "AllMaterials",
+    "registration": "BlockReg",
+    "type": "FullWeatheringSteelBlock",
+    "definition": "new BlockReg<FullWeatheringSteelBlock>(\"weathering_resistant_steel_block_0\")\n                    .blockType(p -> new FullWeatheringSteelBlock(IWeatheringSteel.WSWeatherState.WS, p))\n                    .material(Material.METAL)\n                    .materialColor(MaterialColor.METAL)\n                    .addProperty(BlockBehaviour.Properties::noOcclusion)\n                    .addProperty(p -> p.strength(2.0f, 3.0f))\n                    .withSound(SoundType.COPPER)\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "exposed_weathering_steel_block",
+    "family": "AllMaterials",
+    "registration": "BlockReg",
+    "type": "FullWeatheringSteelBlock",
+    "definition": "new BlockReg<FullWeatheringSteelBlock>(\"exposed_weathering_steel_block\")\n                    .blockType(p -> new FullWeatheringSteelBlock(IWeatheringSteel.WSWeatherState.EXPOSED_WS, p))\n                    .material(Material.METAL)\n                    .materialColor(MaterialColor.METAL)\n                    .addProperty(BlockBehaviour.Properties::noOcclusion)\n                    .addProperty(p -> p.strength(2.0f, 3.0f))\n                    .withSound(SoundType.COPPER)\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "yellowing_weathering_steel_block",
+    "family": "AllMaterials",
+    "registration": "BlockReg",
+    "type": "FullWeatheringSteelBlock",
+    "definition": "new BlockReg<FullWeatheringSteelBlock>(\"yellowing_weathering_steel_block\")\n                    .blockType(p -> new FullWeatheringSteelBlock(IWeatheringSteel.WSWeatherState.YELLOWING_WS, p))\n                    .material(Material.METAL)\n                    .materialColor(MaterialColor.METAL)\n                    .addProperty(BlockBehaviour.Properties::noOcclusion)\n                    .addProperty(p -> p.strength(2.0f, 3.0f))\n                    .withSound(SoundType.COPPER)\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "rusted_weathering_steel_block",
+    "family": "AllMaterials",
+    "registration": "BlockReg",
+    "type": "FullWeatheringSteelBlock",
+    "definition": "new BlockReg<FullWeatheringSteelBlock>(\"rusted_weathering_steel_block\")\n                    .blockType(p -> new FullWeatheringSteelBlock(IWeatheringSteel.WSWeatherState.RUSTED_WS, p))\n                    .material(Material.METAL)\n                    .materialColor(MaterialColor.METAL)\n                    .addProperty(BlockBehaviour.Properties::noOcclusion)\n                    .addProperty(p -> p.strength(2.0f, 3.0f))\n                    .withSound(SoundType.COPPER)\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "stably_rusted_weathering_steel_block",
+    "family": "AllMaterials",
+    "registration": "BlockReg",
+    "type": "FullWeatheringSteelBlock",
+    "definition": "new BlockReg<FullWeatheringSteelBlock>(\"stably_rusted_weathering_steel_block\")\n                    .blockType(p -> new FullWeatheringSteelBlock(IWeatheringSteel.WSWeatherState.STABLY_WS, p))\n                    .material(Material.METAL)\n                    .materialColor(MaterialColor.METAL)\n                    .addProperty(BlockBehaviour.Properties::noOcclusion)\n                    .addProperty(p -> p.strength(2.0f, 3.0f))\n                    .withSound(SoundType.COPPER)\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "fully_rusted_weathering_steel_block",
+    "family": "AllMaterials",
+    "registration": "BlockReg",
+    "type": "FullWeatheringSteelBlock",
+    "definition": "new BlockReg<FullWeatheringSteelBlock>(\"fully_rusted_weathering_steel_block\")\n                    .blockType(p -> new FullWeatheringSteelBlock(IWeatheringSteel.WSWeatherState.FULLY_WS, p))\n                    .material(Material.METAL)\n                    .materialColor(MaterialColor.METAL)\n                    .addProperty(BlockBehaviour.Properties::noOcclusion)\n                    .addProperty(p -> p.strength(2.0f, 3.0f))\n                    .withSound(SoundType.COPPER)\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "original_25z_floor_carpet",
+    "family": "AllMaterials",
+    "registration": "BlockReg",
+    "type": "DirectionalCarpetBlock",
+    "definition": "new BlockReg<DirectionalCarpetBlock>(\"original_25z_floor_carpet\")\n                    .blockType(DirectionalCarpetBlock::new)\n                    .material(Material.WOOL)\n                    .materialColor(MaterialColor.NONE)\n                    .addProperty(properties -> properties.strength(.1f, .1f))\n                    .addProperty(properties -> properties.sound(SoundType.WOOL))\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "salt_ore",
+    "family": "AllOres",
+    "registration": "BlockReg",
+    "type": "DropExperienceBlock",
+    "definition": "new BlockReg<DropExperienceBlock>(\"salt_ore\")\n                    .blockType(props ->\n                            new DropExperienceBlock(props, UniformInt.of(3, 7)))\n                    .material(Material.STONE)\n                    .materialColor(MaterialColor.STONE)\n                    .addProperty(properties -> properties.strength(1.5f, 6.0F))\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "deepslate_salt_ore",
+    "family": "AllOres",
+    "registration": "BlockReg",
+    "type": "DropExperienceBlock",
+    "definition": "new BlockReg<DropExperienceBlock>(\"deepslate_salt_ore\")\n                    .blockType(props ->\n                            new DropExperienceBlock(props, UniformInt.of(3, 7)))\n                    .material(Material.STONE)\n                    .materialColor(MaterialColor.STONE)\n                    .addProperty(properties -> properties.strength(1.5f, 6.0F))\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "salt_block",
+    "family": "AllOres",
+    "registration": "BlockReg",
+    "type": "Block",
+    "definition": "new BlockReg<Block>(\"salt_block\")\n                    .blockType(Block::new)\n                    .material(Material.STONE)\n                    .materialColor(MaterialColor.STONE)\n                    .addProperty(properties -> properties.sound(SoundType.TUFF))\n                    .addProperty(properties -> properties.strength(1.0f, 3.0F))\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "standard_track",
+    "family": "AllTracks",
+    "registration": "TrackReg",
+    "type": "SimpleTrackBlock",
+    "definition": "new TrackReg<SimpleTrackBlock>(\"standard_track\")\n                    .trackState(stateBuilder)\n                    .trackNameSuffix(\"Train Track\")\n                    .material(Material.STONE)\n                    .trackMaterial(AllTrackMaterial.standardMaterial::getMaterial)\n                    .pickaxeOnly()\n                    .addTags(AllTags.AllBlockTags.TRACKS.tag)\n                    .addTags(AllTags.AllBlockTags.GIRDABLE_TRACKS.tag)\n                    .addTags(AllTags.AllBlockTags.RELOCATION_NOT_SUPPORTED.tag)\n                    .tab(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "tieless_track",
+    "family": "AllTracks",
+    "registration": "TrackReg",
+    "type": "SimpleTrackBlock",
+    "definition": "new TrackReg<SimpleTrackBlock>(\"tieless_track\")\n                    .trackState(stateBuilder)\n                    .trackNameSuffix(\"Tieless Track\")\n                    .material(Material.STONE)\n                    .trackMaterial(AllTrackMaterial.tielessMaterial::getMaterial)\n                    .pickaxeOnly()\n                    .addTags(AllTags.AllBlockTags.TRACKS.tag)\n                    .addTags(AllTags.AllBlockTags.GIRDABLE_TRACKS.tag)\n                    .addTags(AllTags.AllBlockTags.RELOCATION_NOT_SUPPORTED.tag)\n                    .tab(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "ballastless_track",
+    "family": "AllTracks",
+    "registration": "TrackReg",
+    "type": "SimpleTrackBlock",
+    "definition": "new TrackReg<SimpleTrackBlock>(\"ballastless_track\")\n                    .trackState(stateBuilder)\n                    .trackNameSuffix(\"Ballastless Track\")\n                    .material(Material.STONE)\n                    .trackMaterial(AllTrackMaterial.ballastlessMaterial::getMaterial)\n                    .pickaxeOnly()\n                    .addTags(AllTags.AllBlockTags.TRACKS.tag)\n                    .addTags(AllTags.AllBlockTags.GIRDABLE_TRACKS.tag)\n                    .addTags(AllTags.AllBlockTags.RELOCATION_NOT_SUPPORTED.tag)\n                    .tab(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "meter_track",
+    "family": "AllTracks",
+    "registration": "TrackReg",
+    "type": "SimpleTrackBlock",
+    "definition": "new TrackReg<SimpleTrackBlock>(\"meter_track\")\n                    .trackState(stateBuilder)\n                    .trackNameSuffix(\"Meter Track\")\n                    .material(Material.STONE)\n                    .trackMaterial(AllTrackMaterial.meterMaterial::getMaterial)\n                    .pickaxeOnly()\n                    .addTags(AllTags.AllBlockTags.TRACKS.tag)\n                    .addTags(AllTags.AllBlockTags.GIRDABLE_TRACKS.tag)\n                    .addTags(AllTags.AllBlockTags.RELOCATION_NOT_SUPPORTED.tag)\n                    .tab(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "guard_track",
+    "family": "AllTracks",
+    "registration": "TrackReg",
+    "type": "SimpleTrackBlock",
+    "definition": "new TrackReg<SimpleTrackBlock>(\"guard_track\")\n                    .trackState(stateBuilder)\n                    .trackNameSuffix(\"guard Track\")\n                    .material(Material.STONE)\n                    .trackMaterial(AllTrackMaterial.guardMaterial::getMaterial)\n                    .pickaxeOnly()\n                    .addTags(AllTags.AllBlockTags.TRACKS.tag)\n                    .addTags(AllTags.AllBlockTags.GIRDABLE_TRACKS.tag)\n                    .addTags(AllTags.AllBlockTags.RELOCATION_NOT_SUPPORTED.tag)\n                    .tab(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "platform_door",
+    "family": "AllBlocks",
+    "registration": "PanelRegistration",
+    "type": "DoubleDoorBlock",
+    "definition": "new PanelRegistration<DoubleDoorBlock>(\"platform_door\")\n                    .block(properties ->\n                            new DoubleDoorBlock(\n                                    properties, new Vec2(0, 0), new Vec2(1, 1),\n                                    TrainPanelProperties.DoorType.SLIDE,\n                                    \"door/platform_door/platform_door_side\",\n                                    \"door/platform_door/platform_door_left\",\n                                    \"door/platform_door/platform_door_right\"\n                            )\n                    ).materialAndColor(Material.METAL, MaterialColor.METAL)\n                    .tab(AllElements.neoKuayueMainTab)\n                    .noOcclusion()\n                    .strengthAndTool(2f, 3f)\n                    "
+  },
+  {
+    "id": "platform_wall",
+    "family": "AllBlocks",
+    "registration": "BlockReg",
+    "type": "PlatformWallBlock",
+    "definition": "new BlockReg<PlatformWallBlock>(\"platform_wall\")\n                    .blockType(PlatformWallBlock::new)\n                    .material(Material.METAL)\n                    .materialColor(MaterialColor.METAL)\n                    .addProperty(BlockBehaviour.Properties::noOcclusion)\n                    .addProperty(properties -> properties.strength(1.5f, 3.0f))\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
+  },
+  {
+    "id": "overhead_pillar_concrete",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "BlockReg",
+    "type": "SimpleOverheadLinePillarBlock",
+    "definition": "new BlockReg<SimpleOverheadLinePillarBlock>(\"overhead_pillar_concrete\")\n                    .blockType(SimpleOverheadLinePillarBlock.Builder.create(\n                            SimpleOverheadLinePillarBlock.defaultProperties()\n                    ))\n                    .material(Material.METAL)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueGridTab)\n                    "
+  },
+  {
+    "id": "overhead_pillar_steel",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "BlockReg",
+    "type": "SimpleOverheadLinePillarBlock",
+    "definition": "new BlockReg<SimpleOverheadLinePillarBlock>(\"overhead_pillar_steel\")\n                    .blockType(SimpleOverheadLinePillarBlock.Builder.create(\n                            SimpleOverheadLinePillarBlock.defaultProperties()\n                    ))\n                    .material(Material.METAL)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueGridTab)\n                    "
+  },
+  {
+    "id": "overhead_square_pillar_concrete_punching",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "BlockReg",
+    "type": "SimpleOverheadLinePillarBlock",
+    "definition": "new BlockReg<SimpleOverheadLinePillarBlock>(\"overhead_square_pillar_concrete_punching\")\n                    .blockType(SimpleOverheadLinePillarBlock.Builder.create(\n                            SimpleOverheadLinePillarBlock.defaultProperties()\n                                    .directional()\n                    ))\n                    .material(Material.METAL)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueGridTab)\n                    "
+  },
+  {
+    "id": "overhead_square_pillar_steel",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "BlockReg",
+    "type": "SimpleOverheadLinePillarBlock",
+    "definition": "new BlockReg<SimpleOverheadLinePillarBlock>(\"overhead_square_pillar_steel\")\n                    .blockType(SimpleOverheadLinePillarBlock.Builder.create(\n                            SimpleOverheadLinePillarBlock.defaultProperties()\n                                    .directional()\n                    ))\n                    .material(Material.METAL)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueGridTab)\n                    "
+  },
+  {
+    "id": "overhead_truss_double",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "PanelRegistration",
+    "type": "OverheadTruss",
+    "definition": "new PanelRegistration<OverheadTruss>(\"overhead_truss_double\")\n                    .block(p -> new OverheadTruss(p, new Vec3(0,0,1), new Vec3(1,1,1)))\n                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)\n                    .tab(AllElements.neoKuayueGridTab)\n                    .noOcclusion().strengthAndTool(1.5f, 3f)\n                    "
+  },
+  {
+    "id": "overhead_truss_double_ad",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "PanelRegistration",
+    "type": "OverheadTruss",
+    "definition": "new PanelRegistration<OverheadTruss>(\"overhead_truss_double_ad\")\n                    .block(p -> new OverheadTruss(p, new Vec3(0,0,-1), new Vec3(1,1,1)))\n                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)\n                    .tab(AllElements.neoKuayueGridTab)\n                    .noOcclusion().strengthAndTool(1.5f, 3f)\n                    "
+  },
+  {
+    "id": "overhead_truss_single_ad",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "PanelRegistration",
+    "type": "OverheadTrussSmall",
+    "definition": "new PanelRegistration<OverheadTrussSmall>(\"overhead_truss_single_ad\")\n                    .block(p -> new OverheadTrussSmall(p, new Vec3(0,0,1), new Vec3(1,1,1)))\n                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)\n                    .tab(AllElements.neoKuayueGridTab)\n                    .noOcclusion().strengthAndTool(1.5f, 3f)\n                    "
+  },
+  {
+    "id": "overhead_truss_single_a",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "PanelRegistration",
+    "type": "OverheadTrussSmall",
+    "definition": "new PanelRegistration<OverheadTrussSmall>(\"overhead_truss_single_a\")\n                    .block(p -> new OverheadTrussSmall(p, new Vec3(0,0,1), new Vec3(1,1,1)))\n                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)\n                    .tab(AllElements.neoKuayueGridTab)\n                    .noOcclusion().strengthAndTool(1.5f, 3f)\n                    "
+  },
+  {
+    "id": "overhead_truss_single_b",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "PanelRegistration",
+    "type": "OverheadTrussSmall",
+    "definition": "new PanelRegistration<OverheadTrussSmall>(\"overhead_truss_single_b\")\n                    .block(p -> new OverheadTrussSmall(p, new Vec3(0,0,1), new Vec3(1,1,1)))\n                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)\n                    .tab(AllElements.neoKuayueGridTab)\n                    .noOcclusion().strengthAndTool(1.5f, 3f)\n                    "
+  },
+  {
+    "id": "overhead_truss_single_c",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "PanelRegistration",
+    "type": "OverheadTrussSmall",
+    "definition": "new PanelRegistration<OverheadTrussSmall>(\"overhead_truss_single_c\")\n                    .block(p -> new OverheadTrussSmall(p, new Vec3(0,0,1), new Vec3(1,1,1)))\n                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)\n                    .tab(AllElements.neoKuayueGridTab)\n                    .noOcclusion().strengthAndTool(1.5f, 3f)\n                    "
+  },
+  {
+    "id": "overhead_truss_concrete",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "PanelRegistration",
+    "type": "OverheadTrussPillar",
+    "definition": "new PanelRegistration<OverheadTrussPillar>(\"overhead_truss_concrete\")\n                    .block(p -> new OverheadTrussPillar(p, new Vec3(0,0,1), new Vec3(1,1,1)))\n                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)\n                    .tab(AllElements.neoKuayueGridTab)\n                    .noOcclusion().strengthAndTool(1.5f, 3f)\n                    "
+  },
+  {
+    "id": "overhead_pillar_concrete_truss_a",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "PanelRegistration",
+    "type": "OverheadTrussPillar",
+    "definition": "new PanelRegistration<OverheadTrussPillar>(\"overhead_pillar_concrete_truss_a\")\n                    .block(p -> new OverheadTrussPillar(p, new Vec3(0,0,-2), new Vec3(1,1,1)))\n                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)\n                    .tab(AllElements.neoKuayueGridTab)\n                    .noOcclusion().strengthAndTool(1.5f, 3f)\n                    "
+  },
+  {
+    "id": "overhead_pillar_concrete_truss_b",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "PanelRegistration",
+    "type": "OverheadTrussPillar",
+    "definition": "new PanelRegistration<OverheadTrussPillar>(\"overhead_pillar_concrete_truss_b\")\n                    .block(p -> new OverheadTrussPillar(p, new Vec3(0,0,-2), new Vec3(1,1,1)))\n                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)\n                    .tab(AllElements.neoKuayueGridTab)\n                    .noOcclusion().strengthAndTool(1.5f, 3f)\n                    "
+  },
+  {
+    "id": "overhead_triangle_truss_steel",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "PanelRegistration",
+    "type": "OverheadTrussPillar",
+    "definition": "new PanelRegistration<OverheadTrussPillar>(\"overhead_triangle_truss_steel\")\n                    .block(p -> new OverheadTrussPillar(p, new Vec3(0,0,0), new Vec3(1,1,1)))\n                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)\n                    .tab(AllElements.neoKuayueGridTab)\n                    .noOcclusion().strengthAndTool(1.5f, 3f)\n                    "
+  },
+  {
+    "id": "overhead_triangle_truss_steel_ad",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "PanelRegistration",
+    "type": "OverheadTrussPillar",
+    "definition": "new PanelRegistration<OverheadTrussPillar>(\"overhead_triangle_truss_steel_ad\")\n                    .block(p -> new OverheadTrussPillar(p, new Vec3(0,0,0), new Vec3(1,1,1)))\n                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)\n                    .tab(AllElements.neoKuayueGridTab)\n                    .noOcclusion().strengthAndTool(1.5f, 3f)\n                    "
+  },
+  {
+    "id": "truss_hanger_single",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "BlockReg",
+    "type": "LinkedTrussBlock",
+    "definition": "new BlockReg<LinkedTrussBlock>(\"truss_hanger_single\")\n                    .blockType(LinkedTrussBlock.Builder.create(\n                            new LinkedTrussBlock.SpecialBlockConfig()\n                                    .addSpecialBlock(\n                                            new ResourceLocation(\"kuayue\", \"overhead_truss_single_a\"),\n                                            LinkedTrussBlock.ConnectedType.SINGLE\n                                    )\n                                    .addSpecialBlock(\n                                            new ResourceLocation(\"kuayue\", \"overhead_truss_single_b\"),\n                                            LinkedTrussBlock.ConnectedType.SINGLE\n                                    )\n                                    .addSpecialBlock(\n                                            new ResourceLocation(\"kuayue\", \"overhead_truss_single_c\"),\n                                            LinkedTrussBlock.ConnectedType.SINGLE\n                                    )\n                                    .addSpecialBlock(\n                                            new ResourceLocation(\"kuayue\", \"overhead_truss_double\"),\n                                            LinkedTrussBlock.ConnectedType.DOUBLE\n                                    )\n                                    .addSpecialBlock(\n                                            new ResourceLocation(\"kuayue\", \"overhead_truss_concrete\"),\n                                            LinkedTrussBlock.ConnectedType.CONCRETE\n                                    )\n                                    .addSpecialBlock(\n                                            new ResourceLocation(\"kuayue\", \"overhead_triangle_truss_steel\"),\n                                            LinkedTrussBlock.ConnectedType.TRIANGLE\n                                    )\n                    ))\n                    .material(Material.METAL)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueGridTab)\n                    "
+  },
+  {
+    "id": "truss_hanger_double",
+    "family": "AllOverheadLineDecoratingBlocks",
+    "registration": "BlockReg",
+    "type": "LinkedTrussBlock",
+    "definition": "new BlockReg<LinkedTrussBlock>(\"truss_hanger_double\")\n                    .blockType(LinkedTrussBlock.Builder.create(\n                            new LinkedTrussBlock.SpecialBlockConfig()\n                                    .addSpecialBlock(\n                                            new ResourceLocation(\"kuayue\", \"overhead_truss_single_a\"),\n                                            LinkedTrussBlock.ConnectedType.SINGLE\n                                    )\n                                    .addSpecialBlock(\n                                            new ResourceLocation(\"kuayue\", \"overhead_truss_single_b\"),\n                                            LinkedTrussBlock.ConnectedType.SINGLE\n                                    )\n                                    .addSpecialBlock(\n                                            new ResourceLocation(\"kuayue\", \"overhead_truss_single_c\"),\n                                            LinkedTrussBlock.ConnectedType.SINGLE\n                                    )\n                                    .addSpecialBlock(\n                                            new ResourceLocation(\"kuayue\", \"overhead_truss_double\"),\n                                            LinkedTrussBlock.ConnectedType.DOUBLE\n                                    )\n                                    .addSpecialBlock(\n                                            new ResourceLocation(\"kuayue\", \"overhead_truss_concrete\"),\n                                            LinkedTrussBlock.ConnectedType.CONCRETE\n                                    )\n                                    .addSpecialBlock(\n                                            new ResourceLocation(\"kuayue\", \"overhead_triangle_truss_steel\"),\n                                            LinkedTrussBlock.ConnectedType.TRIANGLE\n                                    )\n                    ))\n                    .material(Material.METAL)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueGridTab)\n                    "
+  },
+  {
     "id": "cr_logo",
     "family": "AllBlocks",
     "registration": "BlockReg",

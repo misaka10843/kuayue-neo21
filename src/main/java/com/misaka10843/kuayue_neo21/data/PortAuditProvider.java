@@ -81,6 +81,7 @@ public final class PortAuditProvider implements DataProvider {
                 report.put("decodedRecipes", recipes);
                 report.put("loadedMixinTargets", mixinTargets.length);
                 report.put("createIntegration", BogeyIntegrationAudit.run(provider, failures));
+                report.put("tracks", TrackIntegrationAudit.run(failures));
                 report.put("vehicleInteractions", VehicleInteractionAudit.run(failures));
                 report.put("vehiclePlacement", VehiclePlacementAudit.run(failures));
                 report.put("schematicPlacement", SchematicPlacementAudit.run(project, failures));

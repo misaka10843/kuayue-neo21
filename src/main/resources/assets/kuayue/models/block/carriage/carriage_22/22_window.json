@@ -7,7 +7,7 @@
   ],
   "textures": {
     "2": "kuayue:block/carriage/carriage_22/22_window",
-    "particle": "22:block/carriage/carriage_22/22_window"
+    "particle": "kuayue:block/carriage/carriage_22/22_window"
   },
   "elements": [
     {

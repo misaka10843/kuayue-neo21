@@ -1,0 +1,15 @@
+{
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "kuayue:smooth_quartz_panel_half"
+    }
+  ],
+  "results": [
+    {
+      "count": 2,
+      "id": "kuayue:smooth_quartz_panel_4"
+    }
+  ],
+  "processing_time": 50
+}

@@ -21,6 +21,8 @@ public class KuaYueneo21 {
     public KuaYueneo21(IEventBus modEventBus, ModContainer modContainer) {
         com.misaka10843.kuayue_neo21.legacy.initial.AllBlocks.initialize();
         com.misaka10843.kuayue_neo21.content.bogey.VehicleBogeys.initialize();
+        com.misaka10843.kuayue_neo21.content.track.RailwayTracks.initialize();
+        com.misaka10843.kuayue_neo21.content.infrastructure.InfrastructureBlocks.initialize();
         com.misaka10843.kuayue_neo21.content.VehicleMaterials.initialize();
         com.misaka10843.kuayue_neo21.content.VehicleTabs.initialize();
         com.misaka10843.kuayue_neo21.content.PortRegistration.BLOCKS.register(modEventBus);

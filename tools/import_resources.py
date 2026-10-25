@@ -14,6 +14,9 @@ def remap(value):
     if isinstance(value, list):
         return [remap(item) for item in value]
     if isinstance(value, str):
+        if value.startswith('22:'): value = 'kuayue:' + value.split(':', 1)[1]
+        if value == 'minecraft:texture': value = 'minecraft:block/andesite'
+        value = value.replace('kuayue:block/overhead_line/block/', 'kuayue:block/overhead_line/')
         value = value.replace('kuayue:', MOD + ':').replace('.kuayue.', '.' + MOD + '.')
         if value == 'forge:obj': value = 'neoforge:obj'
         return value.replace('//', '/') if value.startswith(MOD + ':') else value
@@ -88,6 +91,14 @@ def main():
         assets.update(official_assets)
         recipes.update(official_recipes)
         tags.update(official_tags)
+    assets = {key: remap(value) if isinstance(value, dict) else value for key, value in assets.items()}
+    wall_states = assets['assets/kuayue/blockstates/platform_wall.json']['variants']
+    for variant in list(wall_states):
+        if variant in {'facing=up', 'facing=down'}:
+            del wall_states[variant]
+    assets['assets/kuayue/models/block/track/standard_gauge_track/track.json'] = {'parent': 'kuayue:block/track/standard/obj_track'}
+    assets['assets/kuayue/models/block/empty.json'] = {'textures': {'particle': 'minecraft:block/andesite'}, 'elements': []}
+    assets['assets/kuayue/textures/block/track/standard_gauge_track/track.png'] = assets['assets/kuayue/textures/block/track/standard_gauge_track/standard_track.png']
     for side in ['left', 'right']:
         old = f'assets/kuayue/models/block/df11g/door/frame_door_equip_df11g_{side}.json'
         new = f'assets/kuayue/models/block/df11g/door/frame_door_cabin_df11g_{side}.json'
@@ -112,6 +123,7 @@ def main():
             selected[direct] = candidates[chosen]
     # Partial models are referenced from Java rather than from blockstate JSON.
     model_roots = set()
+    model_roots.add('assets/kuayue/models/block/empty.json')
     for record in records:
         definition = record['definition']
         for path in re.findall(r'"([a-z0-9_/-]+)"', definition):
@@ -119,6 +131,8 @@ def main():
             if candidate in assets:
                 model_roots.add(candidate)
     model_roots.update(key for key in assets if '/models/block/bogey/' in key)
+    model_roots.update(key for key in assets if '/models/block/track/' in key)
+    model_roots.update(key for key in assets if '/models/block/door/platform_door/' in key)
     model_roots.update(key for key in assets if '/models/block/carriage/carriage_marshalled_cr200j/head/' in key)
     queue = list(selected) + sorted(model_roots)
     for root in model_roots:

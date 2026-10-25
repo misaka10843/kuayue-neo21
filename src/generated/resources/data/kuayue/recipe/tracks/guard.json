@@ -1,0 +1,63 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:andesite_slab"
+  },
+  "transitional_item": {
+    "id": "kuayue:incomplete_guard_track"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_guard_track"
+        },
+        {
+          "item": "minecraft:iron_nugget"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:incomplete_guard_track"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_guard_track"
+        },
+        {
+          "item": "minecraft:iron_nugget"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:incomplete_guard_track"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_guard_track"
+        }
+      ],
+      "results": [
+        {
+          "id": "kuayue:incomplete_guard_track"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "kuayue:guard_track",
+      "count": 16
+    }
+  ],
+  "loops": 1
+}

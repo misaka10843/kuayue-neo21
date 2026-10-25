@@ -119,7 +119,7 @@ def main():
                 if item.startswith(PREFIX) and item not in items:
                     errors.append('Unregistered ingredient in ' + path + ': ' + item)
         for value in references(recipe):
-            if any(word in value for word in ['blueprint_deploy', 'blueprint_group', 'hxd3d_pantograph', 'platform_door', 'platform_wall', 'overhead_line']):
+            if any(word in value for word in ['blueprint_deploy', 'blueprint_group', 'hxd3d_pantograph', 'overhead_line_wire']):
                 errors.append('Excluded recipe dependency: ' + path + ': ' + value)
     transitional = {recipe['transitional_item']['id'] for recipe in recipes.values() if 'transitional_item' in recipe}
     report = {'obtainableBlocks': len(targets), 'materials': len(materials), 'assetFiles': len(assets),

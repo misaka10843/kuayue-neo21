@@ -13,13 +13,18 @@ def extract(source):
     initial = source / 'src/main/java/willow/train/kuayue/initial'
     files = sorted((initial / 'panel').glob('*.java'))
     files += [initial / 'AllDecoBlocks.java']
+    files += [initial / 'material/AllMaterials.java', initial / 'ore/AllOres.java',
+              initial / 'create/AllTracks.java', initial / 'AllBlocks.java',
+              source / 'src/main/java/willow/train/kuayue/systems/overhead_line/block/decorating/AllOverheadLineDecoratingBlocks.java']
     records = []
     for file in files:
         text = strip_comments(file.read_text(encoding='utf-8-sig'))
-        pattern = r'new\s+(PanelRegistration|SlabRegistration|SkirtRegistration|BlockReg)(?:<([^>]+)>)?\("([^"]+)"\)'
+        pattern = r'new\s+(PanelRegistration|SlabRegistration|SkirtRegistration|BlockReg|TrackReg)(?:<([^>]+)>)?\("([^"]+)"\)'
         for match in re.finditer(pattern, text):
             end = text.index('.submit(', match.end())
             definition = text[match.start():end]
+            if file.stem == 'AllBlocks' and match[3] not in {'platform_door', 'platform_wall'}:
+                continue
             if 'Pantograph' in definition:
                 continue
             records.append({'id': match[3], 'family': file.stem,

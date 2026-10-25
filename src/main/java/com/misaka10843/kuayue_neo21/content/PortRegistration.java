@@ -69,8 +69,12 @@ public final class PortRegistration<T extends Block> implements Supplier<T> {
             properties.forEach(property -> property.accept(settings));
             return factory.apply(settings);
         });
-        if (!hidden) item = ITEMS.register(id, () -> registered.get() instanceof com.misaka10843.kuayue_neo21.legacy.block.panels.TrainPanelBlock panel
-                ? new VehicleBlockItem(panel, new Item.Properties()) : new BlockItem(registered.get(), new Item.Properties()));
+        if (!hidden) item = ITEMS.register(id, () -> {
+            var block = registered.get();
+            if (block instanceof com.simibubi.create.content.trains.track.TrackBlock) return new com.simibubi.create.content.trains.track.TrackBlockItem(block, new Item.Properties());
+            return block instanceof com.misaka10843.kuayue_neo21.legacy.block.panels.TrainPanelBlock panel
+                    ? new VehicleBlockItem(panel, new Item.Properties()) : new BlockItem(block, new Item.Properties());
+        });
         ENTRIES.add(this);
         return this;
     }

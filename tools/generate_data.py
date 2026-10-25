@@ -93,6 +93,20 @@ def main():
     bogeys = json.loads(Path('docs/legacy-bogeys.json').read_text(encoding='utf-8'))
     target = {PREFIX + record['id'] for record in blocks + bogeys}
     old = json.loads(Path('src/porting/legacy-recipes.json').read_text(encoding='utf-8'))
+    for recipe in old.values():
+        if PREFIX + 'salt_block' in output_ids(modernize(recipe)):
+            for ingredient in recipe.get('key', {}).values():
+                if ingredient.get('tag') in {'forge:salt', 'c:salt'}:
+                    ingredient.clear()
+                    ingredient['item'] = PREFIX + 'salt'
+    for kind in ['standard', 'tieless', 'ballastless', 'meter', 'guard']:
+        transitional = PREFIX + 'incomplete_' + kind + '_track'
+        deploy = {'type': 'create:deploying', 'ingredients': [{'item': transitional}, {'item': 'minecraft:iron_nugget'}], 'results': [{'id': transitional}]}
+        old['data/kuayue/recipes/tracks/' + kind + '.json'] = {
+            'type': 'create:sequenced_assembly', 'ingredient': {'item': 'minecraft:andesite_slab'},
+            'transitional_item': {'id': transitional}, 'sequence': [deploy, copy.deepcopy(deploy),
+                {'type': 'create:pressing', 'ingredients': [{'item': transitional}], 'results': [{'id': transitional}]}],
+            'results': [{'id': PREFIX + kind + '_track', 'count': 16}], 'loops': 1}
     recipes, by_output = {}, defaultdict(list)
     for path, recipe in sorted(old.items()):
         if recipe['type'].endswith(':blueprint_deploy'):
@@ -182,6 +196,24 @@ def main():
         save(GENERATED / 'data' / MOD / 'loot_table/blocks' / (id + '.json'), {
             'type': 'minecraft:block', 'pools': [{'rolls': 1, 'entries': [{'type': 'minecraft:item', 'name': PREFIX + id}],
                                                 'conditions': [{'condition': 'minecraft:survives_explosion'}]}]})
+    save(GENERATED / 'data' / MOD / 'loot_table/blocks/clay_slab.json', {'type': 'minecraft:block', 'pools': [{'rolls': 1,
+        'entries': [{'type': 'minecraft:item', 'name': PREFIX + 'clay_slab', 'functions': [
+            {'function': 'minecraft:set_count', 'count': 2, 'conditions': [{'condition': 'minecraft:block_state_property', 'block': PREFIX + 'clay_slab', 'properties': {'type': 'double'}}]},
+            {'function': 'minecraft:explosion_decay'}]}]}]})
+    for ore in ['salt_ore', 'deepslate_salt_ore']:
+        silk = {'condition': 'minecraft:match_tool', 'predicate': {'predicates': {'minecraft:enchantments': [{'enchantments': 'minecraft:silk_touch', 'levels': {'min': 1}}]}}}
+        save(GENERATED / 'data' / MOD / 'loot_table/blocks' / (ore + '.json'), {'type': 'minecraft:block', 'pools': [{'rolls': 1,
+            'entries': [{'type': 'minecraft:alternatives', 'children': [
+                {'type': 'minecraft:item', 'name': PREFIX + ore, 'conditions': [silk]},
+                {'type': 'minecraft:item', 'name': PREFIX + 'salt', 'functions': [{'function': 'minecraft:set_count', 'count': {'type': 'minecraft:uniform', 'min': 2, 'max': 5}},
+                    {'function': 'minecraft:apply_bonus', 'enchantment': 'minecraft:fortune', 'formula': 'minecraft:ore_drops'}, {'function': 'minecraft:explosion_decay'}]}]}]}]})
+    targets = [{'target': {'predicate_type': 'minecraft:tag_match', 'tag': 'minecraft:' + tag}, 'state': {'Name': PREFIX + block}}
+               for tag, block in [('stone_ore_replaceables', 'salt_ore'), ('deepslate_ore_replaceables', 'deepslate_salt_ore')]]
+    save(GENERATED / 'data' / MOD / 'worldgen/configured_feature/salt_ore.json', {'type': 'minecraft:ore', 'config': {'size': 9, 'discard_chance_on_air_exposure': 0, 'targets': targets}})
+    save(GENERATED / 'data' / MOD / 'worldgen/placed_feature/salt_ore.json', {'feature': PREFIX + 'salt_ore', 'placement': [
+        {'type': 'minecraft:count', 'count': 90}, {'type': 'minecraft:in_square'},
+        {'type': 'minecraft:height_range', 'height': {'type': 'minecraft:trapezoid', 'min_inclusive': {'absolute': -80}, 'max_inclusive': {'absolute': 80}}}, {'type': 'minecraft:biome'}]})
+    save(GENERATED / 'data' / MOD / 'neoforge/biome_modifier/salt_ore.json', {'type': 'neoforge:add_features', 'biomes': '#minecraft:is_overworld', 'features': PREFIX + 'salt_ore', 'step': 'underground_ores'})
     for record in bogeys:
         id = record['id']
         if not (Path('src/main/resources/assets') / MOD / 'models/item' / (id + '.json')).exists():
@@ -194,6 +226,11 @@ def main():
                             'thirdperson_righthand': {'scale': [0.2, 0.2, 0.2]}}})
     save(GENERATED / 'data/minecraft/tags/block/mineable/pickaxe.json', {'replace': False, 'values': sorted(target)})
     save(GENERATED / 'data/minecraft/tags/block/needs_stone_tool.json', {'replace': False, 'values': sorted(target)})
+    tracks = [PREFIX + kind + '_track' for kind in ['standard', 'tieless', 'ballastless', 'meter', 'guard']]
+    for name in ['tracks', 'girdable_tracks']:
+        save(GENERATED / 'data/create/tags/block' / (name + '.json'), {'replace': False, 'values': tracks})
+    save(GENERATED / 'data/create/tags/item/tracks.json', {'replace': False, 'values': tracks})
+    save(GENERATED / 'data/c/tags/block/relocation_not_supported.json', {'replace': False, 'values': tracks})
     block_tags = json.loads(Path('src/porting/block-tags.json').read_text(encoding='utf-8'))
     extension_ids = {'company_panel_block': 'company_panel_block', 'company_door_block': 'company_panel_door',
                      'company_sliding_door': 'company_panel_sliding_door', 'company_floor': 'company_panel_floor', 'company_carport': 'company_panel_carport'}
@@ -221,11 +258,11 @@ def main():
         old_state = GENERATED / 'assets' / MOD / 'blockstates' / (old_id + '.json')
         if old_state.exists():
             old_state.unlink()
-    for id in list(extension_ids.values()) + ['company_door_block', 'company_sliding_door']:
+    for id in list(extension_ids.values()) + ['company_door_block', 'company_sliding_door', 'company_floor', 'company_carport']:
         save(GENERATED / 'assets' / MOD / 'blockstates' / (id + '.json'), {'variants': {'': {'model': 'minecraft:block/air'}}})
     for locale in ['en_us', 'zh_cn']:
         language = json.loads((Path('src/porting/languages') / (locale + '.json')).read_text(encoding='utf-8'))
-        tab_names = {'carriages': '客车与货车', 'locomotives': '机车', 'interiors': '内饰与设备', 'bogeys': '转向架', 'materials': '车辆制造材料'}
+        tab_names = {'carriages': '客车与货车', 'locomotives': '机车', 'interiors': '内饰与设备', 'bogeys': '转向架', 'materials': '车辆制造材料', 'infrastructure': '轨道、设施与建筑'}
         blank_names = {'vehicle_panel_blank': '车辆板材毛坯', 'vehicle_floor_blank': '车辆地板毛坯', 'vehicle_roof_blank': '车辆车顶毛坯', 'vehicle_interior_blank': '内饰毛坯', 'vehicle_bogey_blank': '转向架毛坯'}
         for id, name in tab_names.items():
             language['itemGroup.' + MOD + '.' + id] = '跨越：' + name if locale == 'zh_cn' else 'KuaYue: ' + id.title()
