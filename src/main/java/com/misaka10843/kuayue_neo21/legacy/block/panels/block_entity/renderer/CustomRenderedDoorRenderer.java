@@ -66,15 +66,9 @@ public class CustomRenderedDoorRenderer implements BlockEntityRenderer<CustomRen
         float counter = entity.animation_controller;
 
         if(slide) {
-            float level1 = .4f;
-            if(counter > level1) {
-                double d = (.2 + ((counter - level1)/(1 - level1)) * .7) * (leftSide ? 1 : -1);
-                lower.translate(d, 0, -.2);
-                upper.translate(d, 0, -.2);
-            } else {
-                lower.translate(counter * (leftSide ? .2 : -.2) ,0, (counter/level1) * - .2);
-                upper.translate(counter * (leftSide ? .2 : -.2) ,0, (counter/level1) * - .2);
-            }
+            var slideTranslation = com.misaka10843.kuayue_neo21.content.VehicleDoorMotion.slide(counter, leftSide);
+            lower.translate(slideTranslation.x, slideTranslation.y, slideTranslation.z);
+            upper.translate(slideTranslation.x, slideTranslation.y, slideTranslation.z);
         } else {
             lower.rotateYDegrees(counter * (leftSide ? 90 : -90));
             upper.rotateYDegrees(counter * (leftSide ? 90 : -90));

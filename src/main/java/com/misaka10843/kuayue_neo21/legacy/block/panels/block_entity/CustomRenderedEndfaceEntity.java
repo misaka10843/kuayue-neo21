@@ -33,6 +33,7 @@ public class CustomRenderedEndfaceEntity extends SmartBlockEntity implements ICo
         super(type, pos, state);
         if (state.getBlock() instanceof CustomRenderedEndfaceBlock end) this.type = end.DOOR_TYPE;
         if (state.hasProperty(DoorBlock.OPEN)) this.open = state.getValue(DoorBlock.OPEN);
+        this.counter = this.open ? 1 : 0;
     }
 
     public CustomRenderedEndfaceEntity(BlockPos pos, BlockState state) {
@@ -75,10 +76,9 @@ public class CustomRenderedEndfaceEntity extends SmartBlockEntity implements ICo
 
     @Override
     public void tick() {
-        if(level == null) return;
-        BlockState state = level.getBlockState(this.getBlockPos());
+        BlockState state = getBlockState();
         if (!(state.getBlock() instanceof CustomRenderedEndfaceBlock block)) return;
-        this.open = level.getBlockState(this.getBlockPos()).getValue(DoorBlock.OPEN);
+        this.open = state.getValue(DoorBlock.OPEN);
         this.type = block.DOOR_TYPE;
     }
 
@@ -96,7 +96,7 @@ public class CustomRenderedEndfaceEntity extends SmartBlockEntity implements ICo
 
     @Override
     public void update(StructureTemplate.StructureBlockInfo info, Player player, BlockPos pos, AbstractContraptionEntity entity) {
-        this.open = !open;
+        this.open = com.simibubi.create.content.decoration.slidingDoor.SlidingDoorBlockEntity.isOpen(info.state());
     }
 
     @Override

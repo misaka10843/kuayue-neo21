@@ -33,6 +33,40 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 public final class PairedDoorWorldTests {
     private record Pair(BlockPos first, BlockPos second) {}
 
+    @GameTest(template = "schematic_room")
+    public static void staleUpperPartsDoNotOperateOtherDoors(GameTestHelper helper) {
+        var cases = new ArrayList<Pair>();
+        int index = 0;
+        for (Direction facing : Direction.Plane.HORIZONTAL) for (boolean opposite : new boolean[]{false, true}) {
+            for (String otherId : new String[]{"door_25b", "door_sliding_25g"}) {
+                BlockPos root = new BlockPos(3 + index % 4 * 7, 2, 3 + index++ / 4 * 7);
+                BlockPos other = opposite ? root.relative(facing, 2) : root.relative(facing.getCounterClockWise());
+                helper.setBlock(root, state("door_25b", facing, DoorHingeSide.LEFT));
+                helper.setBlock(other, state(otherId, opposite ? facing.getOpposite() : facing.getClockWise(), DoorHingeSide.RIGHT));
+                cases.add(new Pair(root, other));
+            }
+        }
+        helper.runAtTickTime(3, () -> {
+            for (var pair : cases) {
+                var part = pair.first.above();
+                var partState = helper.getBlockState(part);
+                com.misaka10843.kuayue_neo21.legacy.block.panels.base.CompanyTrainPanel.setParentBlock(
+                        helper.absolutePos(part), helper.getLevel(), partState, helper.absolutePos(pair.second));
+                helper.useBlock(part);
+                helper.assertBlockProperty(pair.second, BlockStateProperties.OPEN, false);
+                helper.assertBlockProperty(pair.first, BlockStateProperties.OPEN, false);
+                partState.getBlock().playerWillDestroy(helper.getLevel(), helper.absolutePos(part), partState, helper.makeMockPlayer(GameType.CREATIVE));
+                helper.assertTrue(helper.getBlockState(pair.second).hasProperty(BlockStateProperties.OPEN), "Stale upper part removed another door");
+                com.misaka10843.kuayue_neo21.legacy.block.panels.base.CompanyTrainPanel.setParentBlock(
+                        helper.absolutePos(part), helper.getLevel(), partState, helper.absolutePos(pair.first));
+                helper.useBlock(part);
+                helper.assertBlockProperty(pair.first, BlockStateProperties.OPEN, true);
+                helper.assertBlockProperty(pair.second, BlockStateProperties.OPEN, false);
+            }
+            helper.succeed();
+        });
+    }
+
     @GameTest(template = "schematic_room", timeoutTicks = 50)
     public static void pairedDoorsAndUpperClicks(GameTestHelper helper) {
         var pairs = new ArrayList<Pair>();
@@ -56,6 +90,7 @@ public final class PairedDoorWorldTests {
                 helper.assertTrue(!helper.getBlockState(pair.first).getValue(BlockStateProperties.OPEN), "Upper click did not close root: " + helper.getBlockState(pair.first));
                 assertOpen(helper, pair, false);
                 helper.setBlock(pair.second, helper.getBlockState(pair.second).setValue(BlockStateProperties.OPEN, true));
+                helper.setBlock(pair.second.above(), helper.getBlockState(pair.second.above()).setValue(BlockStateProperties.OPEN, true));
                 helper.useBlock(pair.first);
                 helper.assertTrue(helper.getBlockState(pair.first).getValue(BlockStateProperties.OPEN), "Desynced click did not open root: " + helper.getBlockState(pair.first));
                 assertOpen(helper, pair, true);
@@ -136,6 +171,15 @@ public final class PairedDoorWorldTests {
         carriage.getDimensional(helper.getLevel()).entity = new java.lang.ref.WeakReference<>(entity);
         var player = helper.makeMockPlayer(GameType.CREATIVE);
         var interaction = new VehicleDoorInteraction();
+        var misplaced = pairs.getFirst().first.above();
+        var savedPart = contraption.getBlocks().get(misplaced);
+        var wrongParent = pairs.get(1).first.subtract(misplaced);
+        var wrongTag = savedPart.nbt().copy();
+        wrongTag.putInt("px", wrongParent.getX()); wrongTag.putInt("py", wrongParent.getY()); wrongTag.putInt("pz", wrongParent.getZ());
+        contraption.getBlocks().put(misplaced, new StructureBlockInfo(misplaced, savedPart.state(), wrongTag));
+        helper.assertTrue(!entity.handlePlayerInteraction(player, misplaced, Direction.NORTH, InteractionHand.MAIN_HAND),
+                "Stale mounted upper part operated a different-facing door");
+        contraption.getBlocks().put(misplaced, savedPart);
         for (Pair pair : pairs) {
             helper.assertTrue(interaction.handlePlayerInteraction(player, InteractionHand.MAIN_HAND, pair.first, entity), "Mounted first door did not interact");
             for (var root : java.util.List.of(pair.first, pair.second)) {

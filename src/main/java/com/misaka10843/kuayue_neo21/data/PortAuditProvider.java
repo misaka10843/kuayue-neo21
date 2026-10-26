@@ -35,7 +35,10 @@ public final class PortAuditProvider implements DataProvider {
             try {
                 Class<?>[] mixinTargets = {com.simibubi.create.content.contraptions.Contraption.class,
                         com.simibubi.create.content.contraptions.AbstractContraptionEntity.class,
-                        com.simibubi.create.foundation.utility.BlockHelper.class};
+                        com.simibubi.create.foundation.utility.BlockHelper.class,
+                        com.simibubi.create.content.contraptions.ContraptionWorld.class,
+                        com.simibubi.create.content.contraptions.ContraptionHandlerClient.class,
+                        com.simibubi.create.content.contraptions.render.ClientContraption.class};
                 for (Class<?> target : mixinTargets) target.getDeclaredMethods();
                 RegistryOps<com.google.gson.JsonElement> ops = RegistryOps.create(JsonOps.INSTANCE, provider);
                 try (var paths = Files.walk(project.resolve("src/generated/resources/data/kuayue/recipe"))) {
@@ -100,6 +103,9 @@ public final class PortAuditProvider implements DataProvider {
                     report.put("pantographBaseModels", PantographModelAudit.run(failures));
                 }
                 report.put("vehicleInteractions", VehicleInteractionAudit.run(failures));
+                report.put("doorPairing", DoorPairingAudit.run(failures));
+                report.put("doorAnimation", DoorAnimationAudit.run(failures));
+                report.put("doorGeometry", DoorGeometryAudit.run(failures));
                 report.put("vehiclePlacement", VehiclePlacementAudit.run(failures));
                 report.put("schematicPlacement", SchematicPlacementAudit.run(project, failures));
                 report.put("failures", failures);

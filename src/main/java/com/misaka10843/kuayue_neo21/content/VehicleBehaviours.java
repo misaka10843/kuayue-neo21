@@ -42,6 +42,7 @@ public final class VehicleBehaviours {
             if (parent.equals(pos)) return false;
             var target = entity.getContraption().getBlocks().get(parent);
             if (target == null || target.state().getBlock() instanceof CompanyTrainPanel) return false;
+            if (!VehicleDoorPairs.ownsPart(target.state(), parent, info.state(), pos)) return false;
             return entity.handlePlayerInteraction(player, parent, Direction.DOWN, hand);
         }
     }

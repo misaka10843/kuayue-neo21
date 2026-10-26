@@ -44,7 +44,8 @@ public final class VehicleDoorInteraction extends SimpleBlockMovingInteraction {
             if (!(info.state().getBlock() instanceof CompanyTrainPanel) || !info.state().hasProperty(BlockStateProperties.OPEN) || info.nbt() == null) continue;
             var tag = info.nbt();
             BlockPos parent = entry.getKey().offset(tag.getInt("px"), tag.getInt("py"), tag.getInt("pz"));
-            if (roots.contains(parent)) setContraptionBlockData(entity, entry.getKey(),
+            var rootInfo = contraption.getBlocks().get(parent);
+            if (roots.contains(parent) && rootInfo != null && VehicleDoorPairs.ownsPart(rootInfo.state(), parent, info.state(), entry.getKey())) setContraptionBlockData(entity, entry.getKey(),
                     new StructureBlockInfo(info.pos(), info.state().setValue(BlockStateProperties.OPEN, open), info.nbt()));
         }
         contraption.invalidateColliders();

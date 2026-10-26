@@ -10,6 +10,7 @@ import java.util.function.Function;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.EmptyBlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
@@ -32,7 +33,8 @@ public final class VehicleDoorPairs {
         var hinge = state.getValue(BlockStateProperties.DOOR_HINGE);
         BlockPos partner = partnerPosition(root, state, hinge);
         BlockState other = states.apply(partner);
-        return matches(state, other, hinge) ? List.of(root, partner) : List.of(root);
+        return matches(state, other, hinge) && state.getValue(BlockStateProperties.OPEN) == other.getValue(BlockStateProperties.OPEN)
+                ? List.of(root, partner) : List.of(root);
     }
 
     private static boolean matches(BlockState state, BlockState other, DoorHingeSide hinge) {
@@ -58,10 +60,22 @@ public final class VehicleDoorPairs {
                 if (part.equals(door)) continue;
                 BlockState companion = level.getBlockState(part);
                 if (companion.getBlock() instanceof CompanyTrainPanel && companion.hasProperty(BlockStateProperties.OPEN)
-                        && door.equals(CompanyTrainPanel.getParentPos(level, part))) {
+                        && door.equals(CompanyTrainPanel.getParentPos(level, part)) && ownsPart(current, door, companion, part)) {
                     level.setBlock(part, companion.setValue(BlockStateProperties.OPEN, open), 10);
                 }
             }
         }
+    }
+
+    public static boolean ownsPart(BlockState rootState, BlockPos root, BlockState partState, BlockPos part) {
+        if (!rootState.hasProperty(BlockStateProperties.OPEN)) return true;
+        if (!(rootState.getBlock() instanceof TrainPanelBlock panel)) return false;
+        if (root.equals(part) || !(partState.getBlock() instanceof CompanyTrainPanel)) return false;
+        var hinge = rootState.hasProperty(BlockStateProperties.DOOR_HINGE) ? rootState.getValue(BlockStateProperties.DOOR_HINGE) : DoorHingeSide.LEFT;
+        var expected = panel.generateCompanyState(rootState.getValue(BlockStateProperties.HORIZONTAL_FACING), hinge, rootState.getValue(BlockStateProperties.OPEN));
+        return expected.getBlock().getClass() == partState.getBlock().getClass()
+                && expected.getValue(BlockStateProperties.HORIZONTAL_FACING) == partState.getValue(BlockStateProperties.HORIZONTAL_FACING)
+                && expected.getValue(BlockStateProperties.DOOR_HINGE) == partState.getValue(BlockStateProperties.DOOR_HINGE)
+                && panel.getOccupiedPositions(EmptyBlockGetter.INSTANCE, root, rootState).contains(part);
     }
 }

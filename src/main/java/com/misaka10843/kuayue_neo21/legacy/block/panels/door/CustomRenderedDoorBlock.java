@@ -84,9 +84,30 @@ public class CustomRenderedDoorBlock extends TrainDoorBlock implements IBE<Custo
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if(!isSlideDoor)
-            return super.getShape(pState, pLevel, pPos, pContext);
-        return TrainPanelShapes.getSlidingDoorShape(pState.getValue(TrainPanelBlock.FACING).getOpposite(), pState.getValue(HINGE), pState.getValue(OPEN));
+        var leaf = getCollisionShape(pState, pLevel, pPos, pContext);
+        return isSlideDoor ? net.minecraft.world.phys.shapes.Shapes.or(leaf, closedLeaf(pState)) : leaf;
+    }
+
+    private VoxelShape closedLeaf(BlockState state) {
+        return com.misaka10843.kuayue_neo21.content.SlidingDoorGeometry.closed(this, state);
+    }
+
+    @Override
+    public java.util.List<BlockPos> getOccupiedPositions(BlockGetter level, BlockPos pos, BlockState state) {
+        return isSlideDoor ? com.misaka10843.kuayue_neo21.content.VehiclePartGeometry.footprint(pos, state.getValue(FACING), closedLeaf(state))
+                : super.getOccupiedPositions(level, pos, state);
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        if (isSlideDoor) {
+            var closed = closedLeaf(state);
+            if (!state.getValue(OPEN)) return closed;
+            var offset = com.misaka10843.kuayue_neo21.content.VehicleDoorMotion.worldSlide(state.getValue(FACING), state.getValue(HINGE) == DoorHingeSide.LEFT);
+            return closed.move(offset.x, offset.y, offset.z);
+        }
+        var lower = super.getShape(state, level, pos, context);
+        return net.minecraft.world.phys.shapes.Shapes.or(lower, lower.move(0, 1, 0));
     }
 
     public Couple<PartialModel> getLeftDoorModels() {

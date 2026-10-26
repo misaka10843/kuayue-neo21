@@ -35,10 +35,13 @@ public class MeterCarriageEndFaceBlock extends CustomRenderedEndfaceBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if (this.isOutside)
-            return EndFaceShapes.getEndFaceShape(
+        if (this.isOutside) {
+            var leaf = EndFaceShapes.getEndFaceShape(
                             pState.getValue(FACING).getOpposite(),
                             DOOR_TYPE, pState.getValue(OPEN)).move(0, 0.5, 0);
+            return DOOR_TYPE.isSliding() ? net.minecraft.world.phys.shapes.Shapes.or(leaf,
+                    EndFaceShapes.getEndFaceShape(pState.getValue(FACING).getOpposite(), DOOR_TYPE, false).move(0, 0.5, 0)) : leaf;
+        }
         return EndFaceShapes.getInsideEndFaceCloseShape(
                         pState.getValue(FACING).getOpposite()).move(0, 0.5, 0);
     }

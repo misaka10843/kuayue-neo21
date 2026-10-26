@@ -55,14 +55,17 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        VoxelShape shape = EndFaceShapes.getEndFaceShape(pState.getValue(FACING).getOpposite(), DOOR_TYPE, pState.getValue(OPEN)).move(0, 1, 0);
-        
-        return shape;
+        var leaf = getCollisionShape(pState, pLevel, pPos, pContext);
+        if (DOOR_TYPE.isSliding()) {
+            return net.minecraft.world.phys.shapes.Shapes.or(leaf,
+                    EndFaceShapes.getEndFaceShape(pState.getValue(FACING).getOpposite(), DOOR_TYPE, false).move(0, 1, 0));
+        }
+        return leaf;
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return getShape(pState, pLevel, pPos, pContext);
+        return EndFaceShapes.getEndFaceShape(pState.getValue(FACING).getOpposite(), DOOR_TYPE, pState.getValue(OPEN)).move(0, 1, 0);
     }
 
     @Override

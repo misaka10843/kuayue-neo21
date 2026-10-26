@@ -2,6 +2,7 @@ package com.misaka10843.kuayue_neo21.legacy.block.panels.base;
 
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.misaka10843.kuayue_neo21.content.VehiclePartGeometry;
+import com.misaka10843.kuayue_neo21.content.VehicleDoorPairs;
 import com.misaka10843.kuayue_neo21.legacy.block.panels.end_face.TrainEndfaceBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -53,7 +54,8 @@ public class CompanyTrainPanel extends Block implements EntityBlock, IWrenchable
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         BlockPos root = getParentPos(pLevel, pPos);
-        if (root != null && pLevel.getBlockState(root).getBlock() instanceof TrainEndfaceBlock end) {
+        if (root != null && pLevel.getBlockState(root).getBlock() instanceof TrainEndfaceBlock end
+                && VehicleDoorPairs.ownsPart(pLevel.getBlockState(root), root, pState, pPos)) {
             return VehiclePartGeometry.localShape(end.getShape(pLevel.getBlockState(root), pLevel, root, pContext), root, pPos);
         }
         TrainPanelProperties.ShapeType shapeType = pState.getValue(SHAPE_TYPE);
@@ -72,7 +74,8 @@ public class CompanyTrainPanel extends Block implements EntityBlock, IWrenchable
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         BlockPos root = getParentPos(pLevel, pPos);
-        if (root != null && pLevel.getBlockState(root).getBlock() instanceof TrainEndfaceBlock end) {
+        if (root != null && pLevel.getBlockState(root).getBlock() instanceof TrainEndfaceBlock end
+                && VehicleDoorPairs.ownsPart(pLevel.getBlockState(root), root, pState, pPos)) {
             return VehiclePartGeometry.localShape(end.getCollisionShape(pLevel.getBlockState(root), pLevel, root, pContext), root, pPos);
         }
         return getShape(pState, pLevel, pPos, pContext);
@@ -86,7 +89,8 @@ public class CompanyTrainPanel extends Block implements EntityBlock, IWrenchable
     @Override
     public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
         BlockPos root = getParentPos(level, pos);
-        if (!level.isClientSide && root != null && !root.equals(pos) && level.getBlockState(root).getBlock() instanceof TrainPanelBlock) {
+        if (!level.isClientSide && root != null && !root.equals(pos) && level.getBlockState(root).getBlock() instanceof TrainPanelBlock
+                && VehicleDoorPairs.ownsPart(level.getBlockState(root), root, state, pos)) {
             level.destroyBlock(root, !player.isCreative());
         }
         return super.playerWillDestroy(level, pos, state, player);
@@ -128,10 +132,18 @@ public class CompanyTrainPanel extends Block implements EntityBlock, IWrenchable
         if (pos == null) return InteractionResult.PASS;
         BlockState state = pLevel.getBlockState(pos);
         if (state.getBlock() instanceof CompanyTrainPanel) return InteractionResult.PASS;
+        if (!VehicleDoorPairs.ownsPart(state, pos, pState, pPos)) return InteractionResult.PASS;
         return state.useWithoutItem(pLevel, pPlayer, new BlockHitResult(pHit.getLocation(), pHit.getDirection(), pos, pHit.isInside()));
     }
 
     public static BlockPos getParentPos(BlockGetter level, BlockPos myPos) {
+        if (level instanceof com.misaka10843.kuayue_neo21.mixin.ContraptionWorldAccessor view) {
+            var info = view.kuayue$getContraption().getBlocks().get(myPos);
+            if (info == null || info.nbt() == null) return null;
+            var tag = info.nbt();
+            if (!tag.contains("px") || !tag.contains("py") || !tag.contains("pz")) return null;
+            return myPos.offset(tag.getInt("px"), tag.getInt("py"), tag.getInt("pz"));
+        }
         BlockEntity entity = level.getBlockEntity(myPos);
         if (!(entity instanceof CompanyTrainBlockEntity companyTrainBlockEntity)) return null;
         return companyTrainBlockEntity.getParentPos().offset(myPos);
@@ -143,6 +155,7 @@ public class CompanyTrainPanel extends Block implements EntityBlock, IWrenchable
         if (parentPos == null) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         BlockState parentState = level.getBlockState(parentPos);
         if (parentState.getBlock() instanceof CompanyTrainPanel) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        if (!VehicleDoorPairs.ownsPart(parentState, parentPos, state, pos)) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         return parentState.useItemOn(stack, level, player, hand,
                 new BlockHitResult(hit.getLocation(), hit.getDirection(), parentPos, hit.isInside()));
     }
@@ -174,6 +187,7 @@ public class CompanyTrainPanel extends Block implements EntityBlock, IWrenchable
         BlockPos parentPos = context.getClickedPos().offset(((CompanyTrainBlockEntity) entity).getParentPos());
         BlockState state1 = level.getBlockState(parentPos);
         if (!(state1.getBlock() instanceof TrainPanelBlock)) return InteractionResult.PASS;
+        if (!VehicleDoorPairs.ownsPart(state1, parentPos, state, context.getClickedPos())) return InteractionResult.PASS;
         Vec3 hitLoc = context.getClickLocation().add(DirectionUtil.toVec3(((CompanyTrainBlockEntity) entity).getParentPos()));
         BlockHitResult result = new BlockHitResult(hitLoc, context.getClickedFace(), parentPos, context.isInside());
         UseOnContext context1 = new UseOnContext(context.getPlayer(), context.getHand(), result);
@@ -188,6 +202,7 @@ public class CompanyTrainPanel extends Block implements EntityBlock, IWrenchable
         BlockPos parentPos = context.getClickedPos().offset(((CompanyTrainBlockEntity) entity).getParentPos());
         BlockState state1 = level.getBlockState(parentPos);
         if (!(state1.getBlock() instanceof TrainPanelBlock)) return InteractionResult.PASS;
+        if (!VehicleDoorPairs.ownsPart(state1, parentPos, state, context.getClickedPos())) return InteractionResult.PASS;
         Vec3 hitLoc = context.getClickLocation().add(DirectionUtil.toVec3(((CompanyTrainBlockEntity) entity).getParentPos()));
         BlockHitResult result = new BlockHitResult(hitLoc, context.getClickedFace(), parentPos, context.isInside());
         UseOnContext context1 = new UseOnContext(context.getPlayer(), context.getHand(), result);

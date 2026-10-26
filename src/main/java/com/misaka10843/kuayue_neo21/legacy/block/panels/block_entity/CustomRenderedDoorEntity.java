@@ -39,6 +39,7 @@ public class CustomRenderedDoorEntity extends SmartBlockEntity implements IContr
             if(value != null) {
                 this.open = value;
             }
+            this.animation_controller = this.open ? 1 : 0;
         }
     }
 
@@ -52,9 +53,8 @@ public class CustomRenderedDoorEntity extends SmartBlockEntity implements IContr
 
     @Override
     public void tick() {
-        if(level == null) return;
         if(this.getBlockState().getBlock() instanceof CustomRenderedDoorBlock) {
-            BlockState state = level.getBlockState(this.getBlockPos());
+            BlockState state = getBlockState();
             if (state.hasProperty(DoorBlock.OPEN)) {
                 this.open = state.getValue(DoorBlock.OPEN);
             }
@@ -66,7 +66,7 @@ public class CustomRenderedDoorEntity extends SmartBlockEntity implements IContr
     }
 
     public boolean isOpen() {
-        return open;
+        return com.simibubi.create.content.decoration.slidingDoor.SlidingDoorBlockEntity.isOpen(getBlockState());
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -96,7 +96,7 @@ public class CustomRenderedDoorEntity extends SmartBlockEntity implements IContr
 
     @Override
     public void update(StructureTemplate.StructureBlockInfo info, Player player, BlockPos pos, AbstractContraptionEntity entity) {
-        this.open = !open;
+        this.open = com.simibubi.create.content.decoration.slidingDoor.SlidingDoorBlockEntity.isOpen(info.state());
     }
 
     @Override
