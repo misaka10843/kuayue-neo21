@@ -93,9 +93,13 @@ public class CustomRenderedDoorBlock extends TrainDoorBlock implements IBE<Custo
     }
 
     @Override
-    public java.util.List<BlockPos> getOccupiedPositions(BlockGetter level, BlockPos pos, BlockState state) {
-        return isSlideDoor ? com.misaka10843.kuayue_neo21.content.VehiclePartGeometry.footprint(pos, state.getValue(FACING), closedLeaf(state))
-                : super.getOccupiedPositions(level, pos, state);
+    public void removeCompanyBlock(net.minecraft.world.level.Level level, BlockState state, BlockPos root, boolean moving) {
+        super.removeCompanyBlock(level, state, root, moving);
+        if (!isSlideDoor) return;
+        for (var part : com.misaka10843.kuayue_neo21.content.VehiclePartGeometry.footprint(root, state.getValue(FACING), closedLeaf(state))) {
+            if (part.equals(root) || !(level.getBlockState(part).getBlock() instanceof com.misaka10843.kuayue_neo21.legacy.block.panels.base.CompanyTrainPanel)) continue;
+            if (root.equals(com.misaka10843.kuayue_neo21.legacy.block.panels.base.CompanyTrainPanel.getParentPos(level, part))) level.removeBlock(part, moving);
+        }
     }
 
     @Override

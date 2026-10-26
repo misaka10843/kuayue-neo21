@@ -34,6 +34,8 @@ Floor lighting validation must include baked model AO flags and rendered vertex 
 
 Door pairing must match Create's exact neighbor, block identity, facing, opposite hinge and pre-click open-state rules. Validate companion geometry and orientation before forwarding interactions. Preserve each door's animation progress by position and block identity across ClientContraption render-level rebuilds; never suppress native rebuilds or replace cargo objects. Sliding-door selection retains its frame while collision follows the rendered leaf. Contraption picking must query shapes at real local positions, resolve companion parents from contraption NBT and choose the closest hit.
 
+Preserve authored door placement anchors and companion footprints. Model overhangs must not reserve floor or adjacent wall cells; model-derived bounds are for selection and collision. Removal may clean excess 1.4.3 companions only when their saved parent matches the removed root.
+
 ## Work and Git
 
 Work continuously in complete implementation and verification phases; do not request approval for each block. Preserve unrelated work. The user authorizes a Git commit after each complete feature and its appropriate automatic checks. Use English `type (scope): description`, stage only task paths and group complete features. Do not push, rewrite history or change Git configuration. Authorization from another repository does not transfer here.
