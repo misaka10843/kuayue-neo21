@@ -1,11 +1,11 @@
 {
-  "blocks": 491,
-  "asset_files": 3157,
+  "blocks": 488,
+  "asset_files": 3143,
   "missing_blockstates": [],
   "missing_asset_references": [],
   "slabBoundaryCullfaces": 240,
   "slabIdentityRotationsRemoved": 235,
   "primarySource": "KuaYue 1.21.1",
-  "officialAssetFiles": 3116,
+  "officialAssetFiles": 3102,
   "fallbackAssetFiles": 41
 }

@@ -3,7 +3,6 @@ package com.misaka10843.kuayue_neo21.content.infrastructure;
 import com.misaka10843.kuayue_neo21.content.PortRegistration;
 import com.misaka10843.kuayue_neo21.legacy.block.panels.deco.DirectionalCarpetBlock;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.phys.Vec3;
 
@@ -46,15 +45,6 @@ public final class InfrastructureBlocks {
 
     public static final PortRegistration<DirectionalCarpetBlock> ORIGINAL_25Z_FLOOR_CARPET = new PortRegistration<DirectionalCarpetBlock>("original_25z_floor_carpet")
             .factory(DirectionalCarpetBlock::new).strengthAndTool(1.5f, 3f).submit();
-
-    public static final PortRegistration<DropExperienceBlock> SALT_ORE = new PortRegistration<DropExperienceBlock>("salt_ore")
-            .factory(p -> new DropExperienceBlock(UniformInt.of(3, 7), p)).strengthAndTool(1.5f, 3f).submit();
-
-    public static final PortRegistration<DropExperienceBlock> DEEPSLATE_SALT_ORE = new PortRegistration<DropExperienceBlock>("deepslate_salt_ore")
-            .factory(p -> new DropExperienceBlock(UniformInt.of(3, 7), p)).strengthAndTool(1.5f, 3f).submit();
-
-    public static final PortRegistration<Block> SALT_BLOCK = new PortRegistration<Block>("salt_block")
-            .factory(Block::new).strengthAndTool(1.5f, 3f).submit();
 
     public static final PortRegistration<PlatformDoorBlock> PLATFORM_DOOR = new PortRegistration<PlatformDoorBlock>("platform_door")
             .factory(PlatformDoorBlock::new).strengthAndTool(1.5f, 3f).submit();

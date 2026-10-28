@@ -1,5 +1,7 @@
 # 最新范围修正：普通方块、轨道、挂摘钩及接触网支撑
 
+2026-10-28 补充：删除盐、盐块、盐矿及深层盐矿和对应生成、加工、掉落与资源，不再包含无车辆／建筑制作用途的盐链。保留实际生产链依赖的材料和普通建筑方块。本模组不额外生成矿石；本条替代此前盐矿纳入范围的要求。
+
 以用户最新说明为准：轨道、站台／地面设施、装饰板、普通材料等方块全部纳入，不再沿用旧的轨道和地面设施排除条款。逐个对照原注册清单，不只修补示例蓝图缺失的 ID。包括标准、无枕、无砟、米轨及护轨，保留完整 Create 放置、弯轨、车站与转向架联动。
 
 挂钩／摘钩本轮加入。接触网柱、桁架等支撑构件纳入，并与机械动力：电力学（Create: Electro-Energetics）的接触网架兼容；跨越自有接触网电气／连线系统及受电弓不移植。驾驶设备、GUI 编辑及公司定制、蓝图工作台和科技解锁仍按既有要求排除或暂缓。旧版本章节中的范围说明仅作历史记录。
@@ -22,7 +24,7 @@ Registered vehicle parts for 22, 25B/G/K/T/Z, shared 25, M1/JY30, CR200J, DF11, 
 
 ## Excluded
 
-Kuayue's overhead electrical/wire system and pantographs, driving controllers/seats, editable signs and company customization. No blueprint workstation, blueprint items, technology gates or unrelated food/fluid systems. Ordinary infrastructure, tracks and salt ores are included by the latest scope correction. No old-world upgrade compatibility.
+Kuayue's overhead electrical/wire system and pantographs, driving controllers/seats, editable signs and company customization. No blueprint workstation, blueprint items, technology gates, salt chain or unrelated food/fluid systems. Ordinary infrastructure and tracks remain included. No old-world upgrade compatibility.
 
 ## Implementation
 

@@ -3,6 +3,8 @@ import json
 import re
 from pathlib import Path
 
+EXCLUDED_BLOCK_IDS = {'salt_ore', 'deepslate_salt_ore', 'salt_block'}
+
 
 def strip_comments(text):
     return re.sub(r'"(?:\\.|[^"\\])*"|/\*[\s\S]*?\*/|//[^\n]*',
@@ -21,6 +23,8 @@ def extract(source):
         text = strip_comments(file.read_text(encoding='utf-8-sig'))
         pattern = r'new\s+(PanelRegistration|SlabRegistration|SkirtRegistration|BlockReg|TrackReg)(?:<([^>]+)>)?\("([^"]+)"\)'
         for match in re.finditer(pattern, text):
+            if match[3] in EXCLUDED_BLOCK_IDS:
+                continue
             end = text.index('.submit(', match.end())
             definition = text[match.start():end]
             if file.stem == 'AllBlocks' and match[3] not in {'platform_door', 'platform_wall'}:

@@ -2870,27 +2870,6 @@
     "definition": "new BlockReg<DirectionalCarpetBlock>(\"original_25z_floor_carpet\")\n                    .blockType(DirectionalCarpetBlock::new)\n                    .material(Material.WOOL)\n                    .materialColor(MaterialColor.NONE)\n                    .addProperty(properties -> properties.strength(.1f, .1f))\n                    .addProperty(properties -> properties.sound(SoundType.WOOL))\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
   },
   {
-    "id": "salt_ore",
-    "family": "AllOres",
-    "registration": "BlockReg",
-    "type": "DropExperienceBlock",
-    "definition": "new BlockReg<DropExperienceBlock>(\"salt_ore\")\n                    .blockType(props ->\n                            new DropExperienceBlock(props, UniformInt.of(3, 7)))\n                    .material(Material.STONE)\n                    .materialColor(MaterialColor.STONE)\n                    .addProperty(properties -> properties.strength(1.5f, 6.0F))\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
-  },
-  {
-    "id": "deepslate_salt_ore",
-    "family": "AllOres",
-    "registration": "BlockReg",
-    "type": "DropExperienceBlock",
-    "definition": "new BlockReg<DropExperienceBlock>(\"deepslate_salt_ore\")\n                    .blockType(props ->\n                            new DropExperienceBlock(props, UniformInt.of(3, 7)))\n                    .material(Material.STONE)\n                    .materialColor(MaterialColor.STONE)\n                    .addProperty(properties -> properties.strength(1.5f, 6.0F))\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
-  },
-  {
-    "id": "salt_block",
-    "family": "AllOres",
-    "registration": "BlockReg",
-    "type": "Block",
-    "definition": "new BlockReg<Block>(\"salt_block\")\n                    .blockType(Block::new)\n                    .material(Material.STONE)\n                    .materialColor(MaterialColor.STONE)\n                    .addProperty(properties -> properties.sound(SoundType.TUFF))\n                    .addProperty(properties -> properties.strength(1.0f, 3.0F))\n                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)\n                    .defaultBlockItem()\n                    .tabTo(AllElements.neoKuayueMainTab)\n                    "
-  },
-  {
     "id": "standard_track",
     "family": "AllTracks",
     "registration": "TrackReg",

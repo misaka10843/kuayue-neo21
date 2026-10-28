@@ -91,16 +91,19 @@ def shaped(result, pattern, key, count=1):
 
 
 def main():
+    for relative in [
+        'worldgen/configured_feature/salt_ore.json',
+        'worldgen/placed_feature/salt_ore.json',
+        'neoforge/biome_modifier/salt_ore.json',
+        'loot_table/blocks/salt_ore.json',
+        'loot_table/blocks/deepslate_salt_ore.json',
+        'loot_table/blocks/salt_block.json',
+    ]:
+        (GENERATED / 'data' / MOD / relative).unlink(missing_ok=True)
     blocks = json.loads(Path('docs/legacy-blocks.json').read_text(encoding='utf-8'))
     bogeys = json.loads(Path('docs/legacy-bogeys.json').read_text(encoding='utf-8'))
     target = {PREFIX + record['id'] for record in blocks + bogeys}
     old = json.loads(Path('src/porting/legacy-recipes.json').read_text(encoding='utf-8'))
-    for recipe in old.values():
-        if PREFIX + 'salt_block' in output_ids(modernize(recipe)):
-            for ingredient in recipe.get('key', {}).values():
-                if ingredient.get('tag') in {'forge:salt', 'c:salt'}:
-                    ingredient.clear()
-                    ingredient['item'] = PREFIX + 'salt'
     for kind in ['standard', 'tieless', 'ballastless', 'meter', 'guard']:
         transitional = PREFIX + 'incomplete_' + kind + '_track'
         deploy = {'type': 'create:deploying', 'ingredients': [{'item': transitional}, {'item': 'minecraft:iron_nugget'}], 'results': [{'id': transitional}]}
@@ -202,20 +205,6 @@ def main():
         'entries': [{'type': 'minecraft:item', 'name': PREFIX + 'clay_slab', 'functions': [
             {'function': 'minecraft:set_count', 'count': 2, 'conditions': [{'condition': 'minecraft:block_state_property', 'block': PREFIX + 'clay_slab', 'properties': {'type': 'double'}}]},
             {'function': 'minecraft:explosion_decay'}]}]}]})
-    for ore in ['salt_ore', 'deepslate_salt_ore']:
-        silk = {'condition': 'minecraft:match_tool', 'predicate': {'predicates': {'minecraft:enchantments': [{'enchantments': 'minecraft:silk_touch', 'levels': {'min': 1}}]}}}
-        save(GENERATED / 'data' / MOD / 'loot_table/blocks' / (ore + '.json'), {'type': 'minecraft:block', 'pools': [{'rolls': 1,
-            'entries': [{'type': 'minecraft:alternatives', 'children': [
-                {'type': 'minecraft:item', 'name': PREFIX + ore, 'conditions': [silk]},
-                {'type': 'minecraft:item', 'name': PREFIX + 'salt', 'functions': [{'function': 'minecraft:set_count', 'count': {'type': 'minecraft:uniform', 'min': 2, 'max': 5}},
-                    {'function': 'minecraft:apply_bonus', 'enchantment': 'minecraft:fortune', 'formula': 'minecraft:ore_drops'}, {'function': 'minecraft:explosion_decay'}]}]}]}]})
-    targets = [{'target': {'predicate_type': 'minecraft:tag_match', 'tag': 'minecraft:' + tag}, 'state': {'Name': PREFIX + block}}
-               for tag, block in [('stone_ore_replaceables', 'salt_ore'), ('deepslate_ore_replaceables', 'deepslate_salt_ore')]]
-    save(GENERATED / 'data' / MOD / 'worldgen/configured_feature/salt_ore.json', {'type': 'minecraft:ore', 'config': {'size': 9, 'discard_chance_on_air_exposure': 0, 'targets': targets}})
-    save(GENERATED / 'data' / MOD / 'worldgen/placed_feature/salt_ore.json', {'feature': PREFIX + 'salt_ore', 'placement': [
-        {'type': 'minecraft:count', 'count': 90}, {'type': 'minecraft:in_square'},
-        {'type': 'minecraft:height_range', 'height': {'type': 'minecraft:trapezoid', 'min_inclusive': {'absolute': -80}, 'max_inclusive': {'absolute': 80}}}, {'type': 'minecraft:biome'}]})
-    save(GENERATED / 'data' / MOD / 'neoforge/biome_modifier/salt_ore.json', {'type': 'neoforge:add_features', 'biomes': '#minecraft:is_overworld', 'features': PREFIX + 'salt_ore', 'step': 'underground_ores'})
     for record in bogeys:
         id = record['id']
         if not (Path('src/main/resources/assets') / MOD / 'models/item' / (id + '.json')).exists():

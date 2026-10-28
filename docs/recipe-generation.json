@@ -1,5 +1,5 @@
 {
-  "recipes": 534,
+  "recipes": 527,
   "materials": [
     "kuayue:brush",
     "kuayue:carbon_dust",
@@ -21,7 +21,6 @@
     "kuayue:plastic_board",
     "kuayue:plastic_ingot",
     "kuayue:plastic_nugget",
-    "kuayue:salt",
     "kuayue:solidify_slime_ball",
     "kuayue:train_moulds",
     "kuayue:vehicle_bogey_blank",
@@ -101,14 +100,6 @@
     },
     {
       "output": "kuayue:fully_rusted_weathering_steel_block",
-      "blank": "kuayue:vehicle_panel_blank"
-    },
-    {
-      "output": "kuayue:salt_ore",
-      "blank": "kuayue:vehicle_panel_blank"
-    },
-    {
-      "output": "kuayue:deepslate_salt_ore",
       "blank": "kuayue:vehicle_panel_blank"
     },
     {
