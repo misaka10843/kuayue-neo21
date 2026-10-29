@@ -23,6 +23,25 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 public final class CouplerInteraction extends MovingInteractionBehaviour {
+    public enum Hint { CANNOT_DIVIDE, CAN_DIVIDE, CAN_SELECT, UNSAFE, FAILED }
+
+    public static Hint hint(Player player, CarriageContraptionEntity entity, BlockPos pos) {
+        if (!(entity.getContraption() instanceof CarriageContraption contraption) || entity.getCarriage() == null) return Hint.CANNOT_DIVIDE;
+        var info = contraption.getBlocks().get(pos);
+        if (info == null || !isCoupler(info.state())) return Hint.CANNOT_DIVIDE;
+        var train = entity.getCarriage().train;
+        if (!available(player, train)) return Hint.UNSAFE;
+        int boundary = boundary(entity, pos);
+        if (boundary < 0 || boundary >= train.carriages.size() - 1) return Hint.CAN_SELECT;
+        return AutomaticCoupling.coupler(train.carriages.get(boundary), false) != null
+                && AutomaticCoupling.coupler(train.carriages.get(boundary + 1), true) != null ? Hint.CAN_DIVIDE : Hint.FAILED;
+    }
+
+    public static int boundary(CarriageContraptionEntity entity, BlockPos pos) {
+        var direction = ((CarriageContraption) entity.getContraption()).getAssemblyDirection();
+        boolean leading = pos.get(direction.getAxis()) * direction.getAxisDirection().getStep() < 0;
+        return leading ? entity.carriageIndex - 1 : entity.carriageIndex;
+    }
     private record Selection(UUID train, boolean leading, Vec3 position, long expires) {}
     private static final Map<UUID, Selection> SELECTED = new HashMap<>();
     private final VehicleDoorInteraction doors = new VehicleDoorInteraction();
@@ -44,14 +63,14 @@ public final class CouplerInteraction extends MovingInteractionBehaviour {
                 || !(entity.getContraption() instanceof CarriageContraption contraption)) return false;
         if (player.level().isClientSide) return true;
         Train train = carriageEntity.getCarriage().train;
-        if (!available(player, train)) return message(player, "unsafe");
+        var hint = hint(player, carriageEntity, pos);
+        if (hint == Hint.CANNOT_DIVIDE || hint == Hint.FAILED) return message(player, "failed");
+        if (hint == Hint.UNSAFE) return message(player, "unsafe");
         var direction = contraption.getAssemblyDirection();
         int coordinate = pos.get(direction.getAxis()) * direction.getAxisDirection().getStep();
         boolean leading = coordinate < 0;
-        int boundary = leading ? carriageEntity.carriageIndex - 1 : carriageEntity.carriageIndex;
+        int boundary = boundary(carriageEntity, pos);
         if (boundary >= 0 && boundary < train.carriages.size() - 1) {
-            if (AutomaticCoupling.coupler(train.carriages.get(boundary), false) == null
-                    || AutomaticCoupling.coupler(train.carriages.get(boundary + 1), true) == null) return message(player, "failed");
             UUID newId = UUID.randomUUID();
             Train separated = TrainTopology.split(Create.RAILWAYS, train, newId, boundary);
             if (separated == null) return message(player, "failed");

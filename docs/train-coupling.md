@@ -7,12 +7,15 @@ This implementation operates on actual Create trains, carriages, spacing, bogey 
 Successful manual coupling, automatic coupling and uncoupling play the original NeoKuayue `kuayue:coupler` sound event (eight random Vorbis clips, shared by coupling and release in the original implementation) and its short CRIT particle effect. Selection, rejection and failed operations stay silent. The real server broadcasts effects once; clients do not replay them from the topology packet. Source: `ConductorHelper.playEffects` and `resources/generated/systems/train_extension`. Source/resource licenses remain in the packaged notices. The importer maintains sound definitions and files; static checks validate Ogg page checksums and referenced sound paths. Actual playback and volume are user game checks.
 
 - Stop and pause the schedule before using a Create wrench. Only the owner or an operator can manually change the train.
+- Aim at an assembled coupling part while holding a Create wrench in either hand. A vanilla tooltip beside the crosshair shows whether right-click can uncouple, select an external coupler, or is currently unavailable. The client uses Create's actual contraption click ray, and the server supplies eligibility using the same checks as interaction. The preview refreshes every five ticks and expires after ten ticks without a reply; clicking always checks the current state again.
 - Wrench a connected end/coupler to split that boundary. Both adjacent carriages must have ported coupling parts. The rear portion becomes a separate train. Carriages, cargo and bogey data retain their identity; the original train keeps its schedule and the new portion receives no duplicate schedule or consumed fuel.
 - Wrench an external coupler, then the nearby external coupler on another train within 30 seconds to connect. Both trains must be stopped on the same track graph, in one dimension, with opposite ends selected and matching world orientation. Remove any rear-train schedule before merging. The selected couplers must be within two blocks.
 - Automatic low-speed coupling checks same-owner trains with matching orientation and adjacent head/tail couplers. Relative closing speed must be positive and no greater than 0.25 blocks/tick. The rear train must not carry a schedule. Merging runs after the normal server tick to avoid mutating the native train iteration. Station claims and signal occupancy are refreshed.
 - Non-wrench door interactions remain available. Companion clicks route to their owning end. Locomotive cowcatchers/heads and freight ends use their NeoKuayue forward offsets.
 
 Source references: NeoKuayue `ConductorHelper` list partition/merge operations, `CouplerInteractionBehaviour`, and conductor-provider offsets. Native Create 6 fields and entity setters replace the removed extension/framework registry.
+
+Hover behavior references NeoKuayue `systems/train_extension/client/overlay/handler/CouplerOverlayHandler`. The implementation uses NeoForge client events and native tooltip rendering, without importing its overlay framework.
 
 ## Explicit behavior gap
 
