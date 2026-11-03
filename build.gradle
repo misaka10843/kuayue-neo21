@@ -26,6 +26,7 @@ sourceSets.main.resources {
 }
 
 repositories {
+    maven { url = 'https://api.modrinth.com/maven'; content { includeGroup 'maven.modrinth' } }
     maven { url = 'https://maven.createmod.net' }
     maven { url = 'https://maven.ithundxr.dev/snapshots' }
     // Add here additional repositories if required by some of the dependencies below.
@@ -123,6 +124,7 @@ configurations {
 }
 
 dependencies {
+    compileOnly('maven.modrinth:L3Jv0QZI:0.3.0-beta.2+neoforge-mc1.21.1') { transitive = false }
     if (providers.gradleProperty('compatMod').isPresent()) {
         localRuntime files(providers.gradleProperty('compatMod').get())
     }

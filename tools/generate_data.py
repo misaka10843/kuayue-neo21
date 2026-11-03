@@ -304,6 +304,7 @@ def main():
                        'andesite_carriage': '安山岩版客货车转向架', 'loco': '机车转向架', 'meter_loco': '米轨机车转向架',
                        'asymmetry_loco': '单侧机车转向架', 'andesite_loco': '安山岩版机车转向架'}
         for group in sorted({record['group'] for record in bogeys}):
+            language['bogey.menu.kuayue.' + group] = '跨越 · ' + group_names[group] if locale == 'zh_cn' else 'KuaYue: ' + group.replace('_', ' ').title()
             language['bogey.style.' + MOD + '.' + group] = group_names[group] if locale == 'zh_cn' else group.replace('_', ' ').title()
         save(GENERATED / 'assets' / MOD / 'lang' / (locale + '.json'), language)
     save(Path('docs/recipe-generation.json'), {'recipes': len(selected), 'materials': sorted(materials), 'supplements': supplements})

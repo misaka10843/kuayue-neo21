@@ -25,6 +25,7 @@ final class BogeyGroup {
     private final boolean singleSided;
     private final Map<BogeySize, Supplier<? extends AbstractBogeyBlock<?>>> blocks = new LinkedHashMap<>();
     private final Map<BogeySize, Supplier<Supplier<? extends BogeyStyle.SizeRenderer>>> renderers = new LinkedHashMap<>();
+    private final Map<BogeySize, String> blockIds = new LinkedHashMap<>();
     private BogeyStyle style;
 
     BogeyGroup(String id, boolean meter, boolean singleSided) {
@@ -41,6 +42,7 @@ final class BogeyGroup {
                 .factory(properties -> new VehicleBogeyBlock(properties, size, () -> style, meter ? METER : TrackType.STANDARD, singleSided, blockId.startsWith("tkz")))
                 .strengthAndTool(2f, 3f).submit();
         blocks.put(size, block);
+        blockIds.put(size, blockId);
         renderers.put(size, renderer);
     }
 
@@ -49,5 +51,13 @@ final class BogeyGroup {
                 () -> SoundEvents.MINECART_RIDING, ParticleTypes.CRIT, ParticleTypes.POOF, new CompoundTag(), blocks, renderers);
         AllBogeyStyles.BOGEY_STYLES.put(id, style);
         AllBogeyStyles.CYCLE_GROUPS.computeIfAbsent(cycle, ignored -> new LinkedHashMap<>()).put(id, style);
+        for (var entry : blocks.entrySet()) {
+            var size = entry.getKey();
+            String blockId = blockIds.get(size);
+            var menuStyle = new BogeyStyle(PortRegistration.resource("menu/" + blockId), cycle,
+                    Component.translatable("block.kuayue." + blockId), () -> SoundEvents.MINECART_RIDING,
+                    ParticleTypes.CRIT, ParticleTypes.POOF, new CompoundTag(), Map.of(size, entry.getValue()), Map.of(size, renderers.get(size)));
+            VehicleBogeys.MENU_VARIANTS.add(new VehicleBogeys.MenuVariant(blockId, id.getPath(), menuStyle));
+        }
     }
 }

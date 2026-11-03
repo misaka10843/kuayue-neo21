@@ -5,6 +5,8 @@ import com.misaka10843.kuayue_neo21.legacy.block.bogey.carriage.renderer.*;
 import com.misaka10843.kuayue_neo21.legacy.block.bogey.loco.renderer.*;
 
 public final class VehicleBogeys {
+    public record MenuVariant(String blockId, String group, com.simibubi.create.content.trains.bogey.BogeyStyle style) {}
+    public static final java.util.List<MenuVariant> MENU_VARIANTS = new java.util.ArrayList<>();
     public static final PortEntityType<VehicleBogeyEntity> ENTITY = new PortEntityType<>("bogey", VehicleBogeyEntity::new, VehicleBogeyBlock.class::isInstance);
 
     public static void initialize() {

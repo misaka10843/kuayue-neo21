@@ -34,6 +34,10 @@ public class KuaYueneo21 {
         modEventBus.addListener((net.neoforged.neoforge.data.event.GatherDataEvent event) ->
                 event.addProvider(new com.misaka10843.kuayue_neo21.data.PortAuditProvider(event.getLookupProvider())));
         modEventBus.addListener((net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent event) ->
-                event.enqueueWork(com.misaka10843.kuayue_neo21.content.VehicleBehaviours::register));
+                event.enqueueWork(() -> {
+                    com.misaka10843.kuayue_neo21.content.VehicleBehaviours.register();
+                    if (net.neoforged.fml.ModList.get().isLoaded("railways"))
+                        com.misaka10843.kuayue_neo21.compat.RailwaysBogeyMenu.register();
+                }));
     }
 }

@@ -16,6 +16,11 @@ public final class PortTrackBlock extends TrackBlock {
 
     @Override
     public BlockState getBogeyAnchor(BlockGetter world, BlockPos pos, BlockState state) {
+        if (net.neoforged.fml.ModList.get().isLoaded("railways")) {
+            var selected = com.misaka10843.kuayue_neo21.compat.RailwaysBogeyMenu.selectedAnchor(material.trackType);
+            if (selected != null) return selected.setValue(BlockStateProperties.HORIZONTAL_AXIS,
+                    state.getValue(SHAPE) == TrackShape.XO ? Axis.X : Axis.Z);
+        }
         String id = material.trackType == PortTrackTypes.METER ? "mkz_bogey" : "pk209p_bogey";
         return BuiltInRegistries.BLOCK.get(PortRegistration.resource(id)).defaultBlockState()
                 .setValue(BlockStateProperties.HORIZONTAL_AXIS, state.getValue(SHAPE) == TrackShape.XO ? Axis.X : Axis.Z);

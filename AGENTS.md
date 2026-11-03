@@ -26,6 +26,8 @@ CEE pantograph compatibility concerns mounting the base flush against decorative
 
 Use the `kuayue` mod and resource namespace so included original block IDs can resolve in Create schematics. Keep the project standalone from the official mod and its removed library framework.
 
+Steam 'n' Rails bogey-menu integration is optional. Use its public menu API, isolate runtime references behind the loaded-mod check, and never bundle Railways. Each menu model must resolve to its exact block while preserving original default styles and wrench cycles. Keep KuaYue meter gauge distinct from Railways narrow gauge; validate native and KuaYue track selection, saved styles and loading without Railways.
+
 Use Java 21 and NeoForge 1.21.1 with Create. Organize code by responsibility. Prefer descriptive English names and direct implementations. Evaluate splitting at roughly 300 lines and prioritize splitting around 500 lines. Avoid unnecessary abstractions, commented-out implementations and unrelated formatting. Comments are exceptional, short English explanations of constraints or reasons. Preserve upstream license notices. Generated files must be maintained through their source generator.
 
 ## Validation
